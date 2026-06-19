@@ -20,6 +20,7 @@
     android:background="@color/app_bg"
     android:orientation="vertical">
 
+
     <!-- ═══════════════════════════════════════════════════════
          HEADER BAR
          New: flush top bar with cyan left-border + live badge
