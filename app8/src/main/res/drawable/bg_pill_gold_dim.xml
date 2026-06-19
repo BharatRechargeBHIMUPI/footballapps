@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Stat pill background — gold dim -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#1AF4C430" />
+    <stroke android:width="0.5dp" android:color="#33F4C430" />
+    <corners android:radius="6dp" />
+</shape>

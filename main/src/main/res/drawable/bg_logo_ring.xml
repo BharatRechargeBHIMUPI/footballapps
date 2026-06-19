@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_logo_ring.xml -->
+<!--
+    Rotating outer ring for the logo.
+    Octagon feel via a dashed stroke oval — looks like a tactical badge.
+    Used by hexRing ImageView (rotated via animator at 12s/rev).
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:width="1dp"
+        android:color="#90D4A843"
+        android:dashWidth="8dp"
+        android:dashGap="6dp" />
+    <solid android:color="@android:color/transparent" />
+</shape>

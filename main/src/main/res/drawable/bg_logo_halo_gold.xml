@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_logo_halo_gold.xml -->
+<!-- Tight gold stroke ring that replaces original amber halo -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:width="1.5dp"
+        android:color="#60D4A843" />
+    <solid android:color="@android:color/transparent" />
+</shape>

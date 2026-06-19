@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">#Football Sure Odds</string>
+    <string name="app_email">footballiq1.com@gmail.com</string>
+    <string name="privacy_policy_url">https://sites.google.com/view/betrice/home</string>
+    <string name="tele_lnk">https://t.me/sofadailyscores1</string>
+    <string name="facebook_app_id" translatable="false">123</string>
+    <string name="facebook_client_token" translatable="false">123</string>
+    <string name="revenue_cat_key" translatable="false">goog_kNHZNhlIaSeXSGcfBrXyHxAAqyb</string>
+    <string name="table_prefix" translatable="false">_football_fourth</string>
+
+
+    <string name="title_main">Football Tips</string>
+    <string name="subtitle_main">Trusted football predictions &amp; odds</string>
+
+    <string name="hero_badge">PRO PREDICTIONS</string>
+    <string name="hero_title">Win more with premium football insights</string>
+    <string name="hero_desc">Daily matches, VIP odds, correct scores, and HT/FT tips</string>
+
+    <string name="btn_today_picks">View Today’s Picks</string>
+    <string name="btn_vip">VIP</string>
+
+    <string name="section_today">TODAY</string>
+    <string name="daily_free_matches">Daily Free Matches</string>
+    <string name="daily_free_desc">Hand-picked predictions for today</string>
+
+    <string name="vip_history">VIP Odds History</string>
+    <string name="vip_history_desc">Check previous winning results</string>
+
+    <string name="section_vip">VIP TIPS</string>
+
+    <string name="vip_ft_draws">FT Draws VIP</string>
+    <string name="vip_2_odds">2+ Odds VIP</string>
+    <string name="vip_5_odds">5+ Odds VIP</string>
+    <string name="vip_10_odds">10+ Odds VIP</string>
+    <string name="vip_correct_score">Correct Score VIP</string>
+    <string name="vip_ht_ft">100+ HT-FT VIP</string>
+
+    <string name="join_telegram">Join Telegram</string>
+    <string name="privacy_policy">Privacy Policy</string>
+</resources>

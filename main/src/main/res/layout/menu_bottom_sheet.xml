@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_bottom_sheet">
+
+
+
+    <LinearLayout
+        android:id="@+id/menuVip"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_vip"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="VIP Pricing"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuContact"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_contact"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="Contact"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuFaq"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_faq"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="FAQs"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/menuFeedback"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_feedback"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="Feedback"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuRate"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_rate"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="Rate Us"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menuShare"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_share"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="Share App"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/menuAbout"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_about"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="About"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/menuUpdateApp"
+        style="@style/MenuItemRow">
+
+        <ImageView
+            android:src="@drawable/ic_update"
+            style="@style/MenuIcon"/>
+
+        <TextView
+            android:text="Update App"
+            style="@style/MenuText"/>
+    </LinearLayout>
+
+</LinearLayout>

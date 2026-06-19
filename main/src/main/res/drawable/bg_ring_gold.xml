@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_ring_gold.xml — replaces bg_ring_circle -->
+<!-- Thin gold circle stroke ring for expanding pulse animation -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:width="1.5dp"
+        android:color="#80D4A843" />
+    <solid android:color="@android:color/transparent" />
+</shape>

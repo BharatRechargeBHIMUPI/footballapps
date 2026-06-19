@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  REDESIGNED COLOUR SYSTEM — v5                               ║
+    ║  Theme:  Royal Crimson                                       ║
+    ║  Old:    Light Mode — Clean White + Deep Navy Blue           ║
+    ║  New:    Deep Crimson authority + Gold VIP + Warm White bg   ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
+<resources>
+
+    <!-- ═══════════════════════════════════════════
+         PRIMARY BRAND — Royal Crimson #9B1C1C
+         (replaces Deep Navy Blue #1A2E6C)
+    ════════════════════════════════════════════ -->
+    <color name="app_primary">#9B1C1C</color>
+    <color name="black">#000000</color>
+    <color name="vip_card">#5C0F0F</color>
+    <color name="button_stroke">#9B1C1C</color>
+    <color name="btn_outline_stroke">#B91C1C</color>
+    <color name="vip_badge_bg">#D97706</color>
+
+    <!-- ═══════════════════════════════════════════
+         CRIMSON ACCENT SYSTEM
+    ════════════════════════════════════════════ -->
+    <color name="accent_green">#9B1C1C</color>
+    <color name="btn_gold">#D97706</color>
+    <color name="stat_green">#B91C1C</color>
+    <color name="vip_green">#9B1C1C</color>
+    <color name="status_win">#16A34A</color>
+    <color name="status_pending">#D97706</color>
+    <color name="live_dot_color">#EF4444</color>
+    <color name="live_dot_bg">#FEF2F2</color>
+    <color name="live_border">#FECACA</color>
+    <color name="icon_green_bg">#FFF5F5</color>
+    <color name="tab_text_select_color">#000000</color>
+    <color name="tab_text_unselect_color">#ffffff</color>
+
+    <!-- ═══════════════════════════════════════════
+         BACKGROUNDS — Warm White + Blush
+         (replaces Cool Blue-White)
+    ════════════════════════════════════════════ -->
+    <color name="app_bg">#FDF4F4</color>
+    <color name="app_bg_gradient_start">#FDF4F4</color>
+    <color name="app_bg_gradient_end">#FCEAEA</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_bg_dark">#FFF0F0</color>
+    <color name="hero_bg">#9B1C1C</color>
+    <color name="toolbar_bg_color">#9B1C1C</color>
+    <color name="league_strip_bg">#5C0F0F</color>
+
+    <!-- ═══════════════════════════════════════════
+         STROKES — Warm blush borders
+    ════════════════════════════════════════════ -->
+    <color name="card_stroke">#F5C6C6</color>
+    <color name="card_stroke_dark">#ECA0A0</color>
+
+    <!-- ═══════════════════════════════════════════
+         TEXT
+    ════════════════════════════════════════════ -->
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#1A0A0A</color>
+    <color name="text_secondary">#7B2C2C</color>
+    <color name="text_tertiary">#C08080</color>
+    <color name="score_text">#1A0A0A</color>
+    <color name="team_name_text">#1A0A0A</color>
+    <color name="vs_text">#ECA0A0</color>
+    <color name="section_label">#9B1C1C</color>
+
+    <!-- ═══════════════════════════════════════════
+         STATUS
+    ════════════════════════════════════════════ -->
+    <color name="status_loss">#DC2626</color>
+
+    <!-- ═══════════════════════════════════════════
+         SUPPORTING ACCENTS
+         Gold for VIP/CTA, Amber for pending, Red for loss
+    ════════════════════════════════════════════ -->
+    <color name="accent_gold">#D97706</color>
+    <color name="accent_red">#DC2626</color>
+    <color name="accent_blue">#9B1C1C</color>
+    <color name="blue">#B91C1C</color>
+    <color name="vip_amber">#D97706</color>
+    <color name="vip_purple">#7C3AED</color>
+    <color name="vip_red">#DC2626</color>
+
+    <!-- ═══════════════════════════════════════════
+         ICON BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="icon_amber_bg">#FEF3C7</color>
+
+    <!-- ═══════════════════════════════════════════
+         TELEGRAM
+    ════════════════════════════════════════════ -->
+    <color name="telegram_bg">#FFF5F5</color>
+    <color name="telegram_stroke">#F5C6C6</color>
+    <color name="telegram_icon">#229ED9</color>
+
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Tiled grid using the separate shape drawable -->
+    <item>
+        <bitmap
+            android:src="@drawable/grid_tile"
+            android:tileMode="repeat"
+            android:gravity="fill" />
+    </item>
+
+    <!-- Radial fade overlay so grid fades toward edges -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="60%"
+                android:startColor="#00000000"
+                android:endColor="#CC050609" />
+        </shape>
+    </item>
+
+</layer-list>

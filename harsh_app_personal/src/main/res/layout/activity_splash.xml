@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050609">
+
+    <!-- Expanding ring 1 -->
+    <View
+        android:id="@+id/ring1"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_ring_circle"
+        android:alpha="0" />
+
+    <!-- Expanding ring 2 -->
+    <View
+        android:id="@+id/ring2"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_ring_circle"
+        android:alpha="0" />
+
+    <!-- Expanding ring 3 -->
+    <View
+        android:id="@+id/ring3"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_ring_circle"
+        android:alpha="0" />
+
+    <!-- Center content group -->
+    <LinearLayout
+        android:id="@+id/contentGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <!-- Logo container with amber ring -->
+        <FrameLayout
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center">
+
+            <!-- Amber outer ring (revealed after logo pops in) -->
+            <View
+                android:id="@+id/logoRing"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_logo_ring"
+                android:alpha="0"
+                android:scaleX="0.6"
+                android:scaleY="0.6" />
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/logo"
+                android:layout_width="120dp"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_app_logo"/>
+
+        </FrameLayout>
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:letterSpacing="0.12"
+            android:textStyle="bold"
+            android:translationY="40dp"
+            android:alpha="0" />
+
+        <!-- Gold underline accent -->
+        <View
+            android:id="@+id/underlineAccent"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+            android:background="#10B981" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="PREDICT  •  WIN  •  DOMINATE"
+            android:textColor="#10B981"
+            android:textSize="11sp"
+            android:letterSpacing="0.2"
+            android:translationY="30dp"
+            android:alpha="0" />
+
+    </LinearLayout>
+
+    <!-- Loading dots -->
+    <LinearLayout
+        android:id="@+id/dotsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/poweredBy"
+        android:layout_marginBottom="16dp"
+        android:alpha="0">
+
+        <View
+            android:id="@+id/dot1"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_dot_accent" />
+
+        <View
+            android:id="@+id/dot2"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_dot_accent" />
+
+        <View
+            android:id="@+id/dot3"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:background="@drawable/bg_dot_accent" />
+
+    </LinearLayout>
+
+    <!-- Powered by -->
+    <TextView
+        android:id="@+id/poweredBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:text="POWERED BY ACEAPPS"
+        android:textColor="#33FFFFFF"
+        android:textSize="9sp"
+        android:letterSpacing="0.15"
+        android:alpha="0" />
+
+</RelativeLayout>

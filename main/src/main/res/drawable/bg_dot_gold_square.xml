@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_dot_gold_square.xml -->
+<!-- Small square dot — tactical scoreboard feel, replaces rounded dot -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#D4A843" />
+    <corners android:radius="1dp" />
+</shape>

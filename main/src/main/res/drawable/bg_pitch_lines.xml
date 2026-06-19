@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_pitch_lines.xml -->
+<!--
+    Subtle tactical pitch grid overlay.
+    Uses a layered drawable: thin horizontal bands + a centre oval.
+    Rendered at ~6dp opacity by the animator — gives "grass stripe" feel
+    without distracting from the main content.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Horizontal pitch stripe bands -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Centre circle outline (tactical overlay feel) -->
+    <item
+        android:top="30dp"
+        android:bottom="30dp"
+        android:left="15dp"
+        android:right="15dp">
+        <shape android:shape="oval">
+            <stroke
+                android:width="1dp"
+                android:color="#60F0F4EC" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Halfway line -->
+    <item
+        android:top="49dp"
+        android:bottom="49dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#30F0F4EC" />
+        </shape>
+    </item>
+
+    <!-- Left penalty box outline -->
+    <item
+        android:top="35dp"
+        android:bottom="35dp"
+        android:left="0dp"
+        android:right="75dp">
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="0.8dp"
+                android:color="#20F0F4EC" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Right penalty box outline -->
+    <item
+        android:top="35dp"
+        android:bottom="35dp"
+        android:left="75dp"
+        android:right="0dp">
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="0.8dp"
+                android:color="#20F0F4EC" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ════════════════════════════════════════════════════════════════
+    SPLASH REDESIGN — NEW COLOR TOKENS
+    Add these to your existing res/values/colors.xml
+    (or replace the old splash colours if they were defined there)
+    ════════════════════════════════════════════════════════════════
+
+    Palette rationale
+    ─────────────────
+    splashBackground   Deep forest-black   — feels like a stadium at night
+    splashGold         Warm amber gold     — trophy / winner energy
+    splashChalk        Off-white chalk     — pitch marking / scoreboard text
+    splashTurf         Dark grass green    — subtle secondary surface
+    splashGoldDim      Semi-transparent gold — rings, strokes, overlays
+-->
+<resources>
+
+    <!-- ── Splash screen base ───────────────────────────────── -->
+    <color name="splash_background">#0B1A0F</color>
+    <color name="splash_turf">#1A3320</color>
+
+    <!-- ── Gold accent system ───────────────────────────────── -->
+    <color name="splash_gold">#D4A843</color>
+    <color name="splash_gold_light">#F5C842</color>
+    <color name="splash_gold_dark">#B8A830</color>
+    <color name="splash_gold_dim">#4DD4A843</color>
+
+    <!-- ── Text & chalk ─────────────────────────────────────── -->
+    <color name="splash_chalk">#F0F4EC</color>
+    <color name="splash_chalk_dim">#40F0F4EC</color>
+
+</resources>

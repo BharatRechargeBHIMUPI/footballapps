@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ── Backgrounds ───────────────────────────────────── -->
+    <color name="app_bg">#06080E</color>           <!-- near-black navy, richer depth -->
+    <color name="card_bg">#0C1018</color>           <!-- deep navy surface -->
+    <color name="card_stroke">#182030</color>        <!-- subtle blue-navy border -->
+    <color name="toolbar_bg_color">#080C14</color>   <!-- top bars, nav -->
+    <color name="card_bg_dark">#07090F</color>       <!-- darkest card variant -->
+    <color name="card_stroke_dark">#0F1C2E</color>   <!-- darkest border variant -->
+    <color name="league_strip_bg">#050810</color>    <!-- league header strip -->
+
+    <!-- ── Brand / Primary ───────────────────────────────── -->
+    <!-- moved from generic purple → premium emerald green -->
+    <!-- green = money, winning, success — core betting emotion -->
+    <color name="app_primary">#10B981</color>        <!-- emerald: primary CTAs, active states -->
+    <color name="hero_bg">#0D3B2A</color>            <!-- deep forest hero sections -->
+    <color name="vip_card">#0A8C5E</color>           <!-- deeper emerald for VIP accents -->
+    <color name="button_stroke">#10B981</color>      <!-- matches primary -->
+
+    <!-- ── Utility ───────────────────────────────────────── -->
+    <color name="telegram_bg">#229ED9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#2979FF</color>
+
+    <!-- ── Prediction Status ─────────────────────────────── -->
+    <color name="status_pending">#1B4D38</color>     <!-- muted green — awaiting result -->
+    <color name="status_win">#00D97E</color>          <!-- bright emerald — WIN -->
+    <color name="status_loss">#C0392B</color>         <!-- deep red — LOSS -->
+
+    <!-- ── Text ──────────────────────────────────────────── -->
+    <color name="text_primary">#EDF2FF</color>        <!-- off-white, easier on dark -->
+    <color name="text_secondary">#5A7A9A</color>      <!-- muted steel blue-gray -->
+    <color name="text_tertiary">#2B3F58</color>       <!-- very muted, hints only -->
+    <color name="btn_gold">#2ECC71</color>
+
+    <!-- ── Semantic Accents ──────────────────────────────── -->
+    <color name="accent_green">#00D97E</color>        <!-- wins, profit, positive stats -->
+    <color name="accent_gold">#F0B429</color>         <!-- VIP badge, odds, premium label -->
+    <color name="accent_red">#E53E3E</color>          <!-- loss, alert -->
+    <color name="accent_blue">#2563EB</color>         <!-- info, links -->
+
+    <!-- ── Match Card Specifics ──────────────────────────── -->
+    <color name="vs_text">#0F1C2E</color>
+    <color name="score_text">#EDF2FF</color>
+    <color name="team_name_text">#EDF2FF</color>
+
+</resources>

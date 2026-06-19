@@ -1,0 +1,257 @@
+{
+  "project_info": {
+    "project_number": "357128189414",
+    "project_id": "football-apps-a8a1a",
+    "storage_bucket": "football-apps-a8a1a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:142e51282476a2f16c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.app4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:9939ad806daf1fee6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.app5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:706ff9999bd068396c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.app6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:841dadce371d2c6e6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.harsh_personal.app7"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:2731876cb777972e6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.harsh_personal.app8"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:a089177d781e14446c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.nasibaba.app12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:8533ee2796e76b7c6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app10"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:e135d8b073d72df26c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:a693b1b04bdd08756c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:0b885c2e04ff6c3a6c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:8b4459085dd210b16c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballprediction1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:5f04ed9718d713e06c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballprediction2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:f31fad772f0548d36c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballprediction3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

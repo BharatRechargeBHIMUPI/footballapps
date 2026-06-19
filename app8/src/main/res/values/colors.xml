@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  REDESIGNED COLOUR SYSTEM — v3                               ║
+    ║  Theme:  Midnight Black  |  Electric Purple  |  Neon Lime    ║
+    ║  Old:    Dark Slate + Electric Cyan + Bright Gold            ║
+    ║  New:    True black + vivid violet accent + lime highlight   ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
+<resources>
+
+    <!-- ═══════════════════════════════════════════
+         PRIMARY BRAND — Electric Purple #7C3AED
+         (replaces Electric Cyan #00BCD4)
+    ════════════════════════════════════════════ -->
+    <color name="app_primary">#7C3AED</color>
+    <color name="vip_card">#7C3AED</color>
+    <color name="button_stroke">#7C3AED</color>
+    <color name="btn_outline_stroke">#7C3AED</color>
+    <color name="vip_badge_bg">#A3E635</color>
+
+    <!-- ═══════════════════════════════════════════
+         PURPLE ACCENT SYSTEM
+    ════════════════════════════════════════════ -->
+    <color name="accent_green">#7C3AED</color>
+    <color name="btn_gold">#7C3AED</color>
+    <color name="stat_green">#9D5CF5</color>
+    <color name="vip_green">#7C3AED</color>
+    <color name="status_win">#C084FC</color>
+    <color name="status_pending">#5B21B6</color>
+    <color name="live_dot_color">#C084FC</color>
+    <color name="live_dot_bg">#08010F</color>
+    <color name="live_border">#3B0764</color>
+    <color name="icon_green_bg">#08010F</color>
+
+    <!-- ═══════════════════════════════════════════
+         BACKGROUNDS — True Black + Purple tint
+         (replaces Deep Blue-Charcoal)
+    ════════════════════════════════════════════ -->
+    <color name="app_bg">#06020E</color>
+    <color name="app_bg_gradient_start">#06020E</color>
+    <color name="app_bg_gradient_end">#0D0520</color>
+    <color name="card_bg">#120A24</color>
+    <color name="card_bg_dark">#06020E</color>
+    <color name="hero_bg">#120A24</color>
+    <color name="toolbar_bg_color">#06020E</color>
+    <color name="league_strip_bg">#0A0318</color>
+
+    <!-- ═══════════════════════════════════════════
+         STROKES — Purple tinted
+    ════════════════════════════════════════════ -->
+    <color name="card_stroke">#2A1040</color>
+    <color name="card_stroke_dark">#180830</color>
+
+    <!-- ═══════════════════════════════════════════
+         TEXT
+    ════════════════════════════════════════════ -->
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#F3ECFF</color>
+    <color name="text_secondary">#A78BCC</color>
+    <color name="text_tertiary">#4B2882</color>
+    <color name="score_text">#F3ECFF</color>
+    <color name="team_name_text">#F3ECFF</color>
+    <color name="vs_text">#2A1040</color>
+    <color name="section_label">#7C3AED</color>
+
+    <!-- ═══════════════════════════════════════════
+         STATUS
+    ════════════════════════════════════════════ -->
+    <color name="status_loss">#FF4757</color>
+
+    <!-- ═══════════════════════════════════════════
+         SUPPORTING ACCENTS
+         Neon Lime replaces Gold, purple replaces cyan aliases
+    ════════════════════════════════════════════ -->
+    <color name="accent_gold">#A3E635</color>
+    <color name="accent_red">#FF4757</color>
+    <color name="accent_blue">#7C3AED</color>
+    <color name="blue">#9D5CF5</color>
+    <color name="vip_amber">#A3E635</color>
+    <color name="vip_purple">#C084FC</color>
+    <color name="vip_red">#FF4757</color>
+
+    <!-- ═══════════════════════════════════════════
+         ICON BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="icon_amber_bg">#0A0800</color>
+
+    <!-- ═══════════════════════════════════════════
+         TELEGRAM
+    ════════════════════════════════════════════ -->
+    <color name="telegram_bg">#08010F</color>
+    <color name="telegram_stroke">#3B0764</color>
+    <color name="telegram_icon">#7C3AED</color>
+
+</resources>

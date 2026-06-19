@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "357128189414",
+    "project_id": "football-apps-a8a1a",
+    "storage_bucket": "football-apps-a8a1a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:0b885c2e04ff6c3a6c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:8b4459085dd210b16c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballprediction1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:5f04ed9718d713e06c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballprediction2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:f31fad772f0548d36c9227",
+        "android_client_info": {
+          "package_name": "com.wg.footballprediction3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

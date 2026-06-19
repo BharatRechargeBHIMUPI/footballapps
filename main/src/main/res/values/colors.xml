@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  REDESIGNED COLOUR SYSTEM — v2                               ║
+    ║  Theme:  Dark Slate  |  Electric Cyan  |  Bright Gold        ║
+    ║  Old:    Forest green on near-black                          ║
+    ║  New:    Deep charcoal-blue + cyan accent + gold highlight   ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
+<resources>
+
+    <!-- ═══════════════════════════════════════════
+         PRIMARY BRAND — Electric Cyan #00BCD4
+         (replaces Forest Green #2E7D32 everywhere)
+    ════════════════════════════════════════════ -->
+    <color name="app_primary">#00BCD4</color>
+    <color name="vip_card">#00BCD4</color>
+    <color name="button_stroke">#00BCD4</color>
+    <color name="btn_outline_stroke">#00BCD4</color>
+    <color name="vip_badge_bg">#F4C430</color>
+
+    <!-- ═══════════════════════════════════════════
+         CYAN ACCENT SYSTEM
+    ════════════════════════════════════════════ -->
+    <color name="accent_green">#00BCD4</color>
+    <color name="btn_gold">#00BCD4</color>
+    <color name="stat_green">#26C6DA</color>
+    <color name="vip_green">#00BCD4</color>
+    <color name="status_win">#00E5FF</color>
+    <color name="status_pending">#0097A7</color>
+    <color name="live_dot_color">#00E5FF</color>
+    <color name="live_dot_bg">#050D12</color>
+    <color name="live_border">#00506B</color>
+    <color name="icon_green_bg">#050D12</color>
+
+    <!-- ═══════════════════════════════════════════
+         BACKGROUNDS — Deep Blue-Charcoal
+         (replaces near-black green tint)
+    ════════════════════════════════════════════ -->
+    <color name="app_bg">#080C12</color>
+    <color name="app_bg_gradient_start">#080C12</color>
+    <color name="app_bg_gradient_end">#0D1520</color>
+    <color name="card_bg">#0E1624</color>
+    <color name="card_bg_dark">#080C12</color>
+    <color name="hero_bg">#0E1624</color>
+    <color name="toolbar_bg_color">#080C12</color>
+    <color name="league_strip_bg">#0A1018</color>
+
+    <!-- ═══════════════════════════════════════════
+         STROKES — Cyan tinted
+    ════════════════════════════════════════════ -->
+    <color name="card_stroke">#1A2D3D</color>
+    <color name="card_stroke_dark">#0D1F2D</color>
+
+    <!-- ═══════════════════════════════════════════
+         TEXT
+    ════════════════════════════════════════════ -->
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#E8F4F8</color>
+    <color name="text_secondary">#7AB8CC</color>
+    <color name="text_tertiary">#2D6B82</color>
+    <color name="score_text">#E8F4F8</color>
+    <color name="team_name_text">#E8F4F8</color>
+    <color name="vs_text">#1A2D3D</color>
+    <color name="section_label">#0097A7</color>
+
+    <!-- ═══════════════════════════════════════════
+         STATUS
+    ════════════════════════════════════════════ -->
+    <color name="status_loss">#FF4757</color>
+
+    <!-- ═══════════════════════════════════════════
+         SUPPORTING ACCENTS
+         Gold replaces amber, cyan replaces green aliases
+    ════════════════════════════════════════════ -->
+    <color name="accent_gold">#F4C430</color>
+    <color name="accent_red">#FF4757</color>
+    <color name="accent_blue">#00BCD4</color>
+    <color name="blue">#26C6DA</color>
+    <color name="vip_amber">#F4C430</color>
+    <color name="vip_purple">#7C83FD</color>
+    <color name="vip_red">#FF4757</color>
+    <color name="tab_text_select_color">#000000</color>
+    <color name="tab_text_unselect_color">#ffffff</color>
+
+    <!-- ═══════════════════════════════════════════
+         ICON BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="icon_amber_bg">#100D00</color>
+
+    <!-- ═══════════════════════════════════════════
+         TELEGRAM
+    ════════════════════════════════════════════ -->
+    <color name="telegram_bg">#050D12</color>
+    <color name="telegram_stroke">#00506B</color>
+    <color name="telegram_icon">#00BCD4</color>
+
+</resources>

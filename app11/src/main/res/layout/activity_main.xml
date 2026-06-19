@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  MAIN ACTIVITY — SCOREBOARD ANALYTICS REDESIGN               ║
+    ║  Aesthetic: Premium sports analytics dashboard               ║
+    ║  Palette:   Slate #080C12 | Cyan #00BCD4 | Gold #F4C430     ║
+    ║                                                              ║
+    ║  ALL VIEW IDs IDENTICAL — zero Kotlin logic changes          ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_primary"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <!-- Hidden VIP Badge button (kept exactly as-is) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVipBadge"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         HEADER — Scoreboard strip style
+         Dark top bar with cyan left-border accent
+    ════════════════════════════════════════════════════════ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:paddingHorizontal="18dp">
+
+        <!-- Hamburger -->
+        <ImageView
+            android:id="@+id/ivMenu"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_menu"
+            android:tint="#ffffff"
+            android:contentDescription="Menu"
+            android:padding="7dp"
+            android:alpha="0"
+            android:translationX="-30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Title group — condensed scoreboard style -->
+        <LinearLayout
+            android:id="@+id/titleGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:alpha="0"
+            android:translationY="-20dp"
+            app:layout_constraintStart_toEndOf="@id/ivMenu"
+            app:layout_constraintEnd_toStartOf="@id/ivPremium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- App name in condensed bold caps -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:letterSpacing="0.14"
+                android:fontFamily="sans-serif-condensed" />
+
+            <!-- Subtitle — live dot + label -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="1dp">
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/bg_live_dot_cyan"
+                    android:layout_marginEnd="5dp" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PREMIUM INSIGHTS"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    android:letterSpacing="0.14"
+                    android:fontFamily="sans-serif-condensed" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Premium icon -->
+        <ImageView
+            android:id="@+id/ivPremium"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_premium"
+            android:contentDescription="Premium"
+            android:alpha="0"
+            android:translationX="30dp"
+            android:background="@drawable/bg_icon_pill_cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Header bottom accent line — cyan glow strip -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bg_header_divider_cyan" />
+
+    <!-- ═══════════════════════════════════════════════════════
+         SCROLLABLE BODY
+    ════════════════════════════════════════════════════════ -->
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="28dp">
+
+            <!-- ─────────────────────────────────────────────
+                 HERO CARD — Match Insights (visibility=gone)
+                 Redesigned: dark glass card with cyan top border
+            ────────────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/heroCard"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/hero_bg"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/card_stroke">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp">
+
+                    <!-- Cyan top accent bar -->
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="3dp"
+                        android:background="@drawable/bg_cyan_pill"
+                        android:layout_marginBottom="14dp" />
+
+                    <TextView
+                        android:id="@+id/tvHeroBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="Match Insights"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.08" />
+
+                    <TextView
+                        android:id="@+id/tvHeroTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Unlock Winning Match Insights"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.04" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:weightSum="1"
+                        android:layout_marginTop="14dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnVip"
+                            android:layout_gravity="center"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_height="42dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="Unlock VIP"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-condensed"
+                            app:cornerRadius="10dp"
+                            app:backgroundTint="@color/app_primary"
+                            android:textColor="@color/app_bg" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnTodayPicks"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.5"
+                            android:layout_gravity="center"
+                            android:layout_height="42dp"
+                            android:text="Today's Picks"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif-condensed"
+                            app:cornerRadius="10dp"
+                            app:strokeWidth="1dp"
+                            app:strokeColor="@color/button_stroke"
+                            app:backgroundTint="@android:color/transparent"
+                            android:textColor="@android:color/white" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- VIP PROMO CARD (include — unchanged ID) -->
+            <include
+                layout="@layout/item_vip_promo_card"
+                android:id="@+id/lPro" />
+
+            <!-- ─────────────────────────────────────────────
+                 LIVE MATCH ANALYSIS CARD
+                 New: left cyan border strip + dark glass card
+            ────────────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/freeMatchesCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:translationY="40dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/card_stroke">
+
+                <LinearLayout
+                    android:id="@+id/llDailyMatch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="0dp">
+
+                    <!-- Cyan left accent bar -->
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_cyan_bar_rounded"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginStart="0dp" />
+
+                    <!-- Icon badge -->
+                    <FrameLayout
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_icon_badge_cyan"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="⚡"
+                            android:textSize="18sp" />
+                    </FrameLayout>
+
+                    <!-- Text block -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Live Match Analysis"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-condensed"
+                            android:letterSpacing="0.04" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Hand-picked free predictions for today"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_arrow_right"
+                        android:tint="@color/app_primary"
+                        android:contentDescription="Open" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─────────────────────────────────────────────
+                 PERFORMANCE TRACKER CARD
+                 New: left gold border strip
+            ────────────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/vipHistoryCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:alpha="0"
+                android:translationY="40dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/card_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="0dp">
+
+                    <!-- Gold left accent bar -->
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_gold_bar_rounded"
+                        android:layout_marginEnd="14dp" />
+
+                    <!-- Icon badge -->
+                    <FrameLayout
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_icon_badge_gold"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="📊"
+                            android:textSize="18sp" />
+                    </FrameLayout>
+
+                    <!-- Text block -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Performance Tracker"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-condensed"
+                            android:letterSpacing="0.04" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Check previous winning odds and results"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_arrow_right"
+                        android:tint="@color/accent_gold"
+                        android:contentDescription="Open" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─────────────────────────────────────────────
+                 EXCLUSIVE TIPS SECTION LABEL
+                 New: asymmetric layout — left-anchored with
+                 cyan underline bar
+            ────────────────────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:alpha="1"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="12dp"
+                android:paddingHorizontal="2dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_cyan_bar_rounded"
+                        android:layout_marginEnd="10dp" />
+
+                    <TextView
+                        android:id="@+id/tvSection2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EXCLUSIVE TIPS"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  VIP"
+                        android:textColor="@color/app_primary"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.14" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="1.5dp"
+                    android:background="@drawable/bg_cyan_bar_fade"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="13dp" />
+
+            </LinearLayout>
+
+
+
+            <!-- ─────────────────────────────────────────────
+                 VIP GRID — Row 1
+                 New: Scoreboard-style cards with category badges
+            ────────────────────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:weightSum="2">
+
+                <!-- FT Draws VIP -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvFTDraws"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:alpha="0"
+                    android:translationX="-50dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/card_bg"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!-- Top cyan accent line -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/bg_cyan_bar_fade"
+                            android:layout_gravity="top" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="FT"
+                                android:textColor="@color/app_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:letterSpacing="0.18"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Draws VIP"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 2+ Odds VIP -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvTwoOdds"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:alpha="0"
+                    android:translationX="50dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/card_bg"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/bg_gold_bar_fade"
+                            android:layout_gravity="top" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2+"
+                                android:textColor="@color/accent_gold"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:letterSpacing="0.18"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Odds VIP"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- VIP GRID — Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:weightSum="2">
+
+                <!-- 5+ Odds VIP -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvFiveOdds"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:alpha="0"
+                    android:translationX="-50dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/card_bg"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/bg_cyan_bar_fade"
+                            android:layout_gravity="top" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5+"
+                                android:textColor="@color/app_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:letterSpacing="0.18"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Odds VIP"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 10+ Odds VIP -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvTenOdds"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:alpha="0"
+                    android:translationX="50dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/card_bg"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/bg_gold_bar_fade"
+                            android:layout_gravity="top" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10+"
+                                android:textColor="@color/accent_gold"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:letterSpacing="0.18"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Odds VIP"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- VIP GRID — Row 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                android:weightSum="2">
+
+                <!-- Correct Score VIP -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvCorrectScore"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:alpha="0"
+                    android:translationX="-50dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/card_bg"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/bg_cyan_bar_fade"
+                            android:layout_gravity="top" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SCORE"
+                                android:textColor="@color/app_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:letterSpacing="0.18"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Correct Score"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- HT-FT VIP -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvHTFT"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:alpha="0"
+                    android:translationX="50dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/card_bg"
+                    app:strokeColor="@color/card_stroke"
+                    app:strokeWidth="1dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@drawable/bg_gold_bar_fade"
+                            android:layout_gravity="top" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="HT/FT"
+                                android:textColor="@color/accent_gold"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:letterSpacing="0.18"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100+ HT-FT"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────────────────
+                 JOIN TELEGRAM CARD
+                 New: full-width pill button style, no card border
+            ────────────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/joinTelegramCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:alpha="0"
+                android:translationY="30dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/telegram_bg"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/telegram_stroke">
+
+                <LinearLayout
+                    android:id="@+id/llTelegram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="15dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_telegram"
+                        android:contentDescription="Telegram" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Join Telegram"
+                        android:textColor="@color/app_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.08" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_right"
+                        android:tint="@color/app_primary"
+                        android:contentDescription=""
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Privacy Policy -->
+            <TextView
+                android:id="@+id/tvPrivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="4dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Privacy Policy"
+                android:textColor="@color/text_tertiary"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.06" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

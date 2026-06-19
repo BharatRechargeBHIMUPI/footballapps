@@ -1,0 +1,38 @@
+<resources>
+    <!-- Backgrounds -->
+    <color name="app_bg">#00022E</color>
+    <color name="card_bg">#060A3A</color>
+    <color name="card_stroke">#0B1148</color>
+    <color name="card_bg_dark">#030620</color>
+    <color name="card_stroke_dark">#080E38</color>
+    <color name="league_strip_bg">#02041C</color>
+    <color name="toolbar_bg_color">#040730</color>
+
+    <!-- Primary & Brand -->
+    <color name="app_primary">#2979FF</color>
+    <color name="hero_bg">#2979FF</color>
+    <color name="vip_card">#4D8FFF</color>
+    <color name="telegram_bg">#1565C0</color>
+    <color name="blue">#1976D2</color>
+
+    <!-- Text -->
+    <color name="text_primary">#D0DCFF</color>
+    <color name="text_secondary">#5A7ACC</color>
+    <color name="text_tertiary">#2A3E7A</color>
+    <color name="team_name_text">#D0DCFF</color>
+    <color name="score_text">#D0DCFF</color>
+    <color name="vs_text">#0B1148</color>
+    <color name="white">#FFFFFF</color>
+    <color name="button_stroke">#FFFFFF</color>
+
+    <!-- Status -->
+    <color name="status_pending">#0D2B6E</color>
+    <color name="status_win">#00B0FF</color>
+    <color name="status_loss">#C0392B</color>
+
+    <!-- Accents -->
+    <color name="accent_green">#1976D2</color>
+    <color name="accent_gold">#E6A817</color>
+    <color name="accent_red">#C0392B</color>
+    <color name="accent_blue">#1976D2</color>
+</resources>
