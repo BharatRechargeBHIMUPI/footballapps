@@ -64,27 +64,36 @@
                 </LinearLayout>
 
                 <!-- Headline line 1 -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="One Plan. Unlock"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="-0.01"
-                    android:fontFamily="sans-serif-condensed" />
 
-                <!-- Headline line 2 — gold/green accent -->
-                <TextView
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="All 6 Sections 🏆"
-                    android:textColor="@color/accent_gold"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="-0.01"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layout_marginBottom="6dp" />
+                    android:id="@+id/llText"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Get password from admin"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="-0.01"
+                        android:fontFamily="sans-serif-condensed" />
+
+                    <!-- Headline line 2 — gold/green accent -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Login VIP"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="-0.01"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layout_marginBottom="6dp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
 
                 <!-- Sub-description -->
                 <TextView
@@ -176,7 +185,7 @@
                     android:id="@+id/btnVip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UNLOCK NOW"
+                    android:text="VIP LOGIN"
                     android:textColor="@color/app_primary"
                     android:textSize="9.5sp"
                     android:textStyle="bold"

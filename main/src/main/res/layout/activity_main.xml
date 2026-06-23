@@ -23,6 +23,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp" />
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="0dp"
+        android:id="@+id/llText"
+        android:layout_height="0dp"/>
+
     <!-- ═══════════════════════════════════════════════════════
          HEADER — Scoreboard strip style
          Dark top bar with cyan left-border accent
