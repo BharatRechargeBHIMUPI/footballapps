@@ -155,7 +155,10 @@ class DailyMatchesActivity : BaseActivity() {
                 yesterdayList.clear()
 
                 for (doc in result) {
+
                     val match = doc.toObject(MatchModel::class.java)
+                    Log.d("<<<>>>", match.country)
+
                     when (match.date) {  // compare directly, no formatDate needed
                         getTodayDate()     -> todayList.add(match)
                         getYesterdayDate() -> yesterdayList.add(match)

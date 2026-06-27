@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="app_primary">#EA580C</color>
+    <color name="black">#000000</color>
+    <color name="vip_card">#7C2D12</color>
+    <color name="button_stroke">#EA580C</color>
+    <color name="btn_outline_stroke">#F97316</color>
+    <color name="vip_badge_bg">#D97706</color>
+
+    <!-- ═══════════════════════════════════════════
+         ORANGE ACCENT SYSTEM
+    ════════════════════════════════════════════ -->
+    <color name="accent_green">#EA580C</color>
+    <color name="btn_gold">#D97706</color>
+    <color name="stat_green">#F97316</color>
+    <color name="vip_green">#EA580C</color>
+    <color name="status_win">#FB923C</color>
+    <color name="status_pending">#D97706</color>
+    <color name="live_dot_color">#F97316</color>
+    <color name="live_dot_bg">#FFF7ED</color>
+    <color name="live_border">#FED7AA</color>
+    <color name="icon_green_bg">#FFF7ED</color>
+    <color name="tab_text_select_color">#000000</color>
+    <color name="tab_text_unselect_color">#FFFFFF</color>
+
+    <!-- ═══════════════════════════════════════════
+         BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="app_bg">#FFF7ED</color>
+    <color name="app_bg_gradient_start">#FFF7ED</color>
+    <color name="app_bg_gradient_end">#FED7AA</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_bg_dark">#FFF7ED</color>
+    <color name="hero_bg">#EA580C</color>
+    <color name="toolbar_bg_color">#EA580C</color>
+    <color name="league_strip_bg">#7C2D12</color>
+
+    <!-- ═══════════════════════════════════════════
+         STROKES
+    ════════════════════════════════════════════ -->
+    <color name="card_stroke">#FED7AA</color>
+    <color name="card_stroke_dark">#FB923C</color>
+
+    <!-- ═══════════════════════════════════════════
+         TEXT
+    ════════════════════════════════════════════ -->
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#7C2D12</color>
+    <color name="text_secondary">#C2410C</color>
+    <color name="text_tertiary">#FDBA74</color>
+    <color name="score_text">#7C2D12</color>
+    <color name="team_name_text">#7C2D12</color>
+    <color name="vs_text">#FED7AA</color>
+    <color name="section_label">#C2410C</color>
+
+    <!-- ═══════════════════════════════════════════
+         STATUS
+    ════════════════════════════════════════════ -->
+    <color name="status_loss">#DC2626</color>
+
+    <!-- ═══════════════════════════════════════════
+         SUPPORTING ACCENTS
+    ════════════════════════════════════════════ -->
+    <color name="accent_gold">#D97706</color>
+    <color name="accent_red">#DC2626</color>
+    <color name="accent_blue">#0284C7</color>
+    <color name="blue">#0EA5E9</color>
+    <color name="vip_amber">#D97706</color>
+    <color name="vip_purple">#7C3AED</color>
+    <color name="vip_red">#DC2626</color>
+
+    <!-- ═══════════════════════════════════════════
+         ICON BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="icon_amber_bg">#FFEDD5</color>
+
+    <!-- ═══════════════════════════════════════════
+         TELEGRAM
+    ════════════════════════════════════════════ -->
+    <color name="telegram_bg">#FFF7ED</color>
+    <color name="telegram_stroke">#FED7AA</color>
+    <color name="telegram_icon">#229ED9</color>
+
+</resources>
