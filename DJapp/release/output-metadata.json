@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.aceapps.tommyapp",
+  "applicationId": "com.aceapps.djapp",
   "variantName": "release",
   "elements": [
     {
@@ -13,7 +13,7 @@
       "attributes": [],
       "versionCode": 1,
       "versionName": "1.0",
-      "outputFile": "tommyapp-release.apk"
+      "outputFile": "DJapp-release.apk"
     }
   ],
   "elementType": "File",
@@ -22,14 +22,14 @@
       "minApi": 28,
       "maxApi": 30,
       "baselineProfiles": [
-        "baselineProfiles/1/tommyapp-release.dm"
+        "baselineProfiles/1/DJapp-release.dm"
       ]
     },
     {
       "minApi": 31,
       "maxApi": 2147483647,
       "baselineProfiles": [
-        "baselineProfiles/0/tommyapp-release.dm"
+        "baselineProfiles/0/DJapp-release.dm"
       ]
     }
   ],

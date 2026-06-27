@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="app_primary">#1D4ED8</color>
+    <color name="black">#000000</color>
+    <color name="vip_card">#1E3A5F</color>
+    <color name="button_stroke">#1D4ED8</color>
+    <color name="btn_outline_stroke">#3B82F6</color>
+    <color name="vip_badge_bg">#1E40AF</color>
+
+    <!-- ═══════════════════════════════════════════
+         BLUE ACCENT SYSTEM
+    ════════════════════════════════════════════ -->
+    <color name="accent_green">#1D4ED8</color>
+    <color name="btn_gold">#1E40AF</color>
+    <color name="stat_green">#3B82F6</color>
+    <color name="vip_green">#1D4ED8</color>
+    <color name="status_win">#60A5FA</color>
+    <color name="status_pending">#1E40AF</color>
+    <color name="live_dot_color">#3B82F6</color>
+    <color name="live_dot_bg">#EFF6FF</color>
+    <color name="live_border">#BFDBFE</color>
+    <color name="icon_green_bg">#EFF6FF</color>
+    <color name="tab_text_select_color">#000000</color>
+    <color name="tab_text_unselect_color">#FFFFFF</color>
+
+    <!-- ═══════════════════════════════════════════
+         BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="app_bg">#EFF6FF</color>
+    <color name="app_bg_gradient_start">#EFF6FF</color>
+    <color name="app_bg_gradient_end">#BFDBFE</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_bg_dark">#EFF6FF</color>
+    <color name="hero_bg">#1D4ED8</color>
+    <color name="toolbar_bg_color">#1D4ED8</color>
+    <color name="league_strip_bg">#1E3A5F</color>
+
+    <!-- ═══════════════════════════════════════════
+         STROKES
+    ════════════════════════════════════════════ -->
+    <color name="card_stroke">#BFDBFE</color>
+    <color name="card_stroke_dark">#60A5FA</color>
+
+    <!-- ═══════════════════════════════════════════
+         TEXT
+    ════════════════════════════════════════════ -->
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#1E3A5F</color>
+    <color name="text_secondary">#1D4ED8</color>
+    <color name="text_tertiary">#93C5FD</color>
+    <color name="score_text">#1E3A5F</color>
+    <color name="team_name_text">#1E3A5F</color>
+    <color name="vs_text">#BFDBFE</color>
+    <color name="section_label">#1D4ED8</color>
+
+    <!-- ═══════════════════════════════════════════
+         STATUS
+    ════════════════════════════════════════════ -->
+    <color name="status_loss">#DC2626</color>
+
+    <!-- ═══════════════════════════════════════════
+         SUPPORTING ACCENTS
+    ════════════════════════════════════════════ -->
+    <color name="accent_gold">#1E40AF</color>
+    <color name="accent_red">#DC2626</color>
+    <color name="accent_blue">#0284C7</color>
+    <color name="blue">#0EA5E9</color>
+    <color name="vip_amber">#1E40AF</color>
+    <color name="vip_purple">#7C3AED</color>
+    <color name="vip_red">#DC2626</color>
+
+    <!-- ═══════════════════════════════════════════
+         ICON BACKGROUNDS
+    ════════════════════════════════════════════ -->
+    <color name="icon_amber_bg">#DBEAFE</color>
+
+    <!-- ═══════════════════════════════════════════
+         TELEGRAM
+    ════════════════════════════════════════════ -->
+    <color name="telegram_bg">#EFF6FF</color>
+    <color name="telegram_stroke">#BFDBFE</color>
+    <color name="telegram_icon">#229ED9</color>
+
+</resources>
