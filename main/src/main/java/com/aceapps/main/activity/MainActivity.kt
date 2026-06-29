@@ -29,6 +29,7 @@ import com.aceapps.main.R
 import com.aceapps.main.subs.ProPlans
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : BaseActivity() {
@@ -39,7 +40,7 @@ class MainActivity : BaseActivity() {
     private lateinit var ivNotify : ImageView
     private lateinit var llTelegram : LinearLayout
     private lateinit var btnTodayPicks : MaterialButton
-    private lateinit var btnVip : MaterialButton
+    private lateinit var btnVip : MaterialTextView
 
     private lateinit var mcvTwoOdds : MaterialCardView
     private lateinit var mcvFTDraws : MaterialCardView

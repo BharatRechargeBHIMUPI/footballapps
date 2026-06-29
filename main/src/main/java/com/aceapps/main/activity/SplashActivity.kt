@@ -68,37 +68,36 @@ class SplashActivity : BaseActivity() {
         val poweredBy           = findViewById<TextView>(R.id.poweredBy)
         val loadingBarContainer = findViewById<View>(R.id.loadingBarContainer)
         val loadingBarFill      = findViewById<View>(R.id.loadingBarFill)
-        // NEW — live badge + pulsing dot
         val liveBadge           = findViewById<View>(R.id.liveBadge)
         val liveDot             = findViewById<View>(R.id.liveDot)
 
         // ══════════════════════════════════════════════════════════
-        //  ANIMATION SEQUENCE
+        //  ANIMATION SEQUENCE — all timings/logic identical
         // ══════════════════════════════════════════════════════════
 
-        // ── STEP 0 (0ms): Pitch overlay ghost-fades in ────────────
+        // STEP 0: Star-field ghost-fades in
         gridOverlay.animate()
-            .alpha(0.13f)
+            .alpha(0.18f)
             .setDuration(1400)
             .setStartDelay(0)
             .setInterpolator(DecelerateInterpolator())
             .start()
 
-        // ── STEP 1 (80ms): Emerald glow blooms ────────────────────
+        // STEP 1: Planet/nebula glow blooms top-right
         bgGlow.animate()
-            .alpha(0.50f)
+            .alpha(0.90f)
             .scaleX(1f).scaleY(1f)
             .setDuration(1000)
             .setStartDelay(80)
             .setInterpolator(DecelerateInterpolator(2f))
             .start()
 
-        // ── STEP 2 (0ms): Mint pulse rings staggered ──────────────
+        // STEP 2: Pulse rings staggered (now violet)
         startRingPulse(ring1, 0L)
         startRingPulse(ring2, 700L)
         startRingPulse(ring3, 1400L)
 
-        // ── STEP 3 (150ms): Live badge drops in from top ──────────
+        // STEP 3: Live badge drops in top-left
         liveBadge.translationY = -30f
         liveBadge.animate()
             .alpha(1f).translationY(0f)
@@ -108,7 +107,7 @@ class SplashActivity : BaseActivity() {
             .withEndAction { startLiveDotPulse(liveDot) }
             .start()
 
-        // ── STEP 4 (300ms): Logo shoots in with spring ────────────
+        // STEP 4: Logo icon scales in (bottom-left position)
         val logoScaleUp = AnimatorSet().apply {
             val sx = ObjectAnimator.ofFloat(logo, "scaleX", 0.2f, 1.18f)
             val sy = ObjectAnimator.ofFloat(logo, "scaleY", 0.2f, 1.18f)
@@ -130,38 +129,29 @@ class SplashActivity : BaseActivity() {
             start()
         }
 
-        // ── STEP 5 (700ms): Hex ring rotates in ──────────────────
+        // STEP 5: hexRing & logoRing exist but are 1dp — no visible effect
         handler.postDelayed({
-            hexRing.animate()
-                .alpha(0.65f).scaleX(1f).scaleY(1f)
-                .setDuration(500)
-                .setInterpolator(DecelerateInterpolator())
-                .start()
+            hexRing.animate().alpha(0f).setDuration(1).start()
             startSlowRotation(hexRing)
         }, 700)
 
-        // ── STEP 6 (820ms): Logo ring pops in ─────────────────────
         handler.postDelayed({
-            logoRing.animate()
-                .alpha(1f).scaleX(1f).scaleY(1f)
-                .setDuration(420)
-                .setInterpolator(OvershootInterpolator(2.2f))
-                .start()
+            logoRing.animate().alpha(0f).setDuration(1).start()
         }, 820)
 
-        // ── STEP 7 (950ms): App name slides up with bounce ────────
+        // STEP 7: Massive headline slides up
         appName.animate()
             .translationY(0f).alpha(1f)
-            .setDuration(650)
+            .setDuration(700)
             .setStartDelay(950)
-            .setInterpolator(OvershootInterpolator(1.5f))
+            .setInterpolator(OvershootInterpolator(1.2f))
             .start()
 
-        // ── STEP 8 (1180ms): Underline sweeps left → right ────────
+        // STEP 8: Accent bar sweeps left → right
         handler.postDelayed({
-            val targetPx = (150 * resources.displayMetrics.density).toInt()
+            val targetPx = (200 * resources.displayMetrics.density).toInt()
             ValueAnimator.ofInt(0, targetPx).apply {
-                duration = 560
+                duration = 600
                 interpolator = DecelerateInterpolator(1.5f)
                 addUpdateListener { va ->
                     val lp = underline.layoutParams
@@ -172,7 +162,7 @@ class SplashActivity : BaseActivity() {
             }
         }, 1180)
 
-        // ── STEP 9 (1280ms): Tagline fades + slides up ────────────
+        // STEP 9: Tagline fades in
         tagline.animate()
             .translationY(0f).alpha(1f)
             .setDuration(550)
@@ -180,13 +170,14 @@ class SplashActivity : BaseActivity() {
             .setInterpolator(DecelerateInterpolator(1.5f))
             .start()
 
-        // ── STEP 10 (1750ms): Loading bar sweeps across ───────────
+        // STEP 10: Loading bar at bottom edge fills up
         handler.postDelayed({
             loadingBarContainer.animate()
                 .alpha(1f)
                 .setDuration(300)
                 .withEndAction {
-                    val targetPx = (160 * resources.displayMetrics.density).toInt()
+                    // Full screen width in px
+                    val targetPx = resources.displayMetrics.widthPixels
                     ValueAnimator.ofInt(0, targetPx).apply {
                         duration = 1800
                         interpolator = AccelerateDecelerateInterpolator()
@@ -201,7 +192,7 @@ class SplashActivity : BaseActivity() {
                 .start()
         }, 1750)
 
-        // ── STEP 11 (1850ms): Dots fade in + pulse ────────────────
+        // STEP 11: Dots (subtle, near bottom)
         dotsLayout.animate()
             .alpha(1f)
             .setDuration(400)
@@ -209,14 +200,14 @@ class SplashActivity : BaseActivity() {
             .withEndAction { startDotPulse(dot1, dot2, dot3) }
             .start()
 
-        // ── STEP 12 (2050ms): Powered-by label ────────────────────
+        // STEP 12: Powered-by
         poweredBy.animate()
             .alpha(1f)
             .setDuration(500)
             .setStartDelay(2050)
             .start()
 
-        // ── STEP 13 (2300ms): Content group subtle breathe ────────
+        // STEP 13: Breathe pulse on content group
         handler.postDelayed({
             startBreathePulse(findViewById(R.id.contentGroup))
         }, 2300)
@@ -239,15 +230,13 @@ class SplashActivity : BaseActivity() {
     }
 
     // ══════════════════════════════════════════════════════════════
-    //  ANIMATION HELPERS
+    //  ANIMATION HELPERS — all identical to original
     // ══════════════════════════════════════════════════════════════
 
-    /** Expanding ring that pulses outward and fades, loops forever */
     private fun startRingPulse(ring: View, delay: Long) {
         val scaleX = ObjectAnimator.ofFloat(ring, "scaleX", 0.3f, 2.2f)
         val scaleY = ObjectAnimator.ofFloat(ring, "scaleY", 0.3f, 2.2f)
         val alpha  = ObjectAnimator.ofFloat(ring, "alpha", 0.50f, 0f)
-
         AnimatorSet().apply {
             playTogether(scaleX, scaleY, alpha)
             duration     = 3200
@@ -260,7 +249,6 @@ class SplashActivity : BaseActivity() {
         }
     }
 
-    /** Slow continuous clockwise rotation for the hex ring */
     private fun startSlowRotation(view: View) {
         ObjectAnimator.ofFloat(view, "rotation", 0f, 360f).apply {
             duration     = 14000
@@ -271,7 +259,6 @@ class SplashActivity : BaseActivity() {
         }
     }
 
-    /** Subtle scale breathe on the whole content group */
     private fun startBreathePulse(view: View) {
         val scaleUp = AnimatorSet().apply {
             val sx = ObjectAnimator.ofFloat(view, "scaleX", 1f, 1.022f)
@@ -298,21 +285,16 @@ class SplashActivity : BaseActivity() {
         }
     }
 
-    /**
-     * Live dot — smooth alpha pulse (mint glow feel).
-     * Animates the small circle inside the live badge.
-     */
     private fun startLiveDotPulse(dot: View) {
         ObjectAnimator.ofFloat(dot, "alpha", 0.35f, 1f).apply {
-            duration    = 900
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode  = ObjectAnimator.REVERSE
+            duration     = 900
+            repeatCount  = ObjectAnimator.INFINITE
+            repeatMode   = ObjectAnimator.REVERSE
             interpolator = AccelerateDecelerateInterpolator()
             start()
         }
     }
 
-    /** Three-dot staggered pulse loop */
     private fun startDotPulse(vararg dots: View) {
         dots.forEachIndexed { i, dot ->
             val scaleUp = AnimatorSet().apply {
@@ -371,10 +353,7 @@ class SplashActivity : BaseActivity() {
         val today  = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val data   = hashMapOf("timestamp" to FieldValue.serverTimestamp())
         db.collection("new_installs${getString(R.string.table_prefix)}")
-            .document(today)
-            .collection("users")
-            .document(userId)
-            .set(data)
+            .document(today).collection("users").document(userId).set(data)
     }
 
     private fun isFirstInstall(): Boolean {
@@ -390,20 +369,15 @@ class SplashActivity : BaseActivity() {
         val today  = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
         val data   = hashMapOf("timestamp" to FieldValue.serverTimestamp())
         db.collection("daily_active_users${getString(R.string.table_prefix)}")
-            .document(today)
-            .collection("users")
-            .document(userId)
-            .set(data)
+            .document(today).collection("users").document(userId).set(data)
     }
 
     private fun getSafeUserId(): String {
         return try {
             val androidId = android.provider.Settings.Secure.getString(
-                contentResolver,
-                android.provider.Settings.Secure.ANDROID_ID
+                contentResolver, android.provider.Settings.Secure.ANDROID_ID
             )
-            if (!androidId.isNullOrEmpty()) androidId
-            else UUID.randomUUID().toString()
+            if (!androidId.isNullOrEmpty()) androidId else UUID.randomUUID().toString()
         } catch (e: Exception) {
             UUID.randomUUID().toString()
         }

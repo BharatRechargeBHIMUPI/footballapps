@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_city_silhouette.xml
+     Dark city skyline that fills the bottom 45% of screen.
+     Pure black/near-black fills — buildings silhouetted against the space sky.
+     Uses vector drawable for crisp rendering at all densities. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="300dp"
+    android:viewportWidth="360"
+    android:viewportHeight="300">
+
+    <!-- Atmospheric horizon gradient fill -->
+    <path
+        android:fillColor="#CC000814"
+        android:pathData="M0,120 L360,120 L360,300 L0,300 Z" />
+
+    <!-- Building cluster — left side -->
+    <path android:fillColor="#00050e" android:pathData="M0,145 L18,145 L18,300 L0,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M12,115 L34,115 L34,300 L12,300 Z" />
+    <path android:fillColor="#00030a" android:pathData="M30,130 L46,130 L46,300 L30,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M42,100 L62,100 L62,300 L42,300 Z" />
+    <!-- Antenna -->
+    <path android:fillColor="#00030a" android:pathData="M50,90 L54,90 L54,100 L50,100 Z" />
+    <path android:fillColor="#00040c" android:pathData="M58,118 L72,118 L72,300 L58,300 Z" />
+
+    <!-- Building cluster — centre-left -->
+    <path android:fillColor="#000508" android:pathData="M70,132 L88,132 L88,300 L70,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M84,90 L106,90 L106,300 L84,300 Z" />
+    <!-- Tall tower -->
+    <path android:fillColor="#000610" android:pathData="M95,60 L101,60 L101,90 L95,90 Z" />
+    <path android:fillColor="#00040c" android:pathData="M102,108 L118,108 L118,300 L102,300 Z" />
+    <path android:fillColor="#000508" android:pathData="M115,125 L130,125 L130,300 L115,300 Z" />
+
+    <!-- Building cluster — centre -->
+    <path android:fillColor="#00040c" android:pathData="M128,140 L144,140 L144,300 L128,300 Z" />
+    <path android:fillColor="#000610" android:pathData="M140,78 L158,78 L158,300 L140,300 Z" />
+    <!-- Skyscraper spire -->
+    <path android:fillColor="#000508" android:pathData="M147,55 L152,55 L152,78 L147,78 Z" />
+    <path android:fillColor="#00040c" android:pathData="M155,98 L170,98 L170,300 L155,300 Z" />
+    <path android:fillColor="#000508" android:pathData="M167,120 L182,120 L182,300 L167,300 Z" />
+
+    <!-- Building cluster — centre-right -->
+    <path android:fillColor="#000610" android:pathData="M180,105 L196,105 L196,300 L180,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M192,85 L212,85 L212,300 L192,300 Z" />
+    <path android:fillColor="#000508" android:pathData="M208,130 L222,130 L222,300 L208,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M218,70 L238,70 L238,300 L218,300 Z" />
+    <!-- Crane / antenna -->
+    <path android:fillColor="#000508" android:pathData="M226,45 L230,45 L230,70 L226,70 Z" />
+
+    <!-- Building cluster — right side -->
+    <path android:fillColor="#000508" android:pathData="M235,115 L250,115 L250,300 L235,300 Z" />
+    <path android:fillColor="#000610" android:pathData="M247,95 L266,95 L266,300 L247,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M263,120 L278,120 L278,300 L263,300 Z" />
+    <path android:fillColor="#000508" android:pathData="M275,80 L296,80 L296,300 L275,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M292,110 L310,110 L310,300 L292,300 Z" />
+    <path android:fillColor="#000610" android:pathData="M306,135 L322,135 L322,300 L306,300 Z" />
+    <path android:fillColor="#00040c" android:pathData="M318,115 L338,115 L338,300 L318,300 Z" />
+    <path android:fillColor="#000508" android:pathData="M335,140 L360,140 L360,300 L335,300 Z" />
+
+    <!-- Floor / street level -->
+    <path android:fillColor="#000000" android:pathData="M0,260 L360,260 L360,300 L0,300 Z" />
+
+    <!-- Lit windows — very subtle, low opacity purple tint -->
+    <path android:fillColor="#20190048" android:pathData="M86,96 L92,96 L92,102 L86,102 Z" />
+    <path android:fillColor="#18150038" android:pathData="M97,110 L103,110 L103,116 L97,116 Z" />
+    <path android:fillColor="#20190048" android:pathData="M144,85 L150,85 L150,92 L144,92 Z" />
+    <path android:fillColor="#15120030" android:pathData="M156,105 L162,105 L162,112 L156,112 Z" />
+    <path android:fillColor="#20190048" android:pathData="M220,78 L226,78 L226,85 L220,85 Z" />
+    <path android:fillColor="#18150038" android:pathData="M248,100 L254,100 L254,107 L248,107 Z" />
+    <path android:fillColor="#15120030" android:pathData="M278,88 L284,88 L284,95 L278,95 Z" />
+
+</vector>

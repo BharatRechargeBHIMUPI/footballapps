@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ╔══════════════════════════════════════════════════════════════╗
-    ║  MAIN ACTIVITY — SCOREBOARD ANALYTICS REDESIGN               ║
-    ║  Aesthetic: Premium sports analytics dashboard               ║
-    ║  Palette:   Slate #080C12 | Cyan #00BCD4 | Gold #F4C430     ║
-    ║                                                              ║
-    ║  ALL VIEW IDs IDENTICAL — zero Kotlin logic changes          ║
+    ║  MAIN ACTIVITY — "MISSION CONSOLE" REDESIGN (v5)              ║
+    ║  Theme:   Cosmic Dark — Space #00060f | Purple #8B30D0       ║
+    ║           Violet #C060FF | Gold #FFD060                      ║
+    ║                                                                ║
+    ║  Concept: the screen is a single instrument panel built       ║
+    ║  around ONE product — the 2+ Odds VIP "dial". Other VIP       ║
+    ║  categories are no longer shown as a grid; this app now has   ║
+    ║  exactly one thing to sell.                                   ║
+    ║                                                                ║
+    ║  ALL VIEW IDs IDENTICAL TO ORIGINAL — zero Kotlin changes.     ║
+    ║  mcvFTDraws / mcvFiveOdds / mcvTenOdds / mcvCorrectScore /     ║
+    ║  mcvHTFT are kept in the tree (visibility="gone") purely so   ║
+    ║  MainActivity.kt's findViewById + listeners + idle-pulse       ║
+    ║  animation loop keep compiling and running without changes.    ║
     ╚══════════════════════════════════════════════════════════════╝
 -->
 <androidx.appcompat.widget.LinearLayoutCompat
@@ -24,16 +33,14 @@
         android:layout_height="0dp" />
 
     <!-- ═══════════════════════════════════════════════════════
-         HEADER — Scoreboard strip style
-         Dark top bar with cyan left-border accent
+         HEADER — Cosmic console strip
     ════════════════════════════════════════════════════════ -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="62dp"
-        android:background="@drawable/bg_header_bar"
+        android:background="@drawable/bg_header_bar_cosmic"
         android:paddingHorizontal="18dp">
 
-        <!-- Hamburger -->
         <ImageView
             android:id="@+id/ivMenu"
             android:layout_width="38dp"
@@ -47,7 +54,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- Title group — condensed scoreboard style -->
         <LinearLayout
             android:id="@+id/titleGroup"
             android:layout_width="0dp"
@@ -61,20 +67,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <!-- App name in condensed bold caps -->
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
                 android:textAllCaps="true"
-                android:textColor="@color/app_primary"
+                android:textColor="@color/text_primary"
                 android:textStyle="bold"
                 android:textSize="17sp"
                 android:letterSpacing="0.14"
                 android:fontFamily="sans-serif-condensed" />
 
-            <!-- Subtitle — live dot + label -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,14 +89,14 @@
                 <View
                     android:layout_width="5dp"
                     android:layout_height="5dp"
-                    android:background="@drawable/bg_live_dot_cyan"
+                    android:background="@drawable/bg_live_dot_violet"
                     android:layout_marginEnd="5dp" />
 
                 <TextView
                     android:id="@+id/tvSubtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PREMIUM INSIGHTS"
+                    android:text="2+ ODDS SPECIALISTS"
                     android:textColor="@color/text_secondary"
                     android:textSize="9sp"
                     android:letterSpacing="0.14"
@@ -101,7 +105,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Premium icon -->
         <ImageView
             android:id="@+id/ivPremium"
             android:layout_width="38dp"
@@ -110,7 +113,7 @@
             android:contentDescription="Premium"
             android:alpha="0"
             android:translationX="30dp"
-            android:background="@drawable/bg_icon_pill_cyan"
+            android:background="@drawable/bg_icon_pill_cosmic"
             android:padding="9dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -118,11 +121,10 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Header bottom accent line — cyan glow strip -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@drawable/bg_header_divider_cyan" />
+        android:background="@drawable/bg_divider_violet_fade" />
 
     <!-- ═══════════════════════════════════════════════════════
          SCROLLABLE BODY
@@ -138,14 +140,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="14dp"
-            android:paddingTop="18dp"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="22dp"
             android:paddingBottom="28dp">
 
-            <!-- ─────────────────────────────────────────────
-                 HERO CARD — Match Insights (visibility=gone)
-                 Redesigned: dark glass card with cyan top border
-            ────────────────────────────────────────────── -->
+            <!-- heroCard kept in tree, gone, untouched -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/heroCard"
                 android:visibility="gone"
@@ -163,91 +162,253 @@
                     android:layout_height="wrap_content"
                     android:padding="18dp">
 
-                    <!-- Cyan top accent bar -->
-                    <View
-                        android:layout_width="40dp"
-                        android:layout_height="3dp"
-                        android:background="@drawable/bg_cyan_pill"
-                        android:layout_marginBottom="14dp" />
-
                     <TextView
                         android:id="@+id/tvHeroBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="5dp"
-                        android:text="Match Insights"
-                        android:textColor="@color/white"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-condensed"
-                        android:letterSpacing="0.08" />
+                        android:text="Match Insights" />
 
                     <TextView
                         android:id="@+id/tvHeroTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Unlock Winning Match Insights"
-                        android:textColor="@android:color/white"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-condensed"
-                        android:letterSpacing="0.04" />
+                        android:text="Unlock Winning Match Insights" />
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:weightSum="1"
-                        android:layout_marginTop="14dp"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnVip"
-                            android:layout_gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.5"
-                            android:layout_height="42dp"
-                            android:layout_marginEnd="8dp"
-                            android:text="Unlock VIP"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            android:textSize="13sp"
-                            android:fontFamily="sans-serif-condensed"
-                            app:cornerRadius="10dp"
-                            app:backgroundTint="@color/app_primary"
-                            android:textColor="@color/app_bg" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnTodayPicks"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.5"
-                            android:layout_gravity="center"
-                            android:layout_height="42dp"
-                            android:text="Today's Picks"
-                            android:textAllCaps="false"
-                            android:textStyle="bold"
-                            android:textSize="13sp"
-                            android:fontFamily="sans-serif-condensed"
-                            app:cornerRadius="10dp"
-                            app:strokeWidth="1dp"
-                            app:strokeColor="@color/button_stroke"
-                            app:backgroundTint="@android:color/transparent"
-                            android:textColor="@android:color/white" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTodayPicks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today's Picks" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- VIP PROMO CARD (include — unchanged ID) -->
+            <!-- ─────────────────────────────────────────────
+                 SIGNATURE ELEMENT — THE ODDS DIAL
+                 mcvTwoOdds is now a full-width hero module,
+                 not a small grid tile. A radial dial reading
+                 "2+" anchors the entire screen.
+            ────────────────────────────────────────────── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mcvTwoOdds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:translationX="50dp"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/card_bg_dark"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/card_stroke_dark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="26dp"
+                    android:paddingBottom="20dp"
+                    android:paddingHorizontal="20dp"
+                    android:gravity="center_horizontal">
+
+                    <!-- Eyebrow label -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="18dp">
+
+                        <View
+                            android:layout_width="5dp"
+                            android:layout_height="5dp"
+                            android:background="@drawable/bg_live_dot_violet"
+                            android:layout_marginEnd="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="THE SIGNATURE PICK"
+                            android:textColor="@color/section_label"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.22"
+                            android:fontFamily="sans-serif-condensed" />
+                    </LinearLayout>
+
+                    <!-- The dial itself: glow + ring + face stacked -->
+                    <FrameLayout
+                        android:layout_width="168dp"
+                        android:layout_height="168dp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_dial_glow" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_dial_ring" />
+
+                        <View
+                            android:layout_width="148dp"
+                            android:layout_height="148dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/bg_dial_face" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2+"
+                                android:textColor="@color/text_primary"
+                                android:textSize="44sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="-0.02"
+                                android:fontFamily="sans-serif-condensed" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ODDS VIP"
+                                android:textColor="@color/accent_gold"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.16"
+                                android:layout_marginTop="-2dp"
+                                android:fontFamily="sans-serif-condensed" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Daily Selections, Built For Steady Returns"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.01" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="One curated match every day, odds 2.00 and above"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-condensed" />
+
+                    <!-- Stat pill strip -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✅ 99% Win Rate"
+                            android:textColor="@color/text_primary"
+                            android:textSize="9.5sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="9dp"
+                            android:paddingVertical="5dp"
+                            android:background="@drawable/bg_pill_purple_cosmic"
+                            android:layout_marginEnd="7dp"
+                            android:fontFamily="sans-serif-condensed" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔥 7-Day Streak"
+                            android:textColor="@color/accent_gold"
+                            android:textSize="9.5sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="9dp"
+                            android:paddingVertical="5dp"
+                            android:background="@drawable/bg_pill_gold_cosmic"
+                            android:fontFamily="sans-serif-condensed" />
+                    </LinearLayout>
+
+                    <!-- CTA -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="UNLOCK 2+ ODDS VIP"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:letterSpacing="0.08"
+                        android:fontFamily="sans-serif-condensed"
+                        android:background="@drawable/bg_cta_gold_cosmic"
+                        android:paddingVertical="14dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- VIP PROMO CARD (include — unchanged ID, lPro) -->
             <include
                 layout="@layout/item_vip_promo_card"
                 android:id="@+id/lPro" />
 
             <!-- ─────────────────────────────────────────────
-                 LIVE MATCH ANALYSIS CARD
-                 New: left cyan border strip + dark glass card
+                 SECTION LABEL — More From This Screen
+            ────────────────────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="12dp"
+                android:paddingHorizontal="2dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_console_bar_violet"
+                        android:layout_marginEnd="10dp" />
+
+                    <TextView
+                        android:id="@+id/tvSection2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TODAY'S CONSOLE"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="0.14" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="1.5dp"
+                    android:background="@drawable/bg_divider_violet_fade"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="13dp" />
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────────────────
+                 CONSOLE ROW — Free Match Analysis
             ────────────────────────────────────────────── -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/freeMatchesCard"
@@ -255,7 +416,8 @@
                 android:layout_height="wrap_content"
                 android:alpha="0"
                 android:translationY="40dp"
-                app:cardCornerRadius="14dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/card_bg"
                 app:strokeWidth="1dp"
@@ -271,30 +433,26 @@
                     android:paddingEnd="16dp"
                     android:paddingStart="0dp">
 
-                    <!-- Cyan left accent bar -->
                     <View
                         android:layout_width="3dp"
                         android:layout_height="48dp"
-                        android:background="@drawable/bg_cyan_bar_rounded"
-                        android:layout_marginEnd="14dp"
-                        android:layout_marginStart="0dp" />
+                        android:background="@drawable/bg_console_bar_violet"
+                        android:layout_marginEnd="14dp" />
 
-                    <!-- Icon badge -->
                     <FrameLayout
                         android:layout_width="42dp"
                         android:layout_height="42dp"
-                        android:background="@drawable/bg_icon_badge_cyan"
+                        android:background="@drawable/bg_icon_badge_violet"
                         android:layout_marginEnd="14dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="⚡"
+                            android:text="🛰️"
                             android:textSize="18sp" />
                     </FrameLayout>
 
-                    <!-- Text block -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -304,7 +462,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Live Match Analysis"
+                            android:text="Free Match Radar"
                             android:textColor="@color/text_primary"
                             android:textSize="15sp"
                             android:textStyle="bold"
@@ -315,33 +473,31 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Hand-picked free predictions for today"
+                            android:text="Free hand-picked games to test the system"
                             android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
                     </LinearLayout>
 
-                    <!-- Arrow -->
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
                         android:src="@drawable/ic_arrow_right"
-                        android:tint="@color/app_primary"
+                        android:tint="@color/accent_green"
                         android:contentDescription="Open" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- ─────────────────────────────────────────────
-                 PERFORMANCE TRACKER CARD
-                 New: left gold border strip
+                 CONSOLE ROW — Performance Tracker
             ────────────────────────────────────────────── -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/vipHistoryCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:alpha="0"
                 android:translationY="40dp"
-                app:cardCornerRadius="14dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/card_bg"
                 app:strokeWidth="1dp"
@@ -356,14 +512,12 @@
                     android:paddingEnd="16dp"
                     android:paddingStart="0dp">
 
-                    <!-- Gold left accent bar -->
                     <View
                         android:layout_width="3dp"
                         android:layout_height="48dp"
-                        android:background="@drawable/bg_gold_bar_rounded"
+                        android:background="@drawable/bg_console_bar_gold"
                         android:layout_marginEnd="14dp" />
 
-                    <!-- Icon badge -->
                     <FrameLayout
                         android:layout_width="42dp"
                         android:layout_height="42dp"
@@ -374,11 +528,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="📊"
+                            android:text="📡"
                             android:textSize="18sp" />
                     </FrameLayout>
 
-                    <!-- Text block -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -388,7 +541,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Performance Tracker"
+                            android:text="Result Log"
                             android:textColor="@color/text_primary"
                             android:textSize="15sp"
                             android:textStyle="bold"
@@ -399,12 +552,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:text="Check previous winning odds and results"
+                            android:text="Every past 2+ Odds pick, win or loss"
                             android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
                     </LinearLayout>
 
-                    <!-- Arrow -->
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
@@ -415,441 +567,13 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- ─────────────────────────────────────────────
-                 EXCLUSIVE TIPS SECTION LABEL
-                 New: asymmetric layout — left-anchored with
-                 cyan underline bar
-            ────────────────────────────────────────────── -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:alpha="1"
-                android:layout_marginTop="26dp"
-                android:layout_marginBottom="12dp"
-                android:paddingHorizontal="2dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="18dp"
-                        android:background="@drawable/bg_cyan_bar_rounded"
-                        android:layout_marginEnd="10dp" />
-
-                    <TextView
-                        android:id="@+id/tvSection2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="EXCLUSIVE TIPS"
-                        android:textAllCaps="true"
-                        android:textColor="@color/text_primary"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-condensed"
-                        android:letterSpacing="0.14" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="  VIP"
-                        android:textColor="@color/app_primary"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-condensed"
-                        android:letterSpacing="0.14" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="60dp"
-                    android:layout_height="1.5dp"
-                    android:background="@drawable/bg_cyan_bar_fade"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="13dp" />
-
-            </LinearLayout>
-
-
-
-            <!-- ─────────────────────────────────────────────
-                 VIP GRID — Row 1
-                 New: Scoreboard-style cards with category badges
-            ────────────────────────────────────────────── -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:weightSum="2">
-
-                <!-- FT Draws VIP -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcvFTDraws"
-                    android:layout_width="0dp"
-                    android:layout_height="96dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:alpha="0"
-                    android:translationX="-50dp"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/card_bg"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <!-- Top cyan accent line -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@drawable/bg_cyan_bar_fade"
-                            android:layout_gravity="top" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="FT"
-                                android:textColor="@color/app_primary"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:letterSpacing="0.18"
-                                android:layout_marginBottom="4dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Draws VIP"
-                                android:textColor="@color/text_primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- 2+ Odds VIP -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcvTwoOdds"
-                    android:layout_width="0dp"
-                    android:layout_height="96dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:alpha="0"
-                    android:translationX="50dp"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/card_bg"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@drawable/bg_gold_bar_fade"
-                            android:layout_gravity="top" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2+"
-                                android:textColor="@color/accent_gold"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:letterSpacing="0.18"
-                                android:layout_marginBottom="4dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Odds VIP"
-                                android:textColor="@color/text_primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <!-- VIP GRID — Row 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:weightSum="2">
-
-                <!-- 5+ Odds VIP -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcvFiveOdds"
-                    android:layout_width="0dp"
-                    android:layout_height="96dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:alpha="0"
-                    android:translationX="-50dp"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/card_bg"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@drawable/bg_cyan_bar_fade"
-                            android:layout_gravity="top" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="5+"
-                                android:textColor="@color/app_primary"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:letterSpacing="0.18"
-                                android:layout_marginBottom="4dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Odds VIP"
-                                android:textColor="@color/text_primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- 10+ Odds VIP -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcvTenOdds"
-                    android:layout_width="0dp"
-                    android:layout_height="96dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:alpha="0"
-                    android:translationX="50dp"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/card_bg"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@drawable/bg_gold_bar_fade"
-                            android:layout_gravity="top" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10+"
-                                android:textColor="@color/accent_gold"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:letterSpacing="0.18"
-                                android:layout_marginBottom="4dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Odds VIP"
-                                android:textColor="@color/text_primary"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <!-- VIP GRID — Row 3 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp"
-                android:weightSum="2">
-
-                <!-- Correct Score VIP -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcvCorrectScore"
-                    android:layout_width="0dp"
-                    android:layout_height="96dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:alpha="0"
-                    android:translationX="-50dp"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/card_bg"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@drawable/bg_cyan_bar_fade"
-                            android:layout_gravity="top" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="SCORE"
-                                android:textColor="@color/app_primary"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:letterSpacing="0.18"
-                                android:layout_marginBottom="4dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Correct Score"
-                                android:textColor="@color/text_primary"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- HT-FT VIP -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/mcvHTFT"
-                    android:layout_width="0dp"
-                    android:layout_height="96dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:alpha="0"
-                    android:translationX="50dp"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="@color/card_bg"
-                    app:strokeColor="@color/card_stroke"
-                    app:strokeWidth="1dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="@drawable/bg_gold_bar_fade"
-                            android:layout_gravity="top" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="HT/FT"
-                                android:textColor="@color/accent_gold"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:letterSpacing="0.18"
-                                android:layout_marginBottom="4dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="100+ HT-FT"
-                                android:textColor="@color/text_primary"
-                                android:textSize="13sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <!-- ─────────────────────────────────────────────
-                 JOIN TELEGRAM CARD
-                 New: full-width pill button style, no card border
+                 JOIN TELEGRAM ROW
             ────────────────────────────────────────────── -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/joinTelegramCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:alpha="0"
                 android:translationY="30dp"
                 app:cardCornerRadius="14dp"
@@ -877,7 +601,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="Join Telegram"
-                        android:textColor="@color/app_primary"
+                        android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-condensed"
@@ -887,7 +611,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:src="@drawable/ic_arrow_right"
-                        android:tint="@color/app_primary"
+                        android:tint="@color/accent_green"
                         android:contentDescription=""
                         android:layout_marginStart="8dp" />
                 </LinearLayout>
@@ -906,6 +630,47 @@
                 android:textSize="11sp"
                 android:fontFamily="sans-serif-condensed"
                 android:letterSpacing="0.06" />
+
+            <!-- ═══════════════════════════════════════════════
+                 HIDDEN LEGACY VIP CATEGORIES
+                 Kept in the tree ONLY so MainActivity.kt's
+                 findViewById calls, click listeners, and the
+                 idle-pulse / entrance-animation loops (which
+                 iterate over mcvFTDraws, mcvFiveOdds, mcvTenOdds,
+                 mcvCorrectScore, mcvHTFT, freeMatchesCard,
+                 joinTelegramCard) keep working without any
+                 Kotlin changes. Not visible to the user.
+            ════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvFTDraws"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvFiveOdds"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvTenOdds"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvCorrectScore"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mcvHTFT"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

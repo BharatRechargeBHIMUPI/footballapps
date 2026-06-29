@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Selected / highlighted plan card — layer-list
+    Layer 1: Purple gradient fill (semi-transparent)
+    Layer 2: Purple border stroke (solid, 2dp)
+    Theme: Cosmic Dark
+    Usage: active/recommended plan card on paywall
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Layer 1: gradient fill -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#4D8B30D0"
+                android:endColor="#1A0d001a"
+                android:angle="135" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Layer 2: border stroke -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" />
+            <stroke
+                android:width="2dp"
+                android:color="#8B30D0" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+</layer-list>
