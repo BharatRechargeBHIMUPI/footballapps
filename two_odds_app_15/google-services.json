@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "4009036798",
+    "project_id": "odds-app-dcf13",
+    "storage_bucket": "odds-app-dcf13.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4009036798:android:7429fc3d15190bf3164eaf",
+        "android_client_info": {
+          "package_name": "com.aceapps.twoodd.app14"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7cv8ZMtG-X7C8aBirnBsUmQcuJO3MNak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4009036798:android:63cce3d4522c91e0164eaf",
+        "android_client_info": {
+          "package_name": "com.aceapps.twoodd.app15"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7cv8ZMtG-X7C8aBirnBsUmQcuJO3MNak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4009036798:android:0ee69eb663d14348164eaf",
+        "android_client_info": {
+          "package_name": "com.wg.footballadmin.twoodds.app14"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7cv8ZMtG-X7C8aBirnBsUmQcuJO3MNak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

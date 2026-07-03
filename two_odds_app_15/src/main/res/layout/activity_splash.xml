@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  SPLASH — COSMIC CITY  v2                                     ║
+  ║  Layout : full-screen dramatic scene (space + city skyline)   ║
+  ║  Logo   : bottom-left corner block, NOT centred               ║
+  ║  Hero   : massive left-aligned typography dominates screen    ║
+  ║  Loading: 3 dp bar pinned to very bottom edge                 ║
+  ║  All View IDs preserved — zero logic changes                  ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hero_bg">
+
+    <!-- ── LAYER 0: Deep-space gradient base ──────────────────── -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_space_gradient" />
+
+    <!-- ── LAYER 1: Star-field / constellation scatter ─────────
+         Reuses gridOverlay ID — now draws white scatter dots    -->
+    <View
+        android:id="@+id/gridOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_pitch_lines"
+        android:alpha="0" />
+
+    <!-- ── LAYER 2: Planet / nebula glow (top-right quadrant) ──
+         Large oval shifted off-screen top-right                  -->
+    <View
+        android:id="@+id/bgGlow"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-80dp"
+        android:layout_marginEnd="-60dp"
+        android:background="@drawable/bg_planet_orb"
+        android:alpha="0"
+        android:scaleX="0.3"
+        android:scaleY="0.3" />
+
+    <!-- ── LAYER 3: Horizon city silhouette (bottom 45%) ───────
+         Dark vector skyline sits above the loading bar           -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_city_silhouette"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom" />
+
+    <!-- ── LAYER 4: Horizon atmospheric glow line ──────────────
+         Thin horizontal gradient — where city meets space        -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/bg_horizon_glow" />
+
+    <!-- ── PULSE RINGS (kept from Kotlin — must exist) ─────────
+         Invisible here; animator fires them. Positioned centre. -->
+    <View
+        android:id="@+id/ring1"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_ring_pulse"
+        android:alpha="0" />
+    <View
+        android:id="@+id/ring2"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_ring_pulse"
+        android:alpha="0" />
+    <View
+        android:id="@+id/ring3"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_ring_pulse"
+        android:alpha="0" />
+
+    <!-- ── LIVE BADGE — top-left corner, not centred ───────────
+         Pill badge anchored to top-start                         -->
+    <LinearLayout
+        android:id="@+id/liveBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:background="@drawable/bg_live_pill"
+        android:alpha="0">
+
+        <View
+            android:id="@+id/liveDot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/bg_dot_pulse_round"
+            android:layout_marginEnd="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIVE"
+            android:textColor="@color/live_dot_color"
+            android:textSize="9sp"
+            android:letterSpacing="0.22"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed" />
+
+    </LinearLayout>
+
+    <!-- ── HEX RING (must exist for Kotlin) — hidden off-screen -->
+    <ImageView
+        android:id="@+id/hexRing"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:alpha="0" />
+
+    <!-- ── LOGO RING (must exist for Kotlin) — hidden ──────────-->
+    <View
+        android:id="@+id/logoRing"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:alpha="0" />
+
+    <!-- ══════════════════════════════════════════════════════════
+         CONTENT GROUP — entire bottom-half block
+         Left-aligned, sits over the city silhouette layer
+    ═══════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/contentGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="52dp"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:paddingHorizontal="24dp">
+
+        <!-- ── LOGO ROW — small icon + name side by side ───────
+             Not a centred circle. A compact brand block.         -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <!-- Logo icon in rounded square card -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/logo"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/ic_app_logo"
+                android:alpha="0"
+                android:scaleX="0.2"
+                android:scaleY="0.2" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.18"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI Predictions"
+                    android:textColor="#55FFFFFF"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_marginTop="1dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── MASSIVE DISPLAY HEADLINE ─────────────────────────
+             Three-line stack: "WIN / EVERY / BET"
+             This is the dominant visual element of the screen.  -->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WIN\nEVERY\nBET"
+            android:textColor="@color/white"
+            android:textSize="72sp"
+            android:lineSpacingMultiplier="0.88"
+            android:letterSpacing="-0.01"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:translationY="60dp"
+            android:alpha="0" />
+
+        <!-- ── ACCENT UNDERLINE (reused ID) ─────────────────────
+             Wide gradient bar below the headline                  -->
+        <View
+            android:id="@+id/underlineAccent"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_accent_bar" />
+
+        <!-- ── STATS ROW ────────────────────────────────────────
+             Three numbers in a horizontal strip                   -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="94%"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ACCURACY"
+                    android:textColor="@color/stat_label"
+                    android:textSize="7sp"
+                    android:letterSpacing="0.20"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#25FFFFFF"
+                android:layout_marginHorizontal="4dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2.4K+"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MATCHES"
+                    android:textColor="@color/stat_label"
+                    android:textSize="7sp"
+                    android:letterSpacing="0.20"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#25FFFFFF"
+                android:layout_marginHorizontal="4dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TODAY"
+                    android:textColor="@color/stat_label"
+                    android:textSize="7sp"
+                    android:letterSpacing="0.20"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ── TAGLINE ──────────────────────────────────────────-->
+        <TextView
+            android:id="@+id/tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="AI · PREDICTIONS · DOMINATE"
+            android:textColor="#40FFFFFF"
+            android:textSize="9sp"
+            android:letterSpacing="0.20"
+            android:fontFamily="sans-serif-condensed"
+            android:translationY="24dp"
+            android:alpha="0" />
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════════
+         DOTS (required by Kotlin) — hidden above loading bar
+    ═══════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/dotsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:alpha="0">
+        <View android:id="@+id/dot1" android:layout_width="3dp" android:layout_height="3dp" android:layout_marginEnd="6dp" android:background="@drawable/bg_dot_round" />
+        <View android:id="@+id/dot2" android:layout_width="3dp" android:layout_height="3dp" android:layout_marginEnd="6dp" android:background="@drawable/bg_dot_round" />
+        <View android:id="@+id/dot3" android:layout_width="3dp" android:layout_height="3dp" android:background="@drawable/bg_dot_round" />
+    </LinearLayout>
+
+    <!-- POWERED BY — required by Kotlin, pinned bottom -->
+    <TextView
+        android:id="@+id/poweredBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="6dp"
+        android:text="POWERED BY ACEAPPS"
+        android:textColor="#22FFFFFF"
+        android:textSize="7sp"
+        android:letterSpacing="0.24"
+        android:fontFamily="sans-serif-condensed"
+        android:alpha="0" />
+
+    <!-- ══════════════════════════════════════════════════════════
+         LOADING BAR — pinned to absolute bottom edge (3 dp tall)
+    ═══════════════════════════════════════════════════════════ -->
+    <FrameLayout
+        android:id="@+id/loadingBarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_gravity="bottom"
+        android:background="#10FFFFFF"
+        android:alpha="0">
+
+        <View
+            android:id="@+id/loadingBarFill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_bar_fill" />
+
+    </FrameLayout>
+
+</FrameLayout>

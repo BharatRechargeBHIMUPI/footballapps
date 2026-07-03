@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Selected / highlighted plan card — Green theme
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Gradient fill -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#4D10A860"
+                android:endColor="#1A03120B"
+                android:angle="135" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Border -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" />
+            <stroke
+                android:width="2dp"
+                android:color="#10A860" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+</layer-list>
