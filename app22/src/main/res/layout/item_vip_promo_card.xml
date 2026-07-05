@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  item_vip_promo_card.xml — REDESIGNED v4                     ║
+    ║  Theme:  Light Mode — Clean White + Deep Navy Blue           ║
+    ║  Copy:   Unlock 12 Premium Football Prediction Packages      ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vipPromoCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_promo_card_navy">
+
+        <!-- ── MAIN CONTENT ROW ─────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="14dp">
+
+            <!-- LEFT: text block -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Top label: live pulse dot + caption -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="7dp">
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/bg_live_dot_navy"
+                        android:layout_marginEnd="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ VIP ACCESS  ·  6 PACKAGES INCLUDED"
+                        android:textColor="@color/app_primary"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.18"
+                        android:fontFamily="sans-serif-condensed" />
+                </LinearLayout>
+
+                <!-- Headline line 1 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="One Plan. Unlock"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="-0.01"
+                    android:fontFamily="sans-serif-condensed" />
+
+                <!-- Headline line 2 — gold/green accent -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All 6 Sections 🏆"
+                    android:textColor="@color/accent_gold"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="-0.01"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginBottom="6dp" />
+
+                <!-- Sub-description -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Premier League · Champions League · La Liga\nSerie A · Bundesliga · and 7 more leagues"
+                    android:textColor="#AABDE8"
+                    android:textSize="8sp"
+                    android:lineSpacingExtra="2dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Stat pills row -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Win rate pill -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✅ 99% Win Rate"
+                        android:textColor="@color/black"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="7dp"
+                        android:paddingVertical="3dp"
+                        android:background="@drawable/bg_pill_navy_dim"
+                        android:layout_marginEnd="6dp"
+                        android:fontFamily="sans-serif-condensed" />
+
+                    <!-- Streak pill -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥 7-Day Streak"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="7dp"
+                        android:paddingVertical="3dp"
+                        android:background="@drawable/bg_pill_gold_dim"
+                        android:fontFamily="sans-serif-condensed" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- RIGHT: icon + CTA -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginStart="14dp">
+
+                <!-- Package count badge -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:text="6"
+                        android:textColor="@color/black"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:background="@drawable/bg_count_badge_circle" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="-2dp"
+                        android:text="LEAGUES"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"
+                        android:fontFamily="sans-serif-condensed" />
+                </FrameLayout>
+
+                <!-- UNLOCK NOW button — navy solid -->
+                <TextView
+                    android:id="@+id/btnVip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UNLOCK NOW"
+                    android:textColor="@color/app_primary"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.10"
+                    android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/bg_subscribe_button_gold"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── BOTTOM STRIP — social proof ─────────── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_promo_bottom_strip_navy"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingHorizontal="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👥 50,000+ members winning daily  ·  Cancel anytime"
+                android:textColor="@color/black"
+                android:textSize="8.5sp"
+                android:letterSpacing="0.04"
+                android:singleLine="true"
+                android:fontFamily="sans-serif-condensed" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Watermark: large dim "VIP" text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="52dp"
+        android:text="VIP"
+        android:textColor="#18FFFFFF"
+        android:textSize="44sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08"
+        android:fontFamily="sans-serif-condensed" />
+
+</FrameLayout>
