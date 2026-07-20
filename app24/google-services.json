@@ -1,0 +1,200 @@
+{
+  "project_info": {
+    "project_number": "668383250750",
+    "project_id": "recharge-pay-9c79b",
+    "storage_bucket": "recharge-pay-9c79b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:be4980c02f1f63b898c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.africarecharge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:5304d3e1319bf91898c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.chatbot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:1cd58e381dc78afd98c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.harsh.rechargepay5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:98707c1db9eae1b298c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.pakrecharge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:f13a40e6ef446abd98c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.rechargepay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:f8c7946d096670a998c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.rechargepay5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:c6e6db5835df445198c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.rechargepay6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:6aa93ecd9b8e701698c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.rechargepay7"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:ffa3a2276e72798e98c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.yoyo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:dc10173d914b0fbb98c46f",
+        "android_client_info": {
+          "package_name": "com.wg.footballadmin.twoodds.app24"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
