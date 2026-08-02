@@ -46,6 +46,12 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
     private lateinit var btnClose: View
     private lateinit var tvRestore: TextView
     private lateinit var tvPrivacy: TextView
+
+    // New UI-only views
+    private lateinit var tvWeeklyRadio: TextView
+    private lateinit var tvMonthlyRadio: TextView
+    private lateinit var liveDot: View
+
     var products: MutableList<StoreProduct> = mutableListOf()
 
     private val features = listOf(
@@ -53,6 +59,9 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         Triple("📊", "In-Depth Match Analysis", "Full stats, form, and head-to-head breakdowns"),
         Triple("🎯", "High Accuracy Tips", "94% average win rate across all VIP predictions"),
     )
+
+    // Ink colour used on top of the bright green radio
+    private val onAccentInk = Color.parseColor("#08240F")
 
     // ─── Animation helpers ───────────────────────────────────────────────────
 
@@ -69,10 +78,10 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
             .start()
     }
 
-    /** Fade + slide-left entrance, for stats pills */
+    /** Fade + slide-left entrance, for form circles and stat columns */
     private fun View.animateInFromLeft(delayMs: Long = 0) {
         alpha = 0f
-        translationX = -40f
+        translationX = -28f
         animate()
             .alpha(1f)
             .translationX(0f)
@@ -115,6 +124,16 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         }
     }
 
+    /** Slow blink for the "GATE OPEN" indicator dot */
+    private fun View.startBlink() {
+        ObjectAnimator.ofFloat(this, View.ALPHA, 1f, 0.2f, 1f).apply {
+            duration = 1800
+            repeatCount = ValueAnimator.INFINITE
+            interpolator = android.view.animation.AccelerateDecelerateInterpolator()
+            start()
+        }
+    }
+
     /**
      * Press-down / release spring effect.
      * Attach to any clickable view — does NOT interfere with click logic.
@@ -145,7 +164,7 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
 
     /**
      * Swap selection with a scale-bounce so the card feels "snappy".
-     * selected = true → apply selected bg + bounce; false → unselected bg, no bounce.
+     * selected = true → bounce; false → no bounce.
      */
     private fun View.animateCardSelect(selected: Boolean) {
         if (selected) {
@@ -163,7 +182,7 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         }
     }
 
-    /** Shake animation for the close button appearing (playful reveal) */
+    /** Spring reveal for the close button */
     private fun View.animateCloseReveal() {
         scaleX = 0f
         scaleY = 0f
@@ -206,7 +225,7 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         }
     }
 
-    // ─── initData — identical logic, + entrance animations ──────────────────
+    // ─── initData — product logic identical, entrance sequence rebuilt ──────
 
     private fun initData() {
 
@@ -245,22 +264,10 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         setupClickListeners()
         displayOffering(products)
 
-        // ── Staggered entrance sequence ──────────────────────────────────────
-
-        // Hero card
-        findViewById<View>(R.id.tvPlanTitle)
-            .rootView                              // hero FrameLayout parent (section 2)
-            .findViewWithTag<View?>("heroCard")
-            ?.animateIn(0) ?: run {
-            // fallback: animate the plan title itself
-            tvPlanTitle.animateIn(0)
-        }
-
-        // Stats row children (section 3) — stagger left-to-right
-        val statsRow = (loadingState.parent as? LinearLayout)
-            ?.parent as? LinearLayout
-        // More reliable: find the stats row directly via layout position
+        // ── Entrance sequence ────────────────────────────────────────────────
         runStaggeredEntrance()
+
+        liveDot.startBlink()
 
         // Subscribe button pulse
         btnSubscribe.postDelayed({ btnSubscribe.startPulse() }, 900)
@@ -275,40 +282,32 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
 
     /**
      * Orchestrates the staggered screen entrance.
-     * Finds each major section by ID and animates them in sequence.
+     * Now driven by IDs instead of child indexes, so re-ordering the layout
+     * can never point an animation at the wrong section.
      */
     private fun runStaggeredEntrance() {
-        val root = window.decorView
+        findViewById<View>(R.id.topBar)?.animateIn(0)
+        findViewById<View>(R.id.ticketCard)?.animateIn(70)
+        findViewById<View>(R.id.featuresSection)?.animateIn(300)
+        findViewById<View>(R.id.plansContainer)?.animateIn(400)
+        findViewById<View>(R.id.ctaBar)?.animateIn(520)
 
-        // Section 2 — hero area (use tvPlanTitle as proxy for that block)
-        tvPlanTitle.parent?.let { (it as? View)?.animateIn(0) }
+        // Form guide reveals one result at a time, left to right
+        findViewById<LinearLayout>(R.id.formRow)?.let { row ->
+            for (j in 0 until row.childCount) {
+                row.getChildAt(j)?.animateInFromLeft((j * 70 + 380).toLong())
+            }
+        }
 
-        // Section 3 — stats pills: find the LinearLayout that contains the 3 pills
-        // They share the same parent LinearLayout with horizontal orientation.
-        // We iterate the plansContainer siblings to find the stats row.
-        val plansContainer = findViewById<LinearLayout>(R.id.plansContainer)
-        val parentLayout = plansContainer.parent as? LinearLayout ?: return
-
-        for (i in 0 until parentLayout.childCount) {
-            val child = parentLayout.getChildAt(i) ?: continue
-            val delay = (i * 110).toLong()
-            when (i) {
-                0 -> child.animateIn(80)             // hero RelativeLayout
-                1 -> {                               // stats row LinearLayout
-                    val statsRow = child as? LinearLayout ?: continue
-                    for (j in 0 until statsRow.childCount) {
-                        statsRow.getChildAt(j)?.animateInFromLeft((j * 120 + 160).toLong())
-                    }
-                }
-                2 -> child.animateIn(480)            // features section
-                3 -> child.animateIn(600)            // plans container
-                4 -> child.animateIn(720)            // CTA + legal
-                else -> child.animateIn(delay + 200)
+        // Stat columns on the stub
+        findViewById<LinearLayout>(R.id.statsRow)?.let { row ->
+            for (j in 0 until row.childCount) {
+                row.getChildAt(j)?.animateInFromLeft((j * 80 + 620).toLong())
             }
         }
     }
 
-    // ─── initViews — unchanged ───────────────────────────────────────────────
+    // ─── initViews ───────────────────────────────────────────────────────────
 
     private fun initViews() {
         tvPlanTitle = findViewById(R.id.tvPlanTitle)
@@ -318,6 +317,10 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         btnSubscribe = findViewById(R.id.btnSubscribe)
         tvRestore = findViewById(R.id.tvRestore)
         tvPrivacy = findViewById(R.id.tvPrivacy)
+
+        tvWeeklyRadio = findViewById(R.id.tvWeeklyRadio)
+        tvMonthlyRadio = findViewById(R.id.tvMonthlyRadio)
+        liveDot = findViewById(R.id.liveDot)
     }
 
     // ─── setupPlanTitle — unchanged ──────────────────────────────────────────
@@ -339,7 +342,27 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         }
     }
 
-    // ─── setupClickListeners — logic unchanged, + card animation + press FX ─
+    /** Card background + radio state in one place. Pure UI. */
+    private fun applySelection(weeklySelected: Boolean) {
+        planWeekly.setBackgroundResource(
+            if (weeklySelected) R.drawable.pw_plan_selected else R.drawable.pw_plan_unselected
+        )
+        planMonthly.setBackgroundResource(
+            if (weeklySelected) R.drawable.pw_plan_unselected else R.drawable.pw_plan_selected
+        )
+
+        tvWeeklyRadio.setBackgroundResource(
+            if (weeklySelected) R.drawable.pw_dot else R.drawable.pw_ring
+        )
+        tvMonthlyRadio.setBackgroundResource(
+            if (weeklySelected) R.drawable.pw_ring else R.drawable.pw_dot
+        )
+
+        tvWeeklyRadio.setTextColor(if (weeklySelected) onAccentInk else Color.TRANSPARENT)
+        tvMonthlyRadio.setTextColor(if (weeklySelected) Color.TRANSPARENT else onAccentInk)
+    }
+
+    // ─── setupClickListeners — billing logic untouched ──────────────────────
 
     private fun setupClickListeners() {
 
@@ -353,13 +376,13 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
 
             // Always initialize selectedProduct before any click listener fires
             selectedProduct = productMonth ?: productWeek ?: products[0]
+            applySelection(weeklySelected = productMonth == null)
 
             planWeekly.attachPressEffect()
             planWeekly.setOnClickListener {
                 productWeek?.let {
                     selectedProduct = it
-                    planWeekly.setBackgroundResource(R.drawable.bg_plan_card_selected)
-                    planMonthly.setBackgroundResource(R.drawable.bg_plan_card_unselected)
+                    applySelection(weeklySelected = true)
                     planWeekly.animateCardSelect(true)
                     planMonthly.animateCardSelect(false)
                     LaunchFlow(activity, this@SubscriptionActivity).initBillingClient(selectedProduct)
@@ -370,8 +393,7 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
             planMonthly.setOnClickListener {
                 productMonth?.let {
                     selectedProduct = it
-                    planWeekly.setBackgroundResource(R.drawable.bg_plan_card_unselected)
-                    planMonthly.setBackgroundResource(R.drawable.bg_plan_card_selected)
+                    applySelection(weeklySelected = false)
                     planMonthly.animateCardSelect(true)
                     planWeekly.animateCardSelect(false)
                     LaunchFlow(activity, this@SubscriptionActivity).initBillingClient(selectedProduct)
@@ -425,7 +447,7 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         }
     }
 
-    // ─── displayOffering — logic unchanged, + pop-in on card reveal ─────────
+    // ─── displayOffering — logic unchanged ──────────────────────────────────
 
     private fun displayOffering(product: MutableList<StoreProduct>) {
         loadingState.visibility = View.GONE

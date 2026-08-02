@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A very thick dashed horizontal rule reads as vertical barcode bars. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+    <stroke
+        android:width="30dp"
+        android:color="#1E2118"
+        android:dashWidth="2dp"
+        android:dashGap="3dp" />
+</shape>
