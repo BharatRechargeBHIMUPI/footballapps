@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    namespace = "com.aceapps.yoyo"
+    namespace = "com.aceapps.yoyo2"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.aceapps.yoyo"
+        applicationId = "com.aceapps.yoyo2"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

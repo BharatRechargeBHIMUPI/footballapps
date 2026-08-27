@@ -178,6 +178,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:668383250750:android:c2a3ecfd9bd3c45298c46f",
+        "android_client_info": {
+          "package_name": "com.aceapps.yoyo2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3MkKEHHaOfKoaQHvqURsqfj4i_9uMpTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:668383250750:android:dc10173d914b0fbb98c46f",
         "android_client_info": {
           "package_name": "com.wg.footballadmin.twoodds.app24"
