@@ -121,6 +121,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:bed65cfda598a7b86c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.newss.app25"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:357128189414:android:8533ee2796e76b7c6c9227",
         "android_client_info": {
           "package_name": "com.aceapps.partnership.app10"
@@ -219,6 +238,101 @@
         "mobilesdk_app_id": "1:357128189414:android:4784475a92f6f8486c9227",
         "android_client_info": {
           "package_name": "com.aceapps.partnership.app25"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:13516994259f500f6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app26"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:221b63dd99527e2d6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app27"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:871407e450feaac66c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app28"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:568da35a883056c56c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app29"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:8bb68b6cc3956baa6c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app33"
         }
       },
       "oauth_client": [],

@@ -339,7 +339,6 @@
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_bottom_odds_panel"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
         android:paddingTop="14dp"

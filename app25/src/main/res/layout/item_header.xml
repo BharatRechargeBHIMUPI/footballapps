@@ -2,7 +2,7 @@
     android:id="@+id/tvHeader"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textColor="@color/black"
+    android:textColor="@color/white"
     android:textStyle="bold"
     android:textSize="15sp"
     android:paddingTop="16dp"
