@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+
     namespace = "com.aceapps.partnership.app30"
     compileSdk {
         version = release(36)
