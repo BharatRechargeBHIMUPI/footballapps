@@ -61,7 +61,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-
+    api("com.google.firebase:firebase-auth-ktx")
     api("com.facebook.android:facebook-android-sdk:18.0.3")
     api("com.android.installreferrer:installreferrer:2.2")
     api("de.hdodenhof:circleimageview:3.1.0")

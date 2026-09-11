@@ -151,7 +151,7 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:src="@drawable/ic_info"
-            android:tint="@color/black"
+            android:tint="@color/white"
             android:contentDescription="Note"
             android:layout_marginEnd="8dp" />
 
@@ -161,7 +161,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Stake games singles before combining"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="11.5sp"
             android:fontFamily="sans-serif-condensed"
             android:letterSpacing="0.02" />

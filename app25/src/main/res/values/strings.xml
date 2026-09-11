@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">#Football Prediction and Tips</string>
     <string name="app_email">Footballpredictions2026@gmail.com</string>
-    <string name="privacy_policy_url">https://sites.google.com/view/app-33/home</string>
+    <string name="privacy_policy_url">https://sites.google.com/view/app-30ddd/home</string>
     <string name="tele_lnk">https://t.me/sofadailyscores1</string>
     <string name="facebook_app_id" translatable="false">123</string>
     <string name="facebook_client_token" translatable="false">123</string>
-    <string name="revenue_cat_key" translatable="false">goog_NNmhkcUMhfNnOnyseMZVrzIHzXX</string>
-    <string name="table_prefix" translatable="false">_football_thirtythree</string>
+    <string name="revenue_cat_key" translatable="false">goog_tdatcjXeAxdQDXMWvVFrfSkQfUN</string>
+    <string name="table_prefix" translatable="false">_football_thirty</string>
 
 
     <string name="title_main">Football Tips</string>

@@ -29,6 +29,7 @@ import com.aceapps.main.R
 import com.aceapps.main.subs.ProPlans
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : BaseActivity() {
@@ -53,6 +54,18 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (!sharedPref.isUserSignIn()){
+            FirebaseAuth.getInstance().signInAnonymously()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        sharedPref.isUserSignIn(true)
+                    } else {
+                        println("Anonymous auth failed: ${task.exception}")
+                    }
+                }
+        }
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
