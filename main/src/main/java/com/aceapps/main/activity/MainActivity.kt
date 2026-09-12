@@ -8,6 +8,7 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ import com.aceapps.main.R
 import com.aceapps.main.subs.ProPlans
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : BaseActivity() {
@@ -49,6 +51,7 @@ class MainActivity : BaseActivity() {
     private lateinit var lPro : View
     private lateinit var ivPremium : ImageView
     private lateinit var mcvHTFT : MaterialCardView
+    private lateinit var imgWhatapp : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,9 +71,37 @@ class MainActivity : BaseActivity() {
             }
         }
 
+        val auth = FirebaseAuth.getInstance()
+
+        if (auth.currentUser == null) {
+            auth.signInAnonymously()
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val uid = auth.currentUser?.uid
+
+                    } else {
+
+                    }
+                }
+        } else {
+            val uid = auth.currentUser?.uid
+        }
+
         FirebaseMessaging.getInstance().subscribeToTopic("all_users")
 
         val menuBtn = findViewById<ImageView>(R.id.ivMenu)
+        imgWhatapp = findViewById(R.id.imgWhatapp)
+
+        imgWhatapp.setOnClickListener {
+            val phoneNumber = "6285765758954"
+
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://wa.me/$phoneNumber")
+            )
+
+            startActivity(intent)
+        }
 
         ivPremium = findViewById(R.id.ivPremium)
         lPro = findViewById(R.id.lPro)

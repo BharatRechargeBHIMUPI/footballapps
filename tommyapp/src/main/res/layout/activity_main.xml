@@ -8,6 +8,11 @@
     ║  ALL VIEW IDs IDENTICAL — zero Kotlin logic changes          ║
     ╚══════════════════════════════════════════════════════════════╝
 -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -910,3 +915,14 @@
     </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="50dp"
+        android:id="@+id/imgWhatapp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/whatspp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
+        android:layout_height="50dp"/>
+
+    </RelativeLayout>
