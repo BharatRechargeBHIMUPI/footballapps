@@ -1,874 +1,478 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    MATCHDAY PASS PAYWALL
-    Concept: the paywall IS a printed stadium ticket.
-    Cream paper stub on a stadium-night background, real perforation + notches,
-    barcode, ink stamp, and a W/D/L form guide.
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/bg_subs">
 
-    All IDs required by SubscriptionActivity are preserved.
--->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#0A0D0B">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:fillViewport="true"
-        android:paddingBottom="176dp"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="18dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="30dp"
+            android:id="@+id/btnClose"
+            android:src="@drawable/ic_paywall_close"
+            android:layout_height="30dp"/>
+
+
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- ═══════════════════════════════════════════════════
-                 1 — TOP BAR
-            ═══════════════════════════════════════════════════ -->
-            <LinearLayout
-                android:id="@+id/topBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="18dp"
-                android:paddingTop="18dp"
-                android:paddingBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:background="@drawable/pw_chip"
-                    android:paddingHorizontal="12dp"
-                    android:paddingTop="7dp"
-                    android:paddingBottom="7dp">
-
-                    <View
-                        android:id="@+id/liveDot"
-                        android:layout_width="6dp"
-                        android:layout_height="6dp"
-                        android:layout_marginEnd="8dp"
-                        android:background="@drawable/pw_dot" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:letterSpacing="0.14"
-                        android:text="GATE OPEN"
-                        android:textColor="#8E9B92"
-                        android:textSize="9sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/btnClose"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:background="@drawable/pw_close"
-                    android:contentDescription="Close"
-                    android:gravity="center"
-                    android:text="✕"
-                    android:textColor="#8E9B92"
-                    android:textSize="13sp" />
-            </LinearLayout>
-
-            <!-- ═══════════════════════════════════════════════════
-                 2 — THE TICKET  (signature element)
-            ═══════════════════════════════════════════════════ -->
-            <LinearLayout
-                android:id="@+id/ticketCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:orientation="vertical">
-
-                <!-- ── Upper half: the pass itself ── -->
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/pw_ticket_top">
-
-                    <!-- Ink stamp -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:layout_marginTop="46dp"
-                        android:layout_marginEnd="16dp"
-                        android:alpha="0.8"
-                        android:background="@drawable/pw_stamp"
-                        android:fontFamily="monospace"
-                        android:letterSpacing="0.1"
-                        android:paddingHorizontal="9dp"
-                        android:paddingTop="6dp"
-                        android:paddingBottom="6dp"
-                        android:rotation="-9"
-                        android:text="VERIFIED"
-                        android:textColor="#0F7B3E"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="22dp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="22dp">
-
-                        <!-- Ticket meta row -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="monospace"
-                                android:letterSpacing="0.1"
-                                android:text="NO. 0099-VIP"
-                                android:textColor="#8A8779"
-                                android:textSize="9sp" />
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="1dp"
-                                android:layout_weight="1" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="monospace"
-                                android:letterSpacing="0.1"
-                                android:text="SEASON 25/26"
-                                android:textColor="#8A8779"
-                                android:textSize="9sp" />
-                        </LinearLayout>
-
-                        <!-- Section label -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:fontFamily="monospace"
-                            android:letterSpacing="0.2"
-                            android:text="ADMIT ONE"
-                            android:textColor="#0F7B3E"
-                            android:textSize="9sp"
-                            android:textStyle="bold" />
-
-                        <!-- Dynamic plan title -->
-                        <TextView
-                            android:id="@+id/tvPlanTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:fontFamily="sans-serif-black"
-                            android:letterSpacing="-0.035"
-                            android:lineSpacingExtra="-4dp"
-                            android:text="Correct Score"
-                            android:textColor="#14170F"
-                            android:textSize="34sp" />
-
-                        <View
-                            android:layout_width="44dp"
-                            android:layout_height="4dp"
-                            android:layout_marginTop="14dp"
-                            android:background="@drawable/pw_accent_bar" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:lineSpacingExtra="3dp"
-                            android:text="Hand-picked predictions, published every morning and settled in public."
-                            android:textColor="#5F5D52"
-                            android:textSize="12sp" />
-
-                        <!-- Form guide -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:fontFamily="monospace"
-                            android:letterSpacing="0.16"
-                            android:text="RECENT FORM"
-                            android:textColor="#8A8779"
-                            android:textSize="8.5sp" />
-
-                        <LinearLayout
-                            android:id="@+id/formRow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginEnd="6dp"
-                                android:background="@drawable/pw_form_w"
-                                android:gravity="center"
-                                android:text="W"
-                                android:textColor="#F2EEE3"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginEnd="6dp"
-                                android:background="@drawable/pw_form_w"
-                                android:gravity="center"
-                                android:text="W"
-                                android:textColor="#F2EEE3"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginEnd="6dp"
-                                android:background="@drawable/pw_form_w"
-                                android:gravity="center"
-                                android:text="W"
-                                android:textColor="#F2EEE3"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginEnd="6dp"
-                                android:background="@drawable/pw_form_l"
-                                android:gravity="center"
-                                android:text="L"
-                                android:textColor="#8A8779"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginEnd="6dp"
-                                android:background="@drawable/pw_form_w"
-                                android:gravity="center"
-                                android:text="W"
-                                android:textColor="#F2EEE3"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginEnd="6dp"
-                                android:background="@drawable/pw_form_w"
-                                android:gravity="center"
-                                android:text="W"
-                                android:textColor="#F2EEE3"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:background="@drawable/pw_form_w"
-                                android:gravity="center"
-                                android:text="W"
-                                android:textColor="#F2EEE3"
-                                android:textSize="9sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </FrameLayout>
-
-                <!-- ── Perforation: notches bite the edges, dashes run across ── -->
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:background="@drawable/pw_ticket_mid">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="start|center_vertical"
-                        android:layout_marginStart="-14dp"
-                        android:background="@drawable/pw_notch" />
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_marginEnd="-14dp"
-                        android:background="@drawable/pw_notch" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="4dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginHorizontal="26dp"
-                        android:background="@drawable/pw_dash"
-                        android:layerType="software" />
-                </FrameLayout>
-
-                <!-- ── Lower half: the stub ── -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/pw_ticket_stub"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="22dp"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="20dp">
-
-                    <LinearLayout
-                        android:id="@+id/statsRow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="99%"
-                                android:textColor="#0F7B3E"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="monospace"
-                                android:letterSpacing="0.1"
-                                android:text="WIN RATE"
-                                android:textColor="#8A8779"
-                                android:textSize="8.5sp" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginHorizontal="14dp"
-                            android:background="#D9D4C6" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="50K+"
-                                android:textColor="#14170F"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="monospace"
-                                android:letterSpacing="0.1"
-                                android:text="MEMBERS"
-                                android:textColor="#8A8779"
-                                android:textSize="8.5sp" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginHorizontal="14dp"
-                            android:background="#D9D4C6" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="×7"
-                                android:textColor="#14170F"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="monospace"
-                                android:letterSpacing="0.1"
-                                android:text="STREAK"
-                                android:textColor="#8A8779"
-                                android:textSize="8.5sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Barcode: two overlapping dashed rules -->
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="18dp">
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:background="@drawable/pw_barcode"
-                            android:layerType="software" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_marginStart="5dp"
-                            android:background="@drawable/pw_barcode_alt"
-                            android:layerType="software" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="monospace"
-                        android:gravity="center"
-                        android:letterSpacing="0.12"
-                        android:text="NON-TRANSFERABLE · VALID WHILE ACTIVE"
-                        android:textColor="#A39F91"
-                        android:textSize="8sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- ═══════════════════════════════════════════════════
-                 3 — WHAT'S ON THE PASS
-            ═══════════════════════════════════════════════════ -->
-            <LinearLayout
-                android:id="@+id/featuresSection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:orientation="vertical"
-                android:paddingHorizontal="16dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="12dp"
-                        android:layout_marginEnd="9dp"
-                        android:background="@drawable/pw_accent_bar" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:letterSpacing="0.18"
-                        android:text="WHAT'S ON THE PASS"
-                        android:textColor="#E7E3D8"
-                        android:textSize="9.5sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/pw_card"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp">
-
-                    <include
-                        android:id="@+id/feature1"
-                        layout="@layout/pw_item_feature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#1C231E" />
-
-                    <include
-                        android:id="@+id/feature2"
-                        layout="@layout/pw_item_feature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#1C231E" />
-
-                    <include
-                        android:id="@+id/feature3"
-                        layout="@layout/pw_item_feature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- ═══════════════════════════════════════════════════
-                 4 — PLANS  (bookmaker odds tiles)
-            ═══════════════════════════════════════════════════ -->
-            <LinearLayout
-                android:id="@+id/plansContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:orientation="vertical"
-                android:paddingHorizontal="16dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="3dp"
-                        android:layout_height="12dp"
-                        android:layout_marginEnd="9dp"
-                        android:background="@drawable/pw_accent_bar" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:letterSpacing="0.18"
-                        android:text="CHOOSE YOUR PASS"
-                        android:textColor="#E7E3D8"
-                        android:textSize="9.5sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <!-- Loading -->
-                <LinearLayout
-                    android:id="@+id/loadingState"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/pw_card"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="26dp">
-
-                    <ProgressBar
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:indeterminateTint="#2FBF62" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="monospace"
-                        android:text="Loading passes…"
-                        android:textColor="#8E9B92"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <!-- ── WEEKLY ── -->
-                <FrameLayout
-                    android:id="@+id/planWeekly"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/pw_plan_unselected"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="14dp">
-
-                        <LinearLayout
-                            android:layout_width="92dp"
-                            android:layout_height="60dp"
-                            android:background="@drawable/pw_price_tile"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvWeeklyPrice"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="$4.99"
-                                android:textColor="#F2EEE3"
-                                android:textSize="19sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:fontFamily="monospace"
-                                android:letterSpacing="0.1"
-                                android:text="PER WEEK"
-                                android:textColor="#6C7A71"
-                                android:textSize="8sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvWeeklyTitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Weekly pass"
-                                android:textColor="#F2EEE3"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tvWeeklySubtitle"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
-                                android:text="Run it for a week. Cancel anytime."
-                                android:textColor="#8E9B92"
-                                android:textSize="10.5sp" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/tvWeeklyRadio"
-                            android:layout_width="26dp"
-                            android:layout_height="26dp"
-                            android:layout_marginStart="8dp"
-                            android:background="@drawable/pw_ring"
-                            android:gravity="center"
-                            android:text="✓"
-                            android:textColor="#00000000"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </FrameLayout>
-
-                <!-- ── MONTHLY ── -->
-                <FrameLayout
-                    android:id="@+id/planMonthly"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/pw_plan_selected"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/badgeMonthly"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/pw_badge_strip"
-                            android:fontFamily="monospace"
-                            android:gravity="center"
-                            android:letterSpacing="0.14"
-                            android:paddingTop="6dp"
-                            android:paddingBottom="6dp"
-                            android:text="MOST POPULAR · SAVE 40%"
-                            android:textColor="#08240F"
-                            android:textSize="8.5sp"
-                            android:textStyle="bold" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="14dp">
-
-                            <LinearLayout
-                                android:layout_width="92dp"
-                                android:layout_height="60dp"
-                                android:background="@drawable/pw_price_tile"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tvMonthlyPrice"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="sans-serif-black"
-                                    android:text="$14.99"
-                                    android:textColor="#F2EEE3"
-                                    android:textSize="19sp" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:fontFamily="monospace"
-                                    android:letterSpacing="0.1"
-                                    android:text="PER MONTH"
-                                    android:textColor="#6C7A71"
-                                    android:textSize="8sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="14dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/tvMonthlyTitle"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Monthly pass"
-                                    android:textColor="#F2EEE3"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/tvMonthlySubtitle"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="3dp"
-                                    android:text="Full season access. Best value."
-                                    android:textColor="#8E9B92"
-                                    android:textSize="10.5sp" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/tvMonthlyRadio"
-                                android:layout_width="26dp"
-                                android:layout_height="26dp"
-                                android:layout_marginStart="8dp"
-                                android:background="@drawable/pw_dot"
-                                android:gravity="center"
-                                android:text="✓"
-                                android:textColor="#08240F"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </FrameLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
 
     <!-- ═══════════════════════════════════════════════════
          5 — STICKY CTA
     ═══════════════════════════════════════════════════ -->
-    <LinearLayout
-        android:id="@+id/ctaBar"
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/pw_scrim"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="30dp"
-        android:paddingBottom="14dp">
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/btnSubscribe"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/pw_cta"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:letterSpacing="0.04"
-                android:text="COLLECT MY PASS"
-                android:textColor="#14170F"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="→"
-                android:textColor="#14170F"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:fontFamily="monospace"
-            android:gravity="center"
-            android:text="Renews automatically · Cancel anytime in Google Play"
-            android:textColor="#6C7A71"
-            android:textSize="9sp" />
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- ═══════════════════════════════════════════════════
+                     1 — TOP BAR
+                ═══════════════════════════════════════════════════ -->
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvPlanTitle"
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="-0.035"
+                        android:layout_gravity="center"
+                        android:lineSpacingExtra="-4dp"
+                        android:text="Correct Score"
+                        android:textColor="#ffffff"
+                        android:textSize="27dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="60dp"
+                        android:src="@drawable/ic_pro"
+                        android:layout_gravity="center"
+                        android:layout_height="35dp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <LinearLayout
+                    android:id="@+id/featuresSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include
+                            android:layout_weight="1"
+                            android:id="@+id/feature1"
+                            layout="@layout/pw_item_feature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+
+                        <include
+                            android:layout_weight="1"
+                            android:id="@+id/feature2"
+                            layout="@layout/pw_item_feature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include
+                            android:id="@+id/feature3"
+                            layout="@layout/pw_item_feature"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <include
+                            android:id="@+id/feature4"
+                            layout="@layout/pw_item_feature"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentBottom="true"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:clipChildren="false"
+                            android:clipToPadding="false">
+
+                            <!-- LOADING -->
+                            <LinearLayout
+                                android:id="@+id/loadingState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="26dp">
+
+                                <ProgressBar
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:indeterminateTint="#224EF4" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:fontFamily="monospace"
+                                    android:text="@string/loading_passes"
+                                    android:textColor="#8E9B92"
+                                    android:textSize="11sp" />
+
+                            </LinearLayout>
+
+
+                            <!-- WEEKLY -->
+                            <FrameLayout
+                                android:id="@+id/planWeekly"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/pw_plan_selected"
+                                android:clipChildren="false"
+                                android:clipToPadding="false">
+
+                                <!-- POPULAR BADGE -->
+                                <TextView
+                                    android:id="@+id/badgeWeeklyPopular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top|end"
+                                    android:layout_marginEnd="14dp"
+                                    android:translationY="-14dp"
+                                    android:elevation="10dp"
+                                    android:background="@drawable/pw_badge_bg"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="4dp"
+                                    android:text="@string/popular"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+
+
+                                <!-- WEEKLY CONTENT -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="20dp">
+
+
+                                    <TextView
+                                        android:id="@+id/tvWeeklyRadio"
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:background="@drawable/pw_radio_unselected"
+                                        android:gravity="center" />
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvWeeklyTitle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="sans-serif-black"
+                                            android:text="@string/weekly_pass"
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="17sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvWeeklySubtitle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="@string/try_for_one_week_cancel_anytime"
+                                            android:textColor="#8A8F9C"
+                                            android:textSize="9sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvWeeklyBreakdown"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:text="Weekly $71.00"
+                                            android:textColor="#5282FC"
+                                            android:textSize="10sp"
+                                            android:visibility="gone"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvWeeklyPrice"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="sans-serif-black"
+                                            android:text="$500"
+                                            android:textColor="#5282FC"
+                                            android:textSize="17sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvWeeklyPeriod"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="/ Weekly"
+                                            android:textColor="#5A5F6C"
+                                            android:textSize="12sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+                            <!-- MONTHLY -->
+                            <FrameLayout
+                                android:id="@+id/planMonthly"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginBottom="12dp"
+                                android:background="@drawable/pw_plan_unselected">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal"
+                                    android:padding="20dp">
+
+
+                                    <TextView
+                                        android:id="@+id/tvMonthlyRadio"
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:background="@drawable/pw_radio_selected"
+                                        android:gravity="center"
+                                        android:text="✓"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold" />
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvMonthlyTitle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="sans-serif-black"
+                                            android:text="@string/monthly_pass"
+                                            android:textColor="#5A5F6C"
+                                            android:textSize="17sp" />
+
+                                        <TextView
+                                            android:id="@+id/tvMonthlySubtitle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="@string/full_season_access_best_value"
+                                            android:textColor="#4A4E58"
+                                            android:textSize="9sp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tvMonthlyPrice"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="sans-serif-black"
+                                            android:text="$1000"
+                                            android:textColor="#5A5F6C"
+                                            android:textSize="17sp" />
+
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="/ Monthly"
+                                            android:textColor="#5A5F6C"
+                                            android:textSize="12sp" />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <LinearLayout
+            android:id="@+id/ctaBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_gravity="bottom"
+            android:background="@drawable/pw_scrim"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="14dp">
 
-            <TextView
-                android:id="@+id/tvPrivacy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:text="Privacy policy"
-                android:textColor="#6C7A71"
-                android:textSize="10.5sp" />
+            <LinearLayout
+                android:id="@+id/btnSubscribe"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/pw_cta"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="·"
-                android:textColor="#6C7A71"
-                android:textSize="10.5sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subscribe_vip"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvRestore"
-                android:layout_width="wrap_content"
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:text="Restore purchases"
-                android:textColor="#2FBF62"
-                android:textSize="10.5sp" />
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:src="@drawable/ic_dot" />
+
+
+                <TextView
+                    android:id="@+id/tvPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:text="@string/privacy_policy"
+                    android:textColor="#B2B2B2"
+                    android:textSize="10.5sp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:src="@drawable/ic_dot" />
+
+                <TextView
+                    android:id="@+id/tvRestore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:text="@string/restore_purchases"
+                    android:textColor="#B2B2B2"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</FrameLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/nav_tips"
+        android:icon="@drawable/ic_tips"
+        android:title="@string/vip_tips" />
+    <item
+        android:id="@+id/nav_telegram"
+        android:icon="@drawable/ic_telegram"
+        android:title="@string/telegram" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+</menu>

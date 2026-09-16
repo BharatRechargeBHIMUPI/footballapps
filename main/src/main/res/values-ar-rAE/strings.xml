@@ -1,0 +1,100 @@
+<resources>
+
+    <string name="title_main">FOOTBALL INSIDER</string>
+    <string name="subtitle_main">توقعات كرة القدم الموثوقة ونسب الرهان</string>
+
+    <string name="hero_badge">توقعات احترافية</string>
+    <string name="hero_title">اربح أكثر مع تحليلات كرة القدم المميزة</string>
+    <string name="hero_desc">مباريات يومية، نسب VIP، النتائج الدقيقة، وتوقعات الشوط/النهاية</string>
+
+    <string name="btn_today_picks">عرض اختيارات اليوم</string>
+    <string name="btn_vip">VIP</string>
+
+    <string name="section_today">اليوم</string>
+    <string name="daily_free_matches">مباريات مجانية يومية</string>
+    <string name="daily_free_desc">توقعات مختارة بعناية لمباريات اليوم</string>
+
+    <string name="vip_history">سجل نسب VIP</string>
+    <string name="vip_history_desc">تحقق من نتائج الفوز السابقة</string>
+
+    <string name="section_vip">توقعات VIP</string>
+
+    <string name="vip_ft_draws">تعادلات FT VIP</string>
+    <string name="vip_2_odds">نسب 2+ VIP</string>
+    <string name="vip_5_odds">نسب 5+ VIP</string>
+    <string name="vip_10_odds">نسب 10+ VIP</string>
+    <string name="vip_correct_score">النتيجة الصحيحة VIP</string>
+    <string name="vip_ht_ft">توقعات HT-FT 100+ VIP</string>
+
+    <string name="join_telegram">انضم إلى تيليجرام</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="data_driven_match_predictions">توقعات المباريات المبنية على البيانات</string>
+    <string name="head_to_head_form_analysis">المواجهات المباشرة وتحليل\nالفورمة</string>
+    <string name="free_daily_tips_premium_insights">توقعات يومية مجانية +\nتحليلات مميزة</string>
+    <string name="done">تم ✔</string>
+    <string name="next">التالي →</string>
+    <string name="fixed_score">النتائج الثابتة</string>
+    <string name="vip_tips">توقعات VIP</string>
+    <string name="contact">تواصل معنا</string>
+    <string name="vip_pricing">أسعار VIP</string>
+    <string name="faqs">الأسئلة الشائعة</string>
+    <string name="feedbacks">التعليقات</string>
+    <string name="rate_us">قيّمنا</string>
+    <string name="share_app">مشاركة التطبيق</string>
+    <string name="about_us">من نحن</string>
+    <string name="update_app">تحديث التطبيق</string>
+    <string name="settings">الإعدادات</string>
+    <string name="live_match_analysis">تحليل المباريات المباشر</string>
+    <string name="explore_past_predictions_winning_odds_amp_match_results">استكشف التوقعات السابقة ونسب الفوز ونتائج المباريات</string>
+    <string name="tab_here">اضغط هنا</string>
+    <string name="performance_tracker">متابعة الأداء</string>
+    <string name="hand_picked_free_predication_for_today">توقعات مجانية مختارة بعناية لليوم</string>
+    <string name="premium_insights">🏆 تحليلات مميزة</string>
+
+    <string name="one_plan_unlock_nall_6_sections">خطة واحدة. افتح\n<font color="#FFBB00">جميع أقسام VIP الستة</font></string>
+
+    <string name="unlock_now">افتح الآن 🔥</string>
+    <string name="_99_win_rate_n_50k_daily_winners">✅ معدل فوز 100٪\n🌟 أكثر من 50 ألف فائز يوميًا</string>
+    <string name="football_fixed_scores">النتائج الثابتة لكرة القدم</string>
+    <string name="daily_free_match">مباراة مجانية يومية</string>
+    <string name="live">مباشر</string>
+    <string name="our_pick">اختيارنا</string>
+    <string name="odds">النسب</string>
+    <string name="total_odds">إجمالي النسب :</string>
+    <string name="stake_singles_first">راهن على المباريات بشكل منفرد أولًا</string>
+    <string name="accumulator">تجميعي</string>
+    <string name="combined_odds">النسب المجمعة</string>
+    <string name="vip_odds_history">سجل نسب VIP</string>
+    <string name="subscribe_vip">اشترك في VIP</string>
+    <string name="language">اللغة</string>
+    <string name="skip">تخطي</string>
+    <string name="_100_win_rate">معدل فوز 100٪</string>
+    <string name="_50_000_members">أكثر من 50,000 عضو</string>
+    <string name="accurate_tips">توقعات دقيقة</string>
+    <string name="expert_match_insights">تحليلات خبراء المباريات</string>
+    <string name="free_match_analysis">تحليل مجاني للمباريات</string>
+    <string name="vip_performance_tracker">متابعة أداء VIP</string>
+    <string name="restore_purchases">استعادة المشتريات</string>
+
+    <string name="vip_pricing_title">أسعار VIP</string>
+
+    <string name="feedback_title">التعليقات</string>
+    <string name="about_us_title">من نحن</string>
+
+    <string name="stake_games_singles_before_combining">راهن على المباريات بشكل منفرد قبل تجميعها</string>
+    <string name="ft_draws_vip">تعادلات FT VIP</string>
+    <string name="two_odds_vip">نسب 2 VIP</string>
+    <string name="five_odds_vip">نسب 5 VIP</string>
+    <string name="ten_odds_vip">نسب 10 VIP</string>
+    <string name="correct_score_vip">النتيجة الصحيحة VIP</string>
+    <string name="htft_vip">HTFT VIP</string>
+    <string name="home">الرئيسية</string>
+    <string name="telegram">تيليجرام</string>
+    <string name="weekly_pass">الباقة الأسبوعية</string>
+    <string name="try_for_one_week_cancel_anytime">جرّب لمدة أسبوع — ألغِ في أي وقت</string>
+    <string name="monthly_pass">الباقة الشهرية</string>
+    <string name="full_season_access_best_value">الوصول الكامل للموسم — أفضل قيمة</string>
+    <string name="loading_passes">جارٍ تحميل الباقات…</string>
+    <string name="popular">🔥 الأكثر شعبية</string>
+
+</resources>

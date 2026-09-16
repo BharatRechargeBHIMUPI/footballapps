@@ -1,170 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_bg"
+    android:background="@drawable/bg_dashboard"
     android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
+    <!-- ═══════════════════════════════════════════════════════
+         HEADER BAR
+         New: flush top bar with cyan left-border + live badge
+    ════════════════════════════════════════════════════════ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/card_bg"
-        app:cardCornerRadius="20dp"
-        app:strokeColor="@color/card_stroke"
-        app:strokeWidth="1dp">
+        android:layout_height="58dp"
+        android:paddingHorizontal="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="14dp">
+        <!-- Back button — square icon badge -->
+        <FrameLayout
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <!-- Back Button -->
             <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_back"
-                android:tint="@color/white" />
+                android:contentDescription="Back" />
+        </FrameLayout>
 
-            <!-- Title -->
+        <!-- Title + breadcrumb sub-label -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            app:layout_constraintEnd_toStartOf="@+id/livePill"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="Daily Free Match"
-                android:textColor="@color/white"
+                android:text="@string/daily_free_match"
+                android:textColor="@color/text_primary"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.04" />
+
+
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+        <!-- Live pill — right aligned -->
+        <LinearLayout
+            android:id="@+id/livePill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_live_pill_cyan"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/bg_live_dot_cyan"
+                android:layout_marginEnd="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/live"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.12" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <LinearLayout
+        android:id="@+id/txtNote"
+        android:background="@drawable/bg_notice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/txtNote"
+        android:layout_marginHorizontal="14dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="14dp"
-        android:paddingVertical="10dp">
+        android:paddingStart="0dp"
+        android:paddingEnd="14dp"
+        android:paddingVertical="11dp">
 
+
+
+        <!-- Info icon -->
         <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:tint="#ffffff"
-            android:contentDescription="Note" />
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_info"
+            android:contentDescription="Note"
+            android:layout_marginEnd="8dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <!-- Note text -->
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Stake games singles before combining"
-            android:textColor="#8A9BB0"
-            android:textSize="12sp" />
+            android:text="@string/stake_games_singles_before_combining"
+            android:textColor="#084EE4"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-condensed"
+            android:letterSpacing="0.02" />
+
     </LinearLayout>
 
-
-    <!-- Tab Buttons -->
+    <!-- ═══════════════════════════════════════════════════════
+         TAB SWITCHER
+         New: segmented pill inside dark card — no outer card stroke
+         Active tab = cyan solid; Inactive = ghost with dim text
+    ════════════════════════════════════════════════════════ -->
     <LinearLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/card_bg"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:background="@drawable/bg_tab_container"
+        android:padding="7dp">
 
+        <!-- TODAY tab — active state by default -->
         <TextView
             android:id="@+id/tabToday"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/app_bg"
+            android:layout_marginEnd="3dp"
             android:gravity="center"
             android:text="TODAY"
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:textColor="@color/tab_text_select_color"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:letterSpacing="0.12"
+            android:background="@drawable/bg_tab_active" />
 
+        <!-- YESTERDAY tab — inactive state by default -->
         <TextView
             android:id="@+id/tabYesterday"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/card_bg"
+            android:layout_marginStart="3dp"
             android:gravity="center"
             android:text="YESTERDAY"
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:textColor="@color/tab_text_unselect_color"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:letterSpacing="0.12"
+            android:background="@drawable/bg_tab_unactive" />
+
     </LinearLayout>
 
+    <!-- ═══════════════════════════════════════════════════════
+         MATCH COUNT STRIP
+         New: lightweight row showing match count + date chip
+    ════════════════════════════════════════════════════════ -->
 
-    <!-- RecyclerView -->
+    <!-- Thin divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_divider_fade" />
 
+    <!-- ═══════════════════════════════════════════════════════
+         MATCHES LIST + EMPTY STATE
+    ════════════════════════════════════════════════════════ -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMatches"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:paddingHorizontal="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false" />
 
-        <TextView
+        <!-- Empty state — centered, styled -->
+        <LinearLayout
             android:id="@+id/txtNoHistory"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_centerInParent="true"
-            android:background="@color/app_bg"
-            android:gravity="center"
-            android:text="No games yet."
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:gravity="center">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/ic_no_history"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
 
+        </LinearLayout>
 
     </RelativeLayout>
 
-    <!-- Bottom CTA -->
+    <!-- ═══════════════════════════════════════════════════════
+         BOTTOM COMBINED ODDS BAR
+         New: floating panel — gold odds value, cyan ACCUM badge,
+              shimmer top-border, stat row above total
+    ════════════════════════════════════════════════════════ -->
     <LinearLayout
-
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/card_bg"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints">
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/bg_bottom_nav"
+        android:paddingTop="14dp"
+        android:paddingBottom="18dp">
 
-        <TextView
-            android:id="@+id/txtTotal"
-            android:layout_width="wrap_content"
+        <!-- Main odds row -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
+            <!-- Left: label + big odds value -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- COMBINED ODDS label -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/combined_odds"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.14" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+
+
+
+                    <!-- Big gold odds number -->
+                    <TextView
+                        android:id="@+id/txtTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/accent_gold"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:letterSpacing="-0.02"
+                        tools:text="14.50" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <!-- Right: ACCUMULATOR badge + match count -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!-- ACCUMULATOR badge -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accumulator"
+                    android:textColor="#000000"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed"
+                    android:letterSpacing="0.14"
+                    android:background="@drawable/bg_date_chip"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp" />
+
+                <!-- Small help text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/stake_singles_first"
+                    android:textColor="#565656"
+                    android:textSize="9sp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:letterSpacing="0.04" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

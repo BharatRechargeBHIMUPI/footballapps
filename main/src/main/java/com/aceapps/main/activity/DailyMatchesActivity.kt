@@ -57,13 +57,13 @@ class DailyMatchesActivity : BaseActivity() {
         val tableName = intent.getStringExtra("value") ?: "matches"
 
         txtTitle.text = when (tableName) {
-            "mcvFTDraws"     -> "FT Draws VIP"
-            "mcv2odds"       -> "Two Odds VIP"
-            "mcv5odds"       -> "Five Odds VIP"
-            "mcv10odds"      -> "Ten Odds VIP"
-            "mcvCorrectVIP"  -> "Correct Score VIP"
-            "mcv100VIP"      -> "HTFT VIP"
-            else             -> "Daily Free Match"
+            "mcvFTDraws"     -> getString(R.string.ft_draws_vip)
+            "mcv2odds"       -> getString(R.string.two_odds_vip)
+            "mcv5odds"       -> getString(R.string.five_odds_vip)
+            "mcv10odds"      -> getString(R.string.ten_odds_vip)
+            "mcvCorrectVIP"  -> getString(R.string.correct_score_vip)
+            "mcv100VIP"      -> getString(R.string.htft_vip)
+            else             -> getString(R.string.daily_free_match)
         }
 
         when (tableName) {

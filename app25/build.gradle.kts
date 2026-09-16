@@ -11,7 +11,11 @@ android {
     compileSdk {
         version = release(36)
     }
-
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
     defaultConfig {
         applicationId = "com.aceapps.partnership.app30"
         minSdk = 24

@@ -1,0 +1,96 @@
+<resources>
+
+    <string name="title_main">フットボールインサイダー</string>
+    <string name="subtitle_main">信頼できるサッカー予想＆オッズ</string>
+
+    <string name="hero_badge">プロ予想</string>
+    <string name="hero_title">プレミアムなサッカー分析で勝率アップ</string>
+    <string name="hero_desc">毎日の試合、VIPオッズ、正確なスコア、HT/FT予想</string>
+
+    <string name="btn_today_picks">今日の予想を見る</string>
+    <string name="btn_vip">VIP</string>
+
+    <string name="section_today">TODAY</string>
+    <string name="daily_free_matches">毎日の無料予想</string>
+    <string name="daily_free_desc">今日のために厳選された予想</string>
+
+    <string name="vip_history">VIPオッズ履歴</string>
+    <string name="vip_history_desc">過去の的中結果を確認</string>
+
+    <string name="section_vip">VIP予想</string>
+
+    <string name="vip_ft_draws">FT引き分け VIP</string>
+    <string name="vip_2_odds">2+オッズ VIP</string>
+    <string name="vip_5_odds">5+オッズ VIP</string>
+    <string name="vip_10_odds">10+オッズ VIP</string>
+    <string name="vip_correct_score">正確なスコア VIP</string>
+    <string name="vip_ht_ft">100+ HT-FT VIP</string>
+
+    <string name="join_telegram">Telegramに参加</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="data_driven_match_predictions">データに基づく試合\n予想</string>
+    <string name="head_to_head_form_analysis"><![CDATA[対戦成績＆チームの調子\n分析]]></string>
+    <string name="free_daily_tips_premium_insights">毎日の無料予想＋\nプレミアム分析</string>
+    <string name="done">完了 ✔</string>
+    <string name="next">次へ →</string>
+    <string name="fixed_score">固定スコア</string>
+    <string name="vip_tips">VIP予想</string>
+    <string name="contact">お問い合わせ</string>
+    <string name="vip_pricing">VIP料金</string>
+    <string name="faqs">よくある質問</string>
+    <string name="feedbacks">フィードバック</string>
+    <string name="rate_us">評価する</string>
+    <string name="share_app">アプリを共有</string>
+    <string name="about_us">私たちについて</string>
+    <string name="update_app">アプリを更新</string>
+    <string name="settings">設定</string>
+    <string name="live_match_analysis">ライブ試合分析</string>
+    <string name="explore_past_predictions_winning_odds_amp_match_results"><![CDATA[過去の予想、的中オッズ＆試合結果を確認]]></string>
+    <string name="tab_here">ここをタップ</string>
+    <string name="performance_tracker">成績トラッカー</string>
+    <string name="hand_picked_free_predication_for_today">今日の厳選無料予想</string>
+    <string name="premium_insights">🏆 プレミアム分析</string>
+
+    <string name="one_plan_unlock_nall_6_sections">1つのプランで\n<font color="#FFBB00">6つすべてのVIPプラン</font>を解放</string>
+
+    <string name="unlock_now">今すぐ解放 🔥</string>
+    <string name="_99_win_rate_n_50k_daily_winners">✅ 100%的中率\n🌟毎日5万人以上の勝者</string>
+    <string name="football_fixed_scores">サッカー固定スコア</string>
+    <string name="daily_free_match">毎日の無料試合</string>
+    <string name="live">LIVE</string>
+    <string name="our_pick">おすすめ予想</string>
+    <string name="odds">オッズ</string>
+    <string name="total_odds">合計オッズ：</string>
+    <string name="stake_singles_first">まずシングルに賭ける</string>
+    <string name="accumulator">アキュムレーター</string>
+    <string name="combined_odds">合計オッズ</string>
+    <string name="vip_odds_history">VIPオッズ履歴</string>
+    <string name="subscribe_vip">VIPに登録</string>
+    <string name="language">言語</string>
+    <string name="skip">スキップ</string>
+    <string name="_100_win_rate">100%的中率</string>
+    <string name="_50_000_members">50,000人以上のメンバー</string>
+    <string name="accurate_tips">正確な予想</string>
+    <string name="expert_match_insights">専門家による試合分析</string>
+    <string name="free_match_analysis">無料試合分析</string>
+    <string name="vip_performance_tracker">VIP成績トラッカー</string>
+    <string name="restore_purchases">購入を復元</string>
+    <string name="vip_pricing_title">VIP料金</string>
+    <string name="feedback_title">フィードバック</string>
+    <string name="about_us_title">私たちについて</string>
+    <string name="stake_games_singles_before_combining">組み合わせる前に各試合をシングルで賭ける</string>
+    <string name="ft_draws_vip">FT引き分け VIP</string>
+    <string name="two_odds_vip">2倍オッズ VIP</string>
+    <string name="five_odds_vip">5倍オッズ VIP</string>
+    <string name="ten_odds_vip">10倍オッズ VIP</string>
+    <string name="correct_score_vip">正確なスコア VIP</string>
+    <string name="htft_vip">HT/FT VIP</string>
+    <string name="home">ホーム</string>
+    <string name="telegram">テレグラム</string>
+    <string name="weekly_pass">週間パス</string>
+    <string name="try_for_one_week_cancel_anytime">1週間お試し — いつでもキャンセル可能</string>
+    <string name="monthly_pass">月間パス</string>
+    <string name="full_season_access_best_value">シーズン全期間アクセス — お得なプラン</string>
+    <string name="loading_passes">パスを読み込み中…</string>
+    <string name="popular">🔥 人気</string>
+</resources>

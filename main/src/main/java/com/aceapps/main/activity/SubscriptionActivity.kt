@@ -50,117 +50,13 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
     // New UI-only views
     private lateinit var tvWeeklyRadio: TextView
     private lateinit var tvMonthlyRadio: TextView
-    private lateinit var liveDot: View
 
     var products: MutableList<StoreProduct> = mutableListOf()
 
-    private val features = listOf(
-        Triple("⚡", "Daily Expert Picks", "Hand-curated predictions delivered every morning"),
-        Triple("📊", "In-Depth Match Analysis", "Full stats, form, and head-to-head breakdowns"),
-        Triple("🎯", "High Accuracy Tips", "94% average win rate across all VIP predictions"),
-    )
+    private lateinit var features: List<Triple<String, String, String>>
 
-    // Ink colour used on top of the bright green radio
-    private val onAccentInk = Color.parseColor("#08240F")
 
-    // ─── Animation helpers ───────────────────────────────────────────────────
 
-    /** Fade + slide-up entrance, with optional start delay for staggering */
-    private fun View.animateIn(delayMs: Long = 0) {
-        alpha = 0f
-        translationY = 60f
-        animate()
-            .alpha(1f)
-            .translationY(0f)
-            .setDuration(480)
-            .setStartDelay(delayMs)
-            .setInterpolator(DecelerateInterpolator(1.6f))
-            .start()
-    }
-
-    /** Fade + slide-left entrance, for form circles and stat columns */
-    private fun View.animateInFromLeft(delayMs: Long = 0) {
-        alpha = 0f
-        translationX = -28f
-        animate()
-            .alpha(1f)
-            .translationX(0f)
-            .setDuration(400)
-            .setStartDelay(delayMs)
-            .setInterpolator(DecelerateInterpolator(1.4f))
-            .start()
-    }
-
-    /** Scale-pop entrance for plan cards */
-    private fun View.animatePopIn(delayMs: Long = 0) {
-        alpha = 0f
-        scaleX = 0.88f
-        scaleY = 0.88f
-        animate()
-            .alpha(1f)
-            .scaleX(1f)
-            .scaleY(1f)
-            .setDuration(400)
-            .setStartDelay(delayMs)
-            .setInterpolator(OvershootInterpolator(1.2f))
-            .start()
-    }
-
-    /** Gentle infinite pulse on a view (e.g. subscribe button) */
-    private fun View.startPulse() {
-        val scaleX = ObjectAnimator.ofFloat(this, View.SCALE_X, 1f, 1.035f, 1f).apply {
-            duration = 1400
-            repeatCount = ValueAnimator.INFINITE
-            interpolator = android.view.animation.AccelerateDecelerateInterpolator()
-        }
-        val scaleY = ObjectAnimator.ofFloat(this, View.SCALE_Y, 1f, 1.035f, 1f).apply {
-            duration = 1400
-            repeatCount = ValueAnimator.INFINITE
-            interpolator = android.view.animation.AccelerateDecelerateInterpolator()
-        }
-        AnimatorSet().apply {
-            playTogether(scaleX, scaleY)
-            start()
-        }
-    }
-
-    /** Slow blink for the "GATE OPEN" indicator dot */
-    private fun View.startBlink() {
-        ObjectAnimator.ofFloat(this, View.ALPHA, 1f, 0.2f, 1f).apply {
-            duration = 1800
-            repeatCount = ValueAnimator.INFINITE
-            interpolator = android.view.animation.AccelerateDecelerateInterpolator()
-            start()
-        }
-    }
-
-    /**
-     * Press-down / release spring effect.
-     * Attach to any clickable view — does NOT interfere with click logic.
-     */
-    private fun View.attachPressEffect() {
-        setOnTouchListener { v, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    v.animate()
-                        .scaleX(0.94f).scaleY(0.94f)
-                        .setDuration(100)
-                        .setInterpolator(DecelerateInterpolator())
-                        .start()
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    v.animate()
-                        .scaleX(1f).scaleY(1f)
-                        .setDuration(220)
-                        .setInterpolator(OvershootInterpolator(2f))
-                        .start()
-                    // Let click still fire
-                    if (event.action == MotionEvent.ACTION_UP) v.performClick()
-                }
-            }
-            true
-        }
-    }
 
     /**
      * Swap selection with a scale-bounce so the card feels "snappy".
@@ -200,12 +96,32 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_subscription)
 
+        features = listOf(
+            Triple("✅",
+                getString(R.string._100_win_rate),
+                ""),
+            Triple("✅",
+                getString(R.string._50_000_members),
+                ""),
+            Triple("✅",
+                getString(R.string.accurate_tips),
+                ""),
+            Triple("✅",
+                getString(R.string.expert_match_insights), ""),
+        )
+
         onBackPressedDispatcher.addCallback(this) {
             // intentionally empty — same as original
         }
 
         btnClose = findViewById(R.id.btnClose)
-        btnClose.setOnClickListener { finish() }
+        btnClose.setOnClickListener {
+            if (intent.getBooleanExtra("open_main", false)){
+                startActivity(Intent(this@SubscriptionActivity, MainActivity::class.java))
+            }else{
+                finish()
+            }
+        }
 
         if (ProPlans.allProduct.isEmpty()) {
             SubscriptionSyncPlanFactory
@@ -264,13 +180,8 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         setupClickListeners()
         displayOffering(products)
 
-        // ── Entrance sequence ────────────────────────────────────────────────
-        runStaggeredEntrance()
 
-        liveDot.startBlink()
 
-        // Subscribe button pulse
-        btnSubscribe.postDelayed({ btnSubscribe.startPulse() }, 900)
 
         // Close button with delayed spring reveal (same 2 s delay as original)
         btnClose.visibility = View.GONE
@@ -285,27 +196,6 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
      * Now driven by IDs instead of child indexes, so re-ordering the layout
      * can never point an animation at the wrong section.
      */
-    private fun runStaggeredEntrance() {
-        findViewById<View>(R.id.topBar)?.animateIn(0)
-        findViewById<View>(R.id.ticketCard)?.animateIn(70)
-        findViewById<View>(R.id.featuresSection)?.animateIn(300)
-        findViewById<View>(R.id.plansContainer)?.animateIn(400)
-        findViewById<View>(R.id.ctaBar)?.animateIn(520)
-
-        // Form guide reveals one result at a time, left to right
-        findViewById<LinearLayout>(R.id.formRow)?.let { row ->
-            for (j in 0 until row.childCount) {
-                row.getChildAt(j)?.animateInFromLeft((j * 70 + 380).toLong())
-            }
-        }
-
-        // Stat columns on the stub
-        findViewById<LinearLayout>(R.id.statsRow)?.let { row ->
-            for (j in 0 until row.childCount) {
-                row.getChildAt(j)?.animateInFromLeft((j * 80 + 620).toLong())
-            }
-        }
-    }
 
     // ─── initViews ───────────────────────────────────────────────────────────
 
@@ -320,7 +210,6 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
 
         tvWeeklyRadio = findViewById(R.id.tvWeeklyRadio)
         tvMonthlyRadio = findViewById(R.id.tvMonthlyRadio)
-        liveDot = findViewById(R.id.liveDot)
     }
 
     // ─── setupPlanTitle — unchanged ──────────────────────────────────────────
@@ -332,7 +221,7 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
     // ─── setupFeatures — unchanged ───────────────────────────────────────────
 
     private fun setupFeatures() {
-        val featureIds = listOf(R.id.feature1, R.id.feature2, R.id.feature3)
+        val featureIds = listOf(R.id.feature1, R.id.feature2, R.id.feature3, R.id.feature4)
         featureIds.forEachIndexed { index, viewId ->
             val featureView = findViewById<View>(viewId)
             val (icon, title, desc) = features[index]
@@ -352,23 +241,48 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         )
 
         tvWeeklyRadio.setBackgroundResource(
-            if (weeklySelected) R.drawable.pw_dot else R.drawable.pw_ring
+            if (weeklySelected) R.drawable.pw_radio_selected else R.drawable.pw_radio_unselected
         )
         tvMonthlyRadio.setBackgroundResource(
-            if (weeklySelected) R.drawable.pw_ring else R.drawable.pw_dot
+            if (weeklySelected) R.drawable.pw_radio_unselected else R.drawable.pw_radio_selected
         )
 
-        tvWeeklyRadio.setTextColor(if (weeklySelected) onAccentInk else Color.TRANSPARENT)
-        tvMonthlyRadio.setTextColor(if (weeklySelected) Color.TRANSPARENT else onAccentInk)
+        if (weeklySelected){
+            tvWeeklyRadio.setText("✓")
+            tvMonthlyRadio.setText("")
+            tvWeeklyRadio.setTextColor(Color.WHITE)
+            tvMonthlyRadio.setTextColor(Color.WHITE)
+            findViewById<TextView>(R.id.tvMonthlyPrice).setTextColor(Color.parseColor("#5A5F6C"))
+            findViewById<TextView>(R.id.tvWeeklyPrice).setTextColor(Color.parseColor("#5282FC"))
+
+            findViewById<TextView>(R.id.tvMonthlyTitle).setTextColor(Color.parseColor("#5A5F6C"))
+            findViewById<TextView>(R.id.tvWeeklyTitle).setTextColor(Color.WHITE)
+
+            findViewById<TextView>(R.id.tvMonthlySubtitle).setTextColor(Color.parseColor("#5A5F6C"))
+            findViewById<TextView>(R.id.tvWeeklySubtitle).setTextColor(Color.WHITE)
+
+        }else{
+            tvMonthlyRadio.setText("✓")
+            tvWeeklyRadio.setText("")
+            tvWeeklyRadio.setTextColor(Color.WHITE)
+            tvMonthlyRadio.setTextColor(Color.WHITE)
+            findViewById<TextView>(R.id.tvMonthlyPrice).setTextColor(Color.parseColor("#5282FC"))
+            findViewById<TextView>(R.id.tvWeeklyPrice).setTextColor(Color.parseColor("#5A5F6C"))
+
+            findViewById<TextView>(R.id.tvMonthlyTitle).setTextColor(Color.WHITE)
+            findViewById<TextView>(R.id.tvWeeklyTitle).setTextColor(Color.parseColor("#5A5F6C"))
+
+            findViewById<TextView>(R.id.tvMonthlySubtitle).setTextColor(Color.WHITE)
+            findViewById<TextView>(R.id.tvWeeklySubtitle).setTextColor(Color.parseColor("#5A5F6C"))
+
+        }
     }
 
     // ─── setupClickListeners — billing logic untouched ──────────────────────
 
     private fun setupClickListeners() {
 
-        // Attach spring press effect to main tappable surfaces
-        btnSubscribe.attachPressEffect()
-        btnClose.attachPressEffect()
+
 
         if (products.isNotEmpty()) {
             val productWeek = products.firstOrNull { it.id.contains("week") }
@@ -378,7 +292,6 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
             selectedProduct = productMonth ?: productWeek ?: products[0]
             applySelection(weeklySelected = productMonth == null)
 
-            planWeekly.attachPressEffect()
             planWeekly.setOnClickListener {
                 productWeek?.let {
                     selectedProduct = it
@@ -389,7 +302,6 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
                 }
             }
 
-            planMonthly.attachPressEffect()
             planMonthly.setOnClickListener {
                 productMonth?.let {
                     selectedProduct = it
@@ -455,13 +367,11 @@ class SubscriptionActivity : BaseActivity(), LaunchFlow.LaunchFlowCallback {
         for (i in product.indices) {
             if (product[i].id.contains("week")) {
                 planWeekly.visibility = View.VISIBLE
-                planWeekly.animatePopIn(delayMs = 0)
                 planWeekly.findViewById<TextView>(R.id.tvWeeklyPrice).text =
                     product[i].price.formatted
             }
             if (product[i].id.contains("month")) {
                 planMonthly.visibility = View.VISIBLE
-                planMonthly.animatePopIn(delayMs = 120)
                 planMonthly.findViewById<TextView>(R.id.tvMonthlyPrice).text =
                     product[i].price.formatted
             }

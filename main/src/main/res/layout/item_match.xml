@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  item_match_card.xml — DARK MATTER premium redesign
-  All view IDs preserved exactly. No logic changes needed.
--->
-<com.google.android.material.card.MaterialCardView
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="14dp"
-    app:cardBackgroundColor="#080B12"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="0dp"
-    app:strokeColor="@color/app_primary"
-    app:strokeWidth="1dp">
+    android:background="@drawable/bg_tips"
+    android:layout_marginBottom="14dp">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -38,53 +30,45 @@
                 android:paddingTop="13dp"
                 android:paddingBottom="13dp">
 
-                <!-- Pulsing dot -->
-                <View
-                    android:layout_width="7dp"
-                    android:layout_height="7dp"
-                    android:background="@drawable/bg_dot_accent"
-                    android:layout_marginEnd="9dp" />
+
 
                 <!-- Country · League -->
                 <TextView
                     android:id="@+id/tvCountry"
                     android:layout_width="0dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="India · Premier League"
-                    android:textColor="#C8D0E0"
-                    android:textSize="11sp"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:letterSpacing="0.04" />
 
-                <!-- Time chip -->
-                <TextView
-                    android:id="@+id/tvLeagueTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20:11"
-                    android:textColor="@color/app_primary"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.06"
-                    android:background="@drawable/bg_plan_card_unselected"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"
-                    android:layout_marginEnd="8dp" />
+
+
 
                 <!-- Status badge -->
-                <TextView
-                    android:id="@+id/tvStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PENDING"
-                    android:textSize="8sp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.1"
+                <RelativeLayout
+                    android:id="@+id/rlStatus"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="5dp"
-                    android:background="@drawable/bg_status_pending" />
+                    android:background="@drawable/bg_status_pending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PENDING"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+
+
+                </RelativeLayout>
             </LinearLayout>
 
             <!-- Full-width hairline divider -->
@@ -97,18 +81,7 @@
             <!-- ══════════════════════════════════════════ -->
             <!--  DATE                                       -->
             <!-- ══════════════════════════════════════════ -->
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Friday, 10 April 2026"
-                android:textColor="#ffffff"
-                android:textSize="9sp"
-                android:letterSpacing="0.08"
-                android:gravity="center"
-                android:paddingTop="10dp"
-                android:paddingBottom="4dp"
-                android:paddingEnd="14dp" />
+
 
             <!-- ══════════════════════════════════════════ -->
             <!--  TEAMS + SCORE                             -->
@@ -118,8 +91,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingTop="10dp"
-                android:paddingBottom="14dp"
                 android:paddingEnd="14dp">
 
                 <!-- HOME TEAM -->
@@ -132,30 +103,30 @@
 
                     <!-- Logo box with orange accent ring -->
                     <FrameLayout
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center">
 
 
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
+                        <RelativeLayout
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_gravity="center"
                             app:cardCornerRadius="13dp"
                             app:cardBackgroundColor="#111827"
-                            app:strokeColor="@color/app_primary"
-                            app:strokeWidth="1dp"
-                            app:cardElevation="0dp">
+                            android:background="@drawable/bg_flags"
+                            >
 
                             <TextView
                                 android:id="@+id/ivHomeLogo1"
+                                android:layout_centerInParent="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textSize="22sp"
+                                android:textSize="30sp"
                                 android:text="🏠" />
-                        </com.google.android.material.card.MaterialCardView>
+                        </RelativeLayout>
                     </FrameLayout>
 
                     <TextView
@@ -176,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOME"
-                        android:textColor="#ffffff"
+                        android:textColor="#434B5D"
                         android:textSize="8sp"
                         android:letterSpacing="0.1"
                         android:layout_marginTop="3dp" />
@@ -195,7 +166,7 @@
                         android:id="@+id/mcvScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardBackgroundColor="#040608"
+                        app:cardBackgroundColor="@android:color/transparent"
                         app:cardCornerRadius="14dp"
                         app:strokeColor="#0F1520"
                         app:strokeWidth="1dp"
@@ -210,6 +181,16 @@
                             android:gravity="center">
 
                             <TextView
+                                android:id="@+id/tvDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Friday, 10 April 2026"
+                                android:textColor="#ffffff"
+                                android:textSize="9sp"
+                                android:textAlignment="center"
+                                android:gravity="center"/>
+
+                            <TextView
                                 android:id="@+id/tvScore"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -219,13 +200,6 @@
                                 android:textStyle="bold"
                                 android:letterSpacing="0.05" />
 
-                            <!-- Orange underline accent -->
-                            <View
-                                android:layout_width="28dp"
-                                android:layout_height="2dp"
-                                android:background="@color/app_primary"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="4dp" />
 
                             <TextView
                                 android:id="@+id/tvScoreLabel"
@@ -236,6 +210,19 @@
                                 android:textSize="9sp"
                                 android:textStyle="bold"
                                 android:letterSpacing="0.3" />
+
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/tvLeagueTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="20:11"
+                                android:textColor="#ffffff"
+                                android:background="@drawable/bg_date_tips"
+                                android:textSize="9sp"
+                                android:letterSpacing="0.08"
+                                android:padding="10dp" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -261,30 +248,32 @@
                     android:gravity="center">
 
                     <FrameLayout
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center">
 
 
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
+
+                        <RelativeLayout
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:layout_gravity="center"
                             app:cardCornerRadius="13dp"
                             app:cardBackgroundColor="#111827"
-                            app:strokeColor="@color/app_primary"
-                            app:strokeWidth="1dp"
-                            app:cardElevation="0dp">
+                            android:background="@drawable/bg_flags"
+                            >
 
                             <TextView
                                 android:id="@+id/ivHomeLogo2"
+                                android:layout_centerInParent="true"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textSize="22sp"
-                                android:text="✈️" />
-                        </com.google.android.material.card.MaterialCardView>
+                                android:textSize="30sp"
+                                android:text="🏠" />
+                        </RelativeLayout>
                     </FrameLayout>
+
 
                     <TextView
                         android:id="@+id/tvAwayTeam"
@@ -304,12 +293,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="AWAY"
-                        android:textColor="#ffffff"
+                        android:textColor="#434B5D"
                         android:textSize="8sp"
                         android:letterSpacing="0.1"
                         android:layout_marginTop="3dp" />
                 </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/odds"
+                android:layout_marginHorizontal="50dp"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.14"
+                android:gravity="end"
+                android:layout_marginBottom="3dp" />
 
             <!-- ══════════════════════════════════════════ -->
             <!--  PREDICTION STRIP (bottom full-width)      -->
@@ -319,18 +320,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:background="#0A0D15"
-                android:paddingStart="12dp"
-                android:paddingEnd="14dp"
+                android:background="@drawable/bg_date_tips"
+                android:paddingHorizontal="12dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp"
                 android:paddingVertical="12dp">
 
                 <!-- "OUR PICK" micro label -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="OUR PICK"
+                    android:text="@string/our_pick"
                     android:textColor="#ffffff"
-                    android:textSize="8sp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.14"
+                    android:layout_marginEnd="10dp" />
+                <!-- "OUR PICK" micro label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     android:letterSpacing="0.14"
                     android:layout_marginEnd="10dp" />
@@ -344,10 +356,7 @@
                     android:text="Over 2.5 Goals"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:background="@drawable/bg_pick_chip"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="7dp" />
+                    android:textStyle="bold" />
 
                 <!-- Spacer -->
                 <View
@@ -361,16 +370,7 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ODDS"
-                        android:textColor="#ffffff"
-                        android:textSize="8sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.14"
-                        android:gravity="center"
-                        android:layout_marginBottom="3dp" />
+
 
                     <!-- Odds value -->
                     <TextView
@@ -379,7 +379,7 @@
                         android:layout_height="wrap_content"
                         android:text="1.85"
                         android:textSize="15sp"
-                        android:textColor="#00C853"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:background="@drawable/bg_odds_chip"
                         android:paddingHorizontal="14dp"
@@ -390,4 +390,4 @@
         </LinearLayout>
     </FrameLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</androidx.appcompat.widget.LinearLayoutCompat>

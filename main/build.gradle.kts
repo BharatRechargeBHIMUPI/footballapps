@@ -65,5 +65,7 @@ dependencies {
     api("com.facebook.android:facebook-android-sdk:18.0.3")
     api("com.android.installreferrer:installreferrer:2.2")
     api("de.hdodenhof:circleimageview:3.1.0")
+    api(libs.lottie)
+
     api("com.google.android.play:review:2.0.1")
 }

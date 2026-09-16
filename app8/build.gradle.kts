@@ -37,6 +37,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
 }
 
 dependencies {

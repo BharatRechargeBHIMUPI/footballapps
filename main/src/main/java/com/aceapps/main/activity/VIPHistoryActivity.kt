@@ -3,6 +3,7 @@ package com.aceapps.main.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +22,7 @@ import kotlin.math.roundToInt
 class VIPHistoryActivity : BaseActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var btnBack: ImageView
+    private lateinit var btnBack: FrameLayout
     private lateinit var txtTitle: TextView
     private lateinit var txtNoHistory: TextView
     private lateinit var txtTotal: TextView

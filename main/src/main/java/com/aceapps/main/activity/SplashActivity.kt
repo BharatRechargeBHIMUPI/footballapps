@@ -24,6 +24,7 @@ import com.aceapps.main.SubscriptionStatusManagerFactory
 import com.aceapps.main.subs.SubscriptionPlanSync
 import com.aceapps.main.subs.SubscriptionSubsManager
 import com.aceapps.main.subs.SubscriptionSyncPlanFactory
+import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -33,11 +34,18 @@ import java.util.UUID
 
 class SplashActivity : BaseActivity() {
 
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+
+        val lavLoader = findViewById<LottieAnimationView>(R.id.lavLoader)
+
+        lavLoader.setMinFrame(0)
+        lavLoader.setMaxFrame(101)
+        lavLoader.speed = 1f
+        lavLoader.playAnimation()
 
         // ── Original logic (untouched) ─────────────────────────────
         AnalyticsHelper.getInstance().logEvent("event_app_splash_shown", null)
@@ -48,179 +56,6 @@ class SplashActivity : BaseActivity() {
         if (!NetworkUtils.isInternetAvailable(this)) {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }
-
-        // ── View references ────────────────────────────────────────
-        val ring1               = findViewById<View>(R.id.ring1)
-        val ring2               = findViewById<View>(R.id.ring2)
-        val ring3               = findViewById<View>(R.id.ring3)
-        val bgGlow              = findViewById<View>(R.id.bgGlow)
-        val gridOverlay         = findViewById<View>(R.id.gridOverlay)
-        val logo                = findViewById<ImageView>(R.id.logo)
-        val hexRing             = findViewById<ImageView>(R.id.hexRing)
-        val logoRing            = findViewById<View>(R.id.logoRing)
-        val appName             = findViewById<TextView>(R.id.appName)
-        val underline           = findViewById<View>(R.id.underlineAccent)
-        val tagline             = findViewById<TextView>(R.id.tagline)
-        val dotsLayout          = findViewById<View>(R.id.dotsLayout)
-        val dot1                = findViewById<View>(R.id.dot1)
-        val dot2                = findViewById<View>(R.id.dot2)
-        val dot3                = findViewById<View>(R.id.dot3)
-        val poweredBy           = findViewById<TextView>(R.id.poweredBy)
-        val loadingBarContainer = findViewById<View>(R.id.loadingBarContainer)
-        val loadingBarFill      = findViewById<View>(R.id.loadingBarFill)
-        // NEW — live badge + pulsing dot
-        val liveBadge           = findViewById<View>(R.id.liveBadge)
-        val liveDot             = findViewById<View>(R.id.liveDot)
-
-        // ══════════════════════════════════════════════════════════
-        //  ANIMATION SEQUENCE
-        // ══════════════════════════════════════════════════════════
-
-        // ── STEP 0 (0ms): Pitch overlay ghost-fades in ────────────
-        gridOverlay.animate()
-            .alpha(0.13f)
-            .setDuration(1400)
-            .setStartDelay(0)
-            .setInterpolator(DecelerateInterpolator())
-            .start()
-
-        // ── STEP 1 (80ms): Emerald glow blooms ────────────────────
-        bgGlow.animate()
-            .alpha(0.50f)
-            .scaleX(1f).scaleY(1f)
-            .setDuration(1000)
-            .setStartDelay(80)
-            .setInterpolator(DecelerateInterpolator(2f))
-            .start()
-
-        // ── STEP 2 (0ms): Mint pulse rings staggered ──────────────
-        startRingPulse(ring1, 0L)
-        startRingPulse(ring2, 700L)
-        startRingPulse(ring3, 1400L)
-
-        // ── STEP 3 (150ms): Live badge drops in from top ──────────
-        liveBadge.translationY = -30f
-        liveBadge.animate()
-            .alpha(1f).translationY(0f)
-            .setDuration(500)
-            .setStartDelay(150)
-            .setInterpolator(OvershootInterpolator(1.6f))
-            .withEndAction { startLiveDotPulse(liveDot) }
-            .start()
-
-        // ── STEP 4 (300ms): Logo shoots in with spring ────────────
-        val logoScaleUp = AnimatorSet().apply {
-            val sx = ObjectAnimator.ofFloat(logo, "scaleX", 0.2f, 1.18f)
-            val sy = ObjectAnimator.ofFloat(logo, "scaleY", 0.2f, 1.18f)
-            val fa = ObjectAnimator.ofFloat(logo, "alpha", 0f, 1f)
-            playTogether(sx, sy, fa)
-            duration = 550
-            startDelay = 300
-            interpolator = DecelerateInterpolator(2f)
-        }
-        val logoSettles = AnimatorSet().apply {
-            val sx = ObjectAnimator.ofFloat(logo, "scaleX", 1.18f, 1f)
-            val sy = ObjectAnimator.ofFloat(logo, "scaleY", 1.18f, 1f)
-            playTogether(sx, sy)
-            duration = 260
-            interpolator = OvershootInterpolator(3f)
-        }
-        AnimatorSet().apply {
-            playSequentially(logoScaleUp, logoSettles)
-            start()
-        }
-
-        // ── STEP 5 (700ms): Hex ring rotates in ──────────────────
-        handler.postDelayed({
-            hexRing.animate()
-                .alpha(0.65f).scaleX(1f).scaleY(1f)
-                .setDuration(500)
-                .setInterpolator(DecelerateInterpolator())
-                .start()
-            startSlowRotation(hexRing)
-        }, 700)
-
-        // ── STEP 6 (820ms): Logo ring pops in ─────────────────────
-        handler.postDelayed({
-            logoRing.animate()
-                .alpha(1f).scaleX(1f).scaleY(1f)
-                .setDuration(420)
-                .setInterpolator(OvershootInterpolator(2.2f))
-                .start()
-        }, 820)
-
-        // ── STEP 7 (950ms): App name slides up with bounce ────────
-        appName.animate()
-            .translationY(0f).alpha(1f)
-            .setDuration(650)
-            .setStartDelay(950)
-            .setInterpolator(OvershootInterpolator(1.5f))
-            .start()
-
-        // ── STEP 8 (1180ms): Underline sweeps left → right ────────
-        handler.postDelayed({
-            val targetPx = (150 * resources.displayMetrics.density).toInt()
-            ValueAnimator.ofInt(0, targetPx).apply {
-                duration = 560
-                interpolator = DecelerateInterpolator(1.5f)
-                addUpdateListener { va ->
-                    val lp = underline.layoutParams
-                    lp.width = va.animatedValue as Int
-                    underline.layoutParams = lp
-                }
-                start()
-            }
-        }, 1180)
-
-        // ── STEP 9 (1280ms): Tagline fades + slides up ────────────
-        tagline.animate()
-            .translationY(0f).alpha(1f)
-            .setDuration(550)
-            .setStartDelay(1280)
-            .setInterpolator(DecelerateInterpolator(1.5f))
-            .start()
-
-        // ── STEP 10 (1750ms): Loading bar sweeps across ───────────
-        handler.postDelayed({
-            loadingBarContainer.animate()
-                .alpha(1f)
-                .setDuration(300)
-                .withEndAction {
-                    val targetPx = (160 * resources.displayMetrics.density).toInt()
-                    ValueAnimator.ofInt(0, targetPx).apply {
-                        duration = 1800
-                        interpolator = AccelerateDecelerateInterpolator()
-                        addUpdateListener { va ->
-                            val lp = loadingBarFill.layoutParams
-                            lp.width = va.animatedValue as Int
-                            loadingBarFill.layoutParams = lp
-                        }
-                        start()
-                    }
-                }
-                .start()
-        }, 1750)
-
-        // ── STEP 11 (1850ms): Dots fade in + pulse ────────────────
-        dotsLayout.animate()
-            .alpha(1f)
-            .setDuration(400)
-            .setStartDelay(1850)
-            .withEndAction { startDotPulse(dot1, dot2, dot3) }
-            .start()
-
-        // ── STEP 12 (2050ms): Powered-by label ────────────────────
-        poweredBy.animate()
-            .alpha(1f)
-            .setDuration(500)
-            .setStartDelay(2050)
-            .start()
-
-        // ── STEP 13 (2300ms): Content group subtle breathe ────────
-        handler.postDelayed({
-            startBreathePulse(findViewById(R.id.contentGroup))
-        }, 2300)
-
         // ── Original subscription check (untouched) ────────────────
         SubscriptionStatusManagerFactory
             .create()
@@ -242,105 +77,13 @@ class SplashActivity : BaseActivity() {
     //  ANIMATION HELPERS
     // ══════════════════════════════════════════════════════════════
 
-    /** Expanding ring that pulses outward and fades, loops forever */
-    private fun startRingPulse(ring: View, delay: Long) {
-        val scaleX = ObjectAnimator.ofFloat(ring, "scaleX", 0.3f, 2.2f)
-        val scaleY = ObjectAnimator.ofFloat(ring, "scaleY", 0.3f, 2.2f)
-        val alpha  = ObjectAnimator.ofFloat(ring, "alpha", 0.50f, 0f)
-
-        AnimatorSet().apply {
-            playTogether(scaleX, scaleY, alpha)
-            duration     = 3200
-            startDelay   = delay
-            interpolator = DecelerateInterpolator(1.5f)
-            addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) { start() }
-            })
-            start()
-        }
-    }
-
-    /** Slow continuous clockwise rotation for the hex ring */
-    private fun startSlowRotation(view: View) {
-        ObjectAnimator.ofFloat(view, "rotation", 0f, 360f).apply {
-            duration     = 14000
-            repeatCount  = ObjectAnimator.INFINITE
-            repeatMode   = ObjectAnimator.RESTART
-            interpolator = LinearInterpolator()
-            start()
-        }
-    }
-
-    /** Subtle scale breathe on the whole content group */
-    private fun startBreathePulse(view: View) {
-        val scaleUp = AnimatorSet().apply {
-            val sx = ObjectAnimator.ofFloat(view, "scaleX", 1f, 1.022f)
-            val sy = ObjectAnimator.ofFloat(view, "scaleY", 1f, 1.022f)
-            playTogether(sx, sy)
-            duration     = 1900
-            interpolator = AccelerateDecelerateInterpolator()
-        }
-        val scaleDown = AnimatorSet().apply {
-            val sx = ObjectAnimator.ofFloat(view, "scaleX", 1.022f, 1f)
-            val sy = ObjectAnimator.ofFloat(view, "scaleY", 1.022f, 1f)
-            playTogether(sx, sy)
-            duration     = 1900
-            interpolator = AccelerateDecelerateInterpolator()
-        }
-        AnimatorSet().apply {
-            playSequentially(scaleUp, scaleDown)
-            addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    handler.postDelayed({ startBreathePulse(view) }, 450)
-                }
-            })
-            start()
-        }
-    }
-
     /**
      * Live dot — smooth alpha pulse (mint glow feel).
      * Animates the small circle inside the live badge.
      */
-    private fun startLiveDotPulse(dot: View) {
-        ObjectAnimator.ofFloat(dot, "alpha", 0.35f, 1f).apply {
-            duration    = 900
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode  = ObjectAnimator.REVERSE
-            interpolator = AccelerateDecelerateInterpolator()
-            start()
-        }
-    }
+
 
     /** Three-dot staggered pulse loop */
-    private fun startDotPulse(vararg dots: View) {
-        dots.forEachIndexed { i, dot ->
-            val scaleUp = AnimatorSet().apply {
-                val sx = ObjectAnimator.ofFloat(dot, "scaleX", 1f, 1.7f)
-                val sy = ObjectAnimator.ofFloat(dot, "scaleY", 1f, 1.7f)
-                val fa = ObjectAnimator.ofFloat(dot, "alpha", 0.45f, 1f)
-                playTogether(sx, sy, fa)
-                duration = 280
-            }
-            val scaleDown = AnimatorSet().apply {
-                val sx = ObjectAnimator.ofFloat(dot, "scaleX", 1.7f, 1f)
-                val sy = ObjectAnimator.ofFloat(dot, "scaleY", 1.7f, 1f)
-                val fa = ObjectAnimator.ofFloat(dot, "alpha", 1f, 0.45f)
-                playTogether(sx, sy, fa)
-                duration = 280
-            }
-            AnimatorSet().apply {
-                playSequentially(scaleUp, scaleDown)
-                startDelay = i * 220L
-                addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        handler.postDelayed({ startDotPulse(dot) }, 500L)
-                    }
-                })
-                start()
-            }
-        }
-    }
 
     // ══════════════════════════════════════════════════════════════
     //  ORIGINAL LOGIC (untouched)
@@ -352,13 +95,27 @@ class SplashActivity : BaseActivity() {
             .init(object : SubscriptionPlanSync.Callback {
                 override fun onPlanFetchedSuccessfully() {
                     Handler(Looper.getMainLooper()).postDelayed({
-                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        if (sharedPref.isOnBoardingShown()){
+                            val intent = Intent(this@SplashActivity, SubscriptionActivity::class.java)
+                            intent.putExtra("product_name", "mega_subscription")
+                            intent.putExtra("open_main", true)
+                            startActivity(intent)
+                        }else{
+                            startActivity(Intent(this@SplashActivity, LanguageActivity::class.java))
+                        }
                         finish()
                     }, 2000)
                 }
                 override fun onPlanFetchedFail(error: String) {
                     Handler(Looper.getMainLooper()).postDelayed({
-                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        if (sharedPref.isOnBoardingShown()){
+                            val intent = Intent(this@SplashActivity, SubscriptionActivity::class.java)
+                            intent.putExtra("product_name", "mega_subscription")
+                            intent.putExtra("open_main", true)
+                            startActivity(intent)
+                        }else{
+                            startActivity(Intent(this@SplashActivity, LanguageActivity::class.java))
+                        }
                         finish()
                     }, 2000)
                 }

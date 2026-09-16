@@ -6,7 +6,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.updatePadding
 import com.aceapps.main.R
 import com.aceapps.main.SharedPref
@@ -49,7 +51,21 @@ open class BaseActivity : AppCompatActivity() {
         sharedPref = SharedPref(this)
         activity = this
 
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        val controller = WindowCompat.getInsetsController(window, window.decorView)
+
+        controller.hide(
+            WindowInsetsCompat.Type.statusBars() or
+                    WindowInsetsCompat.Type.navigationBars()
+        )
+
+        controller.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+
         rootView = findViewById(android.R.id.content)
+
         rootView.applySystemBarsInsets(
             ContextCompat.getColor(this, R.color.toolbar_bg_color)
         )

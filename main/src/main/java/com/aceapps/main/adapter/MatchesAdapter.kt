@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aceapps.main.R
@@ -61,6 +62,7 @@ class MatchesAdapter(private val items: List<Any>) :
 
         private val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         private val tvCountry: TextView = itemView.findViewById(R.id.tvCountry)
+        private val rlStatus: RelativeLayout = itemView.findViewById(R.id.rlStatus)
         private val tvLeagueTime: TextView = itemView.findViewById(R.id.tvLeagueTime)
         private val tvHomeTeam: TextView = itemView.findViewById(R.id.tvHomeTeam)
         private val tvAwayTeam: TextView = itemView.findViewById(R.id.tvAwayTeam)
@@ -97,27 +99,29 @@ class MatchesAdapter(private val items: List<Any>) :
                 "Pending" -> {
                     tvStatus.visibility = View.VISIBLE
                     tvStatus.text = "PENDING"
-                    tvStatus.setTextColor(Color.parseColor("#000000"))
-                    tvStatus.setBackgroundColor(Color.parseColor("#E6A817"))
+                    tvStatus.setTextColor(Color.parseColor("#ffffff"))
+                    rlStatus.setBackgroundResource(R.drawable.bg_status_pending)
                 }
 
                 "Win" -> {
                     tvStatus.visibility = View.VISIBLE
                     tvStatus.text = "WIN"
-                    tvStatus.setTextColor(Color.parseColor("#000000"))
-                    tvStatus.setBackgroundColor(Color.parseColor("#2ECC71"))
+                    tvStatus.setTextColor(Color.parseColor("#ffffff"))
+                    rlStatus.setBackgroundResource(R.drawable.bg_win)
                 }
 
                 "Lose" -> {
                     tvStatus.visibility = View.VISIBLE
                     tvStatus.text = "LOSS"
-                    tvStatus.setBackgroundColor(Color.parseColor("#E74C3C"))
+                    tvStatus.setTextColor(Color.parseColor("#ffffff"))
+                    rlStatus.setBackgroundResource(R.drawable.bg_live_pill_cyan)
                 }
 
                 "Live" -> {
                     tvStatus.visibility = View.VISIBLE
                     tvStatus.text = "LIVE"
-                    tvStatus.setBackgroundColor(Color.parseColor("#FF0000"))
+                    tvStatus.setTextColor(Color.parseColor("#ffffff"))
+                    rlStatus.setBackgroundResource(R.drawable.bg_live_pill_cyan)
 
                     val blink = android.view.animation.AnimationUtils
                         .loadAnimation(itemView.context, R.anim.blink)

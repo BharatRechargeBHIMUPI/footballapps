@@ -80,8 +80,8 @@
     <color name="vip_amber">#F4C430</color>
     <color name="vip_purple">#7C83FD</color>
     <color name="vip_red">#FF4757</color>
-    <color name="tab_text_select_color">#000000</color>
-    <color name="tab_text_unselect_color">#ffffff</color>
+    <color name="tab_text_select_color">#ffffff</color>
+    <color name="tab_text_unselect_color">#393939</color>
 
     <!-- ═══════════════════════════════════════════
          ICON BACKGROUNDS

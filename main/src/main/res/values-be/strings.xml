@@ -1,0 +1,99 @@
+<resources>
+
+    <string name="title_main">FOOTBALL INSIDER</string>
+    <string name="subtitle_main">Надзейныя футбольныя прагнозы і каэфіцыенты</string>
+
+    <string name="hero_badge">ПРАФЕСІЙНЫЯ ПРАГНОЗЫ</string>
+    <string name="hero_title">Выйгравайце больш з прэміум-аналітыкай футбола</string>
+    <string name="hero_desc">Штодзённыя матчы, VIP-каэфіцыенты, дакладныя рахункі і прагнозы HT/FT</string>
+
+    <string name="btn_today_picks">Паглядзець прагнозы на сёння</string>
+    <string name="btn_vip">VIP</string>
+
+    <string name="section_today">СЁННЯ</string>
+    <string name="daily_free_matches">Штодзённыя бясплатныя матчы</string>
+    <string name="daily_free_desc">Рэкамендаваныя прагнозы на сёння</string>
+
+    <string name="vip_history">Гісторыя VIP-каэфіцыентаў</string>
+    <string name="vip_history_desc">Праверце папярэднія выйгрышныя вынікі</string>
+
+    <string name="section_vip">VIP ПРАГНОЗЫ</string>
+
+    <string name="vip_ft_draws">VIP на нічыі FT</string>
+    <string name="vip_2_odds">VIP-каэфіцыенты 2+</string>
+    <string name="vip_5_odds">VIP-каэфіцыенты 5+</string>
+    <string name="vip_10_odds">VIP-каэфіцыенты 10+</string>
+    <string name="vip_correct_score">VIP на дакладны рахунак</string>
+    <string name="vip_ht_ft">VIP на HT-FT 100+</string>
+
+    <string name="join_telegram">Далучыцца да Telegram</string>
+    <string name="privacy_policy">Палітыка прыватнасці</string>
+    <string name="data_driven_match_predictions">Прагнозы матчаў\nна аснове даных</string>
+    <string name="head_to_head_form_analysis">Асабістыя сустрэчы і аналіз\nформы</string>
+    <string name="free_daily_tips_premium_insights">Бясплатныя штодзённыя прагнозы +\nпрэміум-аналітыка</string>
+    <string name="done">Гатова ✔</string>
+    <string name="next">Далей →</string>
+    <string name="fixed_score">Фіксаваныя рахункі</string>
+    <string name="vip_tips">VIP прагнозы</string>
+    <string name="contact">Кантакты</string>
+    <string name="vip_pricing">VIP цэны</string>
+    <string name="faqs">Частыя пытанні</string>
+    <string name="feedbacks">Водгукі</string>
+    <string name="rate_us">Ацаніць нас</string>
+    <string name="share_app">Падзяліцца дадаткам</string>
+    <string name="about_us">Пра нас</string>
+    <string name="update_app">Абнавіць дадатак</string>
+    <string name="settings">Налады</string>
+    <string name="live_match_analysis">Аналіз матчу ў рэальным часе</string>
+    <string name="explore_past_predictions_winning_odds_amp_match_results">Праглядзіце папярэднія прагнозы, выйгрышныя каэфіцыенты і вынікі матчаў</string>
+    <string name="tab_here">Націсніце тут</string>
+    <string name="performance_tracker">Маніторынг выніковасці</string>
+    <string name="hand_picked_free_predication_for_today">Бясплатныя прагнозы, адабраныя на сёння</string>
+    <string name="premium_insights">🏆 Прэміум-аналітыка</string>
+
+    <string name="one_plan_unlock_nall_6_sections">Адзін план. Адкрыйце\n<font color="#FFBB00">усе 6 VIP-раздзелаў</font></string>
+
+    <string name="unlock_now">Адкрыць зараз 🔥</string>
+    <string name="_99_win_rate_n_50k_daily_winners">✅ 100% выніковасць\n🌟 Больш за 50 тыс. пераможцаў штодня</string>
+    <string name="football_fixed_scores">Фіксаваныя рахункі футбола</string>
+    <string name="daily_free_match">Бясплатны матч дня</string>
+    <string name="live">НАЖЫВА</string>
+    <string name="our_pick">Наш выбар</string>
+    <string name="odds">КАЭФІЦЫЕНТЫ</string>
+    <string name="total_odds">Агульны каэфіцыент:</string>
+    <string name="stake_singles_first">Спачатку рабіце стаўкі на матчы асобна</string>
+    <string name="accumulator">ЭКСПРЭС</string>
+    <string name="combined_odds">Агульны каэфіцыент</string>
+    <string name="vip_odds_history">Гісторыя VIP-каэфіцыентаў</string>
+    <string name="subscribe_vip">Падпісацца на VIP</string>
+    <string name="language">Мова</string>
+    <string name="skip">Прапусціць</string>
+    <string name="_100_win_rate">100% выніковасць</string>
+    <string name="_50_000_members">50 000+ удзельнікаў</string>
+    <string name="accurate_tips">Дакладныя прагнозы</string>
+    <string name="expert_match_insights">Экспертная аналітыка матчаў</string>
+    <string name="free_match_analysis">Бясплатны аналіз матчаў</string>
+    <string name="vip_performance_tracker">VIP-маніторынг выніковасці</string>
+    <string name="restore_purchases">Аднавіць пакупкі</string>
+
+    <string name="vip_pricing_title">VIP цэны</string>
+    <string name="feedback_title">Водгукі</string>
+    <string name="about_us_title">Пра нас</string>
+
+    <string name="stake_games_singles_before_combining">Рабіце стаўкі на матчы асобна перад аб\'яднаннем</string>
+    <string name="ft_draws_vip">VIP на нічыі FT</string>
+    <string name="two_odds_vip">VIP-каэфіцыенты 2</string>
+    <string name="five_odds_vip">VIP-каэфіцыенты 5</string>
+    <string name="ten_odds_vip">VIP-каэфіцыенты 10</string>
+    <string name="correct_score_vip">VIP на дакладны рахунак</string>
+    <string name="htft_vip">HTFT VIP</string>
+    <string name="home">Галоўная</string>
+    <string name="telegram">Telegram</string>
+    <string name="weekly_pass">Тыднёвая падпіска</string>
+    <string name="try_for_one_week_cancel_anytime">Паспрабуйце тыдзень — адмяніць можна ў любы час</string>
+    <string name="monthly_pass">Месячная падпіска</string>
+    <string name="full_season_access_best_value">Поўны доступ на сезон — лепшая цана</string>
+    <string name="loading_passes">Загрузка падпісак…</string>
+    <string name="popular">🔥 Папулярнае</string>
+
+</resources>

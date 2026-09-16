@@ -1,0 +1,92 @@
+<resources>
+
+    <string name="title_main">FOOTBALL INSIDER</string>
+    <string name="subtitle_main">Pronostics de football fiables &amp; cotes</string>
+    <string name="hero_badge">PRONOSTICS PRO</string>
+    <string name="hero_title">Gagnez plus avec des analyses de football premium</string>
+    <string name="hero_desc">Matchs quotidiens, cotes VIP, scores exacts et pronostics MT/FT</string>
+    <string name="btn_today_picks">Voir les pronostics du jour</string>
+    <string name="btn_vip">VIP</string>
+    <string name="section_today">AUJOURD’HUI</string>
+    <string name="daily_free_matches">Matchs gratuits quotidiens</string>
+    <string name="daily_free_desc">Pronostics soigneusement sélectionnés pour aujourd’hui</string>
+    <string name="vip_history">Historique des cotes VIP</string>
+    <string name="vip_history_desc">Consultez les résultats gagnants précédents</string>
+    <string name="section_vip">PRONOSTICS VIP</string>
+    <string name="vip_ft_draws">Matchs nuls FT VIP</string>
+    <string name="vip_2_odds">Cotes 2+ VIP</string>
+    <string name="vip_5_odds">Cotes 5+ VIP</string>
+    <string name="vip_10_odds">Cotes 10+ VIP</string>
+    <string name="vip_correct_score">Score exact VIP</string>
+    <string name="vip_ht_ft">100+ MT-FT VIP</string>
+    <string name="join_telegram">Rejoindre Telegram</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="data_driven_match_predictions">Pronostics de matchs\nbasés sur les données</string>
+    <string name="head_to_head_form_analysis">Analyse des confrontations directes\net de la forme</string>
+    <string name="free_daily_tips_premium_insights">Pronostics quotidiens gratuits +\nanalyses premium</string>
+    <string name="done">Terminé ✔</string>
+    <string name="next">Suivant →</string>
+    <string name="fixed_score">Scores fixes</string>
+    <string name="vip_tips">Pronostics VIP</string>
+    <string name="contact">Contact</string>
+    <string name="vip_pricing">Tarifs VIP</string>
+    <string name="faqs">FAQ</string>
+    <string name="feedbacks">Commentaires</string>
+    <string name="rate_us">Évaluez-nous</string>
+    <string name="share_app">Partager l’application</string>
+    <string name="about_us">À propos de nous</string>
+    <string name="update_app">Mettre à jour l’application</string>
+    <string name="settings">Paramètres</string>
+    <string name="live_match_analysis">Analyse des matchs en direct</string>
+    <string name="explore_past_predictions_winning_odds_amp_match_results">Découvrez les anciens pronostics, les cotes gagnantes et les résultats des matchs</string>
+    <string name="tab_here">Appuyez ici</string>
+    <string name="performance_tracker">Suivi des performances</string>
+    <string name="hand_picked_free_predication_for_today">Pronostics gratuits soigneusement sélectionnés pour aujourd’hui</string>
+    <string name="premium_insights">🏆 Analyses premium</string>
+
+    <string name="one_plan_unlock_nall_6_sections">Un seul forfait. Débloquez\n<font color="#FFBB00">les 6 sections VIP</font></string>
+
+    <string name="unlock_now">Débloquer maintenant 🔥</string>
+    <string name="_99_win_rate_n_50k_daily_winners">✅ 100 % de taux de réussite\n🌟 50K+ gagnants chaque jour</string>
+    <string name="football_fixed_scores">Scores fixes de football</string>
+    <string name="daily_free_match">Match gratuit du jour</string>
+    <string name="live">EN DIRECT</string>
+    <string name="our_pick">Notre sélection</string>
+    <string name="odds">COTES</string>
+    <string name="total_odds">Cotes totales :</string>
+    <string name="stake_singles_first">Misez d’abord sur les matchs individuellement</string>
+    <string name="accumulator">COMBINÉ</string>
+    <string name="combined_odds">Cotes combinées</string>
+    <string name="vip_odds_history">Historique des cotes VIP</string>
+    <string name="subscribe_vip">S’abonner au VIP</string>
+    <string name="language">Langue</string>
+    <string name="skip">Ignorer</string>
+    <string name="_100_win_rate">100 % de taux de réussite</string>
+    <string name="_50_000_members">50 000+ membres</string>
+    <string name="accurate_tips">Pronostics précis</string>
+    <string name="expert_match_insights">Analyses expertes des matchs</string>
+    <string name="free_match_analysis">Analyse gratuite des matchs</string>
+    <string name="vip_performance_tracker">Suivi des performances VIP</string>
+    <string name="restore_purchases">Restaurer les achats</string>
+
+    <string name="vip_pricing_title">Tarifs VIP</string>
+    <string name="feedback_title">Commentaires</string>
+    <string name="about_us_title">À propos de nous</string>
+
+    <string name="stake_games_singles_before_combining">Misez sur les matchs individuellement avant de les combiner</string>
+    <string name="ft_draws_vip">Matchs nuls FT VIP</string>
+    <string name="two_odds_vip">Cotes 2 VIP</string>
+    <string name="five_odds_vip">Cotes 5 VIP</string>
+    <string name="ten_odds_vip">Cotes 10 VIP</string>
+    <string name="correct_score_vip">Score exact VIP</string>
+    <string name="htft_vip">MTFT VIP</string>
+    <string name="home">Accueil</string>
+    <string name="telegram">Telegram</string>
+    <string name="weekly_pass">Forfait hebdomadaire</string>
+    <string name="try_for_one_week_cancel_anytime">Essayez pendant une semaine — annulez à tout moment</string>
+    <string name="monthly_pass">Forfait mensuel</string>
+    <string name="full_season_access_best_value">Accès à toute la saison — meilleur rapport qualité-prix</string>
+    <string name="loading_passes">Chargement des forfaits…</string>
+    <string name="popular">🔥 Populaire</string>
+
+</resources>
