@@ -71,21 +71,7 @@ class MainActivity : BaseActivity() {
             }
         }
 
-        val auth = FirebaseAuth.getInstance()
 
-        if (auth.currentUser == null) {
-            auth.signInAnonymously()
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        val uid = auth.currentUser?.uid
-
-                    } else {
-
-                    }
-                }
-        } else {
-            val uid = auth.currentUser?.uid
-        }
 
         FirebaseMessaging.getInstance().subscribeToTopic("all_users")
 

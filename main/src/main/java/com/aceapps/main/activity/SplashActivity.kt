@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
@@ -24,6 +25,7 @@ import com.aceapps.main.SubscriptionStatusManagerFactory
 import com.aceapps.main.subs.SubscriptionPlanSync
 import com.aceapps.main.subs.SubscriptionSubsManager
 import com.aceapps.main.subs.SubscriptionSyncPlanFactory
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -39,15 +41,42 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        val auth = FirebaseAuth.getInstance()
+
+        if (auth.currentUser == null) {
+            auth.signInAnonymously()
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val uid = auth.currentUser?.uid
+                        Log.d("<<<>>>", uid.toString())
+                        AnalyticsHelper.getInstance().logEvent("event_app_splash_shown", null)
+                        trackDailyActiveUser()
+                        if (isFirstInstall()) {
+                            trackNewInstall()
+                        }
+                        if (!NetworkUtils.isInternetAvailable(this)) {
+                            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+
+                    }
+                }
+        } else {
+            val uid = auth.currentUser?.uid
+            Log.d("<<<>>>", uid.toString())
+
+            AnalyticsHelper.getInstance().logEvent("event_app_splash_shown", null)
+            trackDailyActiveUser()
+            if (isFirstInstall()) {
+                trackNewInstall()
+            }
+            if (!NetworkUtils.isInternetAvailable(this)) {
+                Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         // ── Original logic (untouched) ─────────────────────────────
-        AnalyticsHelper.getInstance().logEvent("event_app_splash_shown", null)
-        trackDailyActiveUser()
-        if (isFirstInstall()) {
-            trackNewInstall()
-        }
-        if (!NetworkUtils.isInternetAvailable(this)) {
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
-        }
+
 
         // ── View references ────────────────────────────────────────
         val ring1               = findViewById<View>(R.id.ring1)
