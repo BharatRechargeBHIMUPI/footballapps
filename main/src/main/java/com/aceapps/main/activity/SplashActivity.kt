@@ -71,6 +71,7 @@ class SplashActivity : BaseActivity() {
         lavLoader.speed = 1f
         lavLoader.playAnimation()
 
+
         // ── Original logic (untouched) ─────────────────────────────
         AnalyticsHelper.getInstance().logEvent("event_app_splash_shown", null)
 
