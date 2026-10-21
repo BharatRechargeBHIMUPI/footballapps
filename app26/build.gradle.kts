@@ -7,7 +7,7 @@ plugins {
 
 android {
 
-    namespace = "com.wg.footballprediction1"
+    namespace = "com.aceapps.partnership.app9"
     compileSdk {
         version = release(36)
     }
@@ -17,11 +17,11 @@ android {
         }
     }
     defaultConfig {
-        applicationId = "com.wg.footballprediction1"
+        applicationId = "com.aceapps.partnership.app9"
         minSdk = 24
         targetSdk = 36
-        versionCode = 17
-        versionName = "3.0"
+        versionCode = 4
+        versionName = "8.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

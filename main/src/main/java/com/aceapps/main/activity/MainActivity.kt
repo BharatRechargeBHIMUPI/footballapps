@@ -24,18 +24,6 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         // Firebase anonymous login
-        if (!sharedPref.isUserSignIn()) {
-            FirebaseAuth.getInstance()
-                .signInAnonymously()
-                .addOnCompleteListener { task ->
-
-                    if (task.isSuccessful) {
-                        sharedPref.isUserSignIn(true)
-                    } else {
-                        println("Anonymous auth failed: ${task.exception}")
-                    }
-                }
-        }
 
         // Notification permission
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

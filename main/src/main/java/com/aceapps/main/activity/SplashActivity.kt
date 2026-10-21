@@ -25,6 +25,7 @@ import com.aceapps.main.subs.SubscriptionPlanSync
 import com.aceapps.main.subs.SubscriptionSubsManager
 import com.aceapps.main.subs.SubscriptionSyncPlanFactory
 import com.airbnb.lottie.LottieAnimationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -39,6 +40,29 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        if (!sharedPref.isUserSignIn()) {
+            FirebaseAuth.getInstance()
+                .signInAnonymously()
+                .addOnCompleteListener { task ->
+
+                    if (task.isSuccessful) {
+                        sharedPref.isUserSignIn(true)
+                        trackDailyActiveUser()
+                        if (isFirstInstall()) {
+                            trackNewInstall()
+                        }
+                    } else {
+                        println("Anonymous auth failed: ${task.exception}")
+                    }
+                }
+        }else{
+            trackDailyActiveUser()
+            if (isFirstInstall()) {
+                trackNewInstall()
+            }
+        }
+
+
 
         val lavLoader = findViewById<LottieAnimationView>(R.id.lavLoader)
 
@@ -49,10 +73,7 @@ class SplashActivity : BaseActivity() {
 
         // ── Original logic (untouched) ─────────────────────────────
         AnalyticsHelper.getInstance().logEvent("event_app_splash_shown", null)
-        trackDailyActiveUser()
-        if (isFirstInstall()) {
-            trackNewInstall()
-        }
+
         if (!NetworkUtils.isInternetAvailable(this)) {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show()
         }

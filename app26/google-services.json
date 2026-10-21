@@ -406,6 +406,63 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:808ab2ff3b0d04396c9227",
+        "android_client_info": {
+          "package_name": "com.aceapps.partnership.app999"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:9c61d19439f7e3ac6c9227",
+        "android_client_info": {
+          "package_name": "com.rgrgrg.defe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357128189414:android:8cf081282814a4976c9227",
+        "android_client_info": {
+          "package_name": "com.rgrgrg.defeeeee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrPnSOOV8Q1bHR7WE8yku0YqJEjImXdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:357128189414:android:0b885c2e04ff6c3a6c9227",
         "android_client_info": {
           "package_name": "com.wg.footballadmin"
