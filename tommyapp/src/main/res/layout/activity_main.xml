@@ -115,10 +115,21 @@
             android:contentDescription="Premium"
             android:alpha="0"
             android:translationX="30dp"
+            android:visibility="gone"
             android:background="@drawable/bg_icon_pill_cyan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivNotification"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_notification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -918,6 +929,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="50dp"
         android:id="@+id/imgWhatapp"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/whatspp"

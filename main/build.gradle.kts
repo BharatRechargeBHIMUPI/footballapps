@@ -49,21 +49,26 @@ dependencies {
     api(libs.gson)
     implementation("androidx.gridlayout:gridlayout:1.0.0")
 
-    api(platform("com.google.firebase:firebase-bom:33.2.0")) //firebase bom
-    api(libs.firebase.firestore) //for firestore
-    api(libs.firebase.auth) ///for auth
-    api("com.google.firebase:firebase-crashlytics") //for crashlytics
-    api("com.google.firebase:firebase-config") //for remote config
-    api("com.google.firebase:firebase-analytics") //for analytics
-    api ("com.google.android.gms:play-services-auth:21.2.0") // google auth
-    api ("com.google.firebase:firebase-messaging-ktx") // google auth
     //room db
-    implementation("androidx.room:room-runtime:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    implementation("com.google.firebase:firebase-auth")
+    implementation("androidx.room:room-runtime:2.7.2")
+    kapt("androidx.room:room-compiler:2.7.2")
+    implementation("androidx.room:room-ktx:2.7.2")
     api("com.facebook.android:facebook-android-sdk:18.0.3")
     api("com.android.installreferrer:installreferrer:2.2")
     api("de.hdodenhof:circleimageview:3.1.0")
     api("com.google.android.play:review:2.0.1")
+
+
+    implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
+
+    // Firebase
+    implementation(libs.firebase.database)
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-crashlytics")
+
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-messaging")
+
+
 }

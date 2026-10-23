@@ -45,6 +45,10 @@
             android:name=".activity.VIPHistoryActivity"
             android:exported="false"/>
 
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:exported="false" />
+
         <service
             android:name=".MyFirebaseService"
             android:exported="false">

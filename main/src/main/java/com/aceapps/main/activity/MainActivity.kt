@@ -49,7 +49,7 @@ class MainActivity : BaseActivity() {
     private lateinit var mcvTenOdds : MaterialCardView
     private lateinit var mcvCorrectScore : MaterialCardView
     private lateinit var lPro : View
-    private lateinit var ivPremium : ImageView
+    private lateinit var ivNotification : ImageView
     private lateinit var mcvHTFT : MaterialCardView
     private lateinit var imgWhatapp : ImageView
 
@@ -89,7 +89,7 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
 
-        ivPremium = findViewById(R.id.ivPremium)
+        ivNotification = findViewById(R.id.ivNotification)
         lPro = findViewById(R.id.lPro)
         mcvHTFT = findViewById(R.id.mcvHTFT)
         mcvCorrectScore = findViewById(R.id.mcvCorrectScore)
@@ -254,7 +254,9 @@ class MainActivity : BaseActivity() {
                 startActivity(browserIntent)
             }
         }
-
+        ivNotification.setOnClickListener {
+            startActivity(Intent(this, NotificationActivity::class.java))
+        }
 //        ivNotify.setOnClickListener {
 //            showNotificationPopup(ivNotify)
 //
@@ -270,11 +272,7 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
 
-        ivPremium.setOnClickListener {
-            val intent = Intent(this, SubscriptionActivity::class.java)
-            intent.putExtra("product_name", "mega_subscription")
-            startActivity(intent)
-        }
+
 
         llDailyMatch.setOnClickListener {
             val intent = Intent(this, DailyMatchesActivity::class.java)
@@ -313,7 +311,6 @@ class MainActivity : BaseActivity() {
 
         animateIn(menuBtn,         translationXFrom = -30f, delay = 0L,           interp = decelerate)
         animateIn(titleGroup,      translationYFrom = -20f, delay = headerDelay,   interp = overshoot)
-        animateIn(ivPremium,       translationXFrom = 30f,  delay = headerDelay * 2, interp = decelerate)
 
         // --- Promo card drops in with a bounce ---
         lPro.postDelayed({
@@ -399,7 +396,7 @@ class MainActivity : BaseActivity() {
             vipHistoryCard,
             findViewById(R.id.freeMatchesCard),
             findViewById(R.id.joinTelegramCard),
-            lPro, ivPremium
+            lPro,
         )
 
         pressTargets.forEach { view ->
@@ -459,21 +456,7 @@ class MainActivity : BaseActivity() {
             }, 1400L + index * 220L) // staggered start after entrance finishes
         }
 
-        // Bell / premium icon gets a gentle rotate-wiggle to attract attention
-        val bellWiggle = ObjectAnimator.ofFloat(ivPremium, "rotation", 0f, 12f, -12f, 8f, -8f, 4f, 0f).apply {
-            duration = 1200
-            startDelay = 2000
-            repeatCount = ValueAnimator.INFINITE
-            repeatMode = ValueAnimator.RESTART
-            // wiggle every ~6 seconds total (1.2s anim + 4.8s pause via repeat delay workaround)
-        }
-        // Add idle gap between wiggles using an AnimatorListenerAdapter
-        bellWiggle.addListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationRepeat(animation: Animator) {
-                animation.startDelay = 5000 // pause between wiggles
-            }
-        })
-        bellWiggle.start()
+
     }
 
     // ═══════════════════════════════════════════════════════════════════════════════
