@@ -290,7 +290,24 @@ class MainActivity : BaseActivity() {
             intent.putExtra("value", "mcvFreeGames")
             startActivity(intent)
         }
+        startNotificationAnimation()
+    }
 
+    private fun startNotificationAnimation() {
+        val bell = findViewById<ImageView>(R.id.ivNotification)
+
+        val swingAnimation = ObjectAnimator.ofFloat(
+            bell,
+            "rotation",
+            0f, 20f, -20f, 15f, -15f, 0f
+        ).apply {
+            duration = 1000L
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.RESTART
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        swingAnimation.start()
     }
 
     // ═══════════════════════════════════════════════════════════════════════════════

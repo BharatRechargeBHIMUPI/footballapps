@@ -62,7 +62,6 @@
                 android:alpha="0"
                 android:translationY="-20dp"
                 app:layout_constraintStart_toEndOf="@id/ivMenu"
-                app:layout_constraintEnd_toStartOf="@id/ivPremium"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
