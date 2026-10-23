@@ -15,7 +15,7 @@ android {
         applicationId = "com.aceapps.nasibaba.app12"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
+        versionCode = 4
         versionName = "12.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
