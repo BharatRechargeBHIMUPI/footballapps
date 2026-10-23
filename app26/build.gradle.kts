@@ -7,7 +7,7 @@ plugins {
 
 android {
 
-    namespace = "com.aceapps.partnership.app9"
+    namespace = "com.aceapps.partnership.app11"
     compileSdk {
         version = release(36)
     }
@@ -17,10 +17,10 @@ android {
         }
     }
     defaultConfig {
-        applicationId = "com.aceapps.partnership.app9"
+        applicationId = "com.aceapps.partnership.app11"
         minSdk = 24
         targetSdk = 36
-        versionCode = 4
+        versionCode = 2
         versionName = "8.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
