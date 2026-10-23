@@ -54,6 +54,7 @@ class MainActivity : BaseActivity() {
     private lateinit var mcvTenOdds: MaterialCardView
     private lateinit var mcvCorrectScore: MaterialCardView
     private lateinit var lPro: View
+    private lateinit var imgWhatsapp: ImageView
     private lateinit var ivPremium: ImageView
     private lateinit var mcvHTFT: MaterialCardView
 
@@ -102,6 +103,7 @@ class MainActivity : BaseActivity() {
 
         val menuBtn = findViewById<ImageView>(R.id.ivMenu)
 
+        imgWhatsapp = findViewById(R.id.imgWhatsapp)
         llText = findViewById(R.id.llText)
         ivPremium = findViewById(R.id.ivPremium)
         lPro = findViewById(R.id.lPro)
@@ -124,6 +126,10 @@ class MainActivity : BaseActivity() {
         attachPressAnimations()
         startIdlePulseOnVipCards()
 
+        imgWhatsapp.setOnClickListener {
+            openLink(whatsappLink)
+
+        }
         // ── Menu ─────────────────────────────────────────────────────────────
         menuBtn.setOnClickListener { showMenu(menuBtn) }
 
