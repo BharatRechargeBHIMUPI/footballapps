@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    namespace = "com.aceapps.tommyapp"
+    namespace = "com.sk.dev.footballzz"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.aceapps.tommyapp"
+        applicationId = "com.sk.dev.footballzz"
         minSdk = 24
         targetSdk = 36
         versionCode = 4
