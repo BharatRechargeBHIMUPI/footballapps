@@ -41,6 +41,7 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+
         val auth = FirebaseAuth.getInstance()
 
         if (auth.currentUser == null) {
