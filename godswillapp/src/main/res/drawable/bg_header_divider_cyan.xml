@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1dp cyan gradient divider under header -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="linear"
+        android:angle="0"
+        android:startColor="#0000BCD4"
+        android:centerColor="#8000BCD4"
+        android:endColor="#0000BCD4" />
+</shape>

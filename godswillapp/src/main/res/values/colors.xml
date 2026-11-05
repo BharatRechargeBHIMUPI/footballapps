@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- PRIMARY BRAND -->
+    <color name="app_primary">#0B1220</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- GREEN ACCENT SYSTEM -->
+    <color name="accent_green">#22C55E</color>
+    <color name="btn_gold">#22C55E</color>
+    <color name="stat_green">#22C55E</color>
+    <color name="vip_green">#22C55E</color>
+    <color name="button_stroke">#22C55E</color>
+    <color name="btn_outline_stroke">#16A34A</color>
+    <color name="vip_badge_bg">#22C55E</color>
+
+    <color name="status_win">#22C55E</color>
+    <color name="status_pending">#22C55E</color>
+    <color name="live_dot_color">#EF4444</color>
+    <color name="live_dot_bg">#321B27</color>
+    <color name="live_border">#743344</color>
+
+    <color name="tab_text_select_color">#0B1220</color>
+    <color name="tab_text_unselect_color">#94A3B8</color>
+
+    <!-- BACKGROUNDS -->
+    <color name="app_bg">#0B1220</color>
+    <color name="app_bg_gradient_start">#0B1220</color>
+    <color name="app_bg_gradient_end">#111C30</color>
+
+    <color name="card_bg">#151F32</color>
+    <color name="card_bg_dark">#10192A</color>
+    <color name="hero_bg">#151F32</color>
+    <color name="toolbar_bg_color">#0B1220</color>
+    <color name="league_strip_bg">#18243A</color>
+
+    <!-- STROKES -->
+    <color name="card_stroke">#26344B</color>
+    <color name="card_stroke_dark">#34435A</color>
+
+    <!-- TEXT -->
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#A7B3C7</color>
+    <color name="text_tertiary">#718096</color>
+    <color name="score_text">#22C55E</color>
+    <color name="team_name_text">#F1F5F9</color>
+    <color name="vs_text">#718096</color>
+    <color name="section_label">#22C55E</color>
+
+    <!-- STATUS -->
+    <color name="status_loss">#F87171</color>
+
+    <!-- SUPPORTING ACCENTS -->
+    <color name="accent_gold">#22C55E</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_blue">#38BDF8</color>
+    <color name="blue">#38BDF8</color>
+    <color name="vip_amber">#22C55E</color>
+    <color name="vip_purple">#A78BFA</color>
+    <color name="vip_red">#F87171</color>
+
+    <!-- ICON BACKGROUNDS -->
+    <color name="icon_green_bg">#26301F</color>
+    <color name="icon_amber_bg">#332D1A</color>
+
+    <!-- TELEGRAM -->
+    <color name="telegram_bg">#142B3D</color>
+    <color name="telegram_stroke">#24506B</color>
+    <color name="telegram_icon">#229ED9</color>
+
+    <!-- VIP -->
+    <color name="vip_card">#18243A</color>
+
+</resources>
